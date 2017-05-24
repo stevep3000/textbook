@@ -12,7 +12,7 @@
 \contentsline {section}{\numberline {2.5}Creating your first repository}{7}
 \contentsline {section}{\numberline {2.6}Adding files to your repository}{10}
 \contentsline {section}{\numberline {2.7}Pushing commits to GitHub}{12}
-\contentsline {section}{\numberline {2.8}Reverting a repository to an earlier commit}{14}
+\contentsline {section}{\numberline {2.8}Reverting a commit}{14}
 \contentsline {section}{\numberline {2.9}Cloning a repository}{17}
 \contentsline {section}{\numberline {2.10}Advanced: Creating branches}{17}
 \contentsline {section}{\numberline {2.11}Advanced: Merging branches}{19}
@@ -22,3 +22,6 @@
 \contentsline {chapter}{\numberline {3}Introducing Python}{23}
 \contentsline {section}{\numberline {3.1}Why Python?}{23}
 \contentsline {section}{\numberline {3.2}Setting up a development environment}{24}
+\contentsline {section}{\numberline {3.3}Your first program: ``Hello World!"}{25}
+\contentsline {section}{\numberline {3.4}A basic process for program development}{28}
+\contentsline {section}{\numberline {3.5}Mathematical operations}{30}

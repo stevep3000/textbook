@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300) (preloaded format=pdflatex 2017.5.19)  24 MAY 2017 14:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300) (preloaded format=pdflatex 2017.5.19)  24 MAY 2017 16:54
 entering extended mode
 **./Textbook.tex
 (Textbook.tex
@@ -1114,12 +1114,6 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 ]
 Chapter 3.
-
-Underfull \hbox (badness 6141) in paragraph at lines 412--412
-[][][]\OT1/cmr/m/n/8 Image at-tributed to Doc Searls (2006os-con[]203.JPG) [CC 
-BY-SA 2.0 (http://
- []
-
 <images//Chapter3/Figure_1.jpg, id=140, 462.72874pt x 476.78125pt>
 File: images//Chapter3/Figure_1.jpg Graphic file (type jpg)
 
@@ -1137,22 +1131,51 @@ for-ward. Upon launch-
 File: images//Chapter3/Figure_2.png Graphic file (type png)
 
 <use images//Chapter3/Figure_2.png>
-Package pdftex.def Info: images//Chapter3/Figure_2.png used on input line 448.
+Package pdftex.def Info: images//Chapter3/Figure_2.png used on input line 450.
 (pdftex.def)             Requested size: 310.4979pt x 189.265pt.
+ [25 <./images//Chapter3/Figure_2.png>]
+<images//Chapter3/Figure_3.png, id=153, 372.1905pt x 211.992pt>
+File: images//Chapter3/Figure_3.png Graphic file (type png)
+
+<use images//Chapter3/Figure_3.png>
+Package pdftex.def Info: images//Chapter3/Figure_3.png used on input line 464.
+(pdftex.def)             Requested size: 310.4979pt x 176.85255pt.
+ [26 <./images//Chapter3/Figure_3.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 497--498
+
+ []
+
+<images//Chapter3/Figure_5.png, id=157, 369.17924pt x 200.54926pt>
+File: images//Chapter3/Figure_5.png Graphic file (type png)
+
+<use images//Chapter3/Figure_5.png>
+Package pdftex.def Info: images//Chapter3/Figure_5.png used on input line 501.
+(pdftex.def)             Requested size: 310.4979pt x 168.68054pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[25 <./images//Chapter3/Figure_2.png>] [26] (Textbook.aux)
+
+Underfull \vbox (badness 1337) has occurred while \output is active []
+
+ [27]
+<images//Chapter3/Figure_6.png, id=164, 314.97675pt x 140.9265pt>
+File: images//Chapter3/Figure_6.png Graphic file (type png)
+
+<use images//Chapter3/Figure_6.png>
+Package pdftex.def Info: images//Chapter3/Figure_6.png used on input line 512.
+(pdftex.def)             Requested size: 310.4979pt x 138.92415pt.
+ [28 <./images//Chapter3/Figure_5.png> <./images//Chapter3/Figure_6.png>] [29] 
+[30] (Textbook.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 24899 strings out of 493328
- 482976 string characters out of 3139115
- 563309 words of memory out of 3000000
- 28066 multiletter control sequences out of 15000+200000
+ 24905 strings out of 493328
+ 483361 string characters out of 3139115
+ 565317 words of memory out of 3000000
+ 28072 multiletter control sequences out of 15000+200000
  10922 words of font info for 39 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,7n,84p,10425b,1232s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1162,18 +1185,19 @@ appen\ec\dpi600\tcrm1000.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
 fonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
 /cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.p
 fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2
-.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
-nts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
-ti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb
-><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt8.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on Textbook.pdf (30 pages, 830176 bytes).
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program File
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
+y8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><
+C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Progr
+am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt8.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on Textbook.pdf (34 pages, 872847 bytes).
 PDF statistics:
- 212 PDF objects out of 1000 (max. 8388607)
+ 232 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 189 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 204 words of extra memory for PDF output out of 10000 (max. 10000000)
 

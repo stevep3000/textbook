@@ -14,17 +14,17 @@
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
 \lstset{frame=tb,
-	language=python,
+	language=Python,
 	aboveskip=3mm,
 	belowskip=3mm,
 	showstringspaces=false,
 	columns=flexible,
 	basicstyle={\small\ttfamily},
-	numbers=none,
-	numberstyle=\tiny\color{gray},
-	keywordstyle=\color{blue},
+	numbers=left,
+	numberstyle=\tiny\color{black},
+	keywordstyle=\color{black},
 	commentstyle=\color{dkgreen},
-	stringstyle=\color{mauve},
+	stringstyle=\color{black},
 	breaklines=true,
 	breakatwhitespace=true,
 	tabsize=3
@@ -255,7 +255,7 @@ You can verify that the push command worked successfully by visiting the GitHub 
 	\centering\includegraphics[width=.90\textwidth]{/Chapter2/Figure_10}
 \end{figure}
 
-\section{Reverting a repository to an earlier commit}
+\section{Reverting a commit}
 Since we've only pushed one commit to the example repository we've been working with in this chapter, let's go ahead and push another one now. Open Git Bash and enter the following command from within the repository directory:
 
 \texttt{touch badfile.bad}
@@ -409,7 +409,7 @@ Note that this chapter merely scratches the surface of what you can accomplish u
 % Chapter 3
 \chapter{Introducing Python}
 \section{Why Python?}
-We will be using the Python\texttrademark \ programming language to complete the data analytics tasks described in this text. The creation of Python is attributed to Guido van Rossum\footnote {Image attributed to Doc Searls (2006oscon\_203.JPG) [CC BY-SA 2.0 (http:// creativecommons.org/licenses/by-sa/2.0)], via Wikimedia Commons.} a Dutch programmer who wanted to create a language that was easy for beginner programmers to use but powerful enough to handle large and complex projects. Over the past several decades, Python has grown to become one of the most widely used programming languages across the globe and is regularly used by accounting data scientists and is taught in many colleges and universities. \begin{figure}[h]
+We will be using the Python\texttrademark \ programming language to complete the data analytics tasks described in this text. The creation of Python is attributed to Guido van Rossum\footnote {Image attributed to Doc Searls (2006oscon\_203.JPG) [CC BY-SA 2.0 (http://creative commons.org/licenses/by-sa/2.0)], via Wikimedia Commons.} a Dutch programmer who wanted to create a language that was easy for beginner programmers to use but powerful enough to handle large and complex projects. Over the past several decades, Python has grown to become one of the most widely used programming languages across the globe and is regularly used by accounting data scientists and is taught in many colleges and universities. \begin{figure}[h]
 	\caption{Van Rossum in 2006}
 	\centering\includegraphics[width=.30\textwidth]{/Chapter3/Figure_1}
 \end{figure}
@@ -429,7 +429,7 @@ Our development environment will contain three specific tools:
 \begin{enumerate}
 	\item A text editor. We will be writing all of our source code using this editor so it is important that it can recognize Python syntax highlighting. We will be using the \textit{Notepad++} editor; however there are other options available as well. Use the editor that you are most comfortable with. 
 	\item The Python interpreter. The interpreter will take the source code we write and carry out the related instructions.\footnote{We will be using the latest version of the Python 3.X interpreter which, at the time of this book's writing, is version 3.6.1. Note that the interpreter underwent a fairly controversial upgrade in 2008 which resulted in the version numbering switching from 2.7 to 3.X. The Python development team continues to support the 2.7 branch; however, it is currently scheduled to sunset in 2020 and we will not be using it in this book.}
-	\item A command line shell. We will be using this tool to interact with the Python interpreter. The shell we will be using is Windows Powershell\textsuperscript{\textregistered}. You already have experiencing working with a command line shell from Chapter 2.
+	\item A command line shell (also referred to as a terminal). We will be using this tool to interact with the Python interpreter. The shell we will be using is Windows Powershell\textsuperscript{\textregistered}. You already have experiencing working with a command line shell from Chapter 2.
 \end{enumerate}
 
 If you are using a computer that resides on the network of a college or university campus, there is a good chance that all three of these tools are already installed on the machine you are using. However, if you will be using a personal computer, you will may need to download and install a compatible text editor and the Python interpreter (Windows PowerShell comes pre-installed on Windows version 7 and above).
@@ -441,25 +441,120 @@ If you are using a computer that resides on the network of a college or universi
 	\texttt{https://www.python.org/downloads}. Before downloading, make sure that you don't already have Python installed on your system. To do this press \keys{Win} + \keys{R} to open the ``Run'' dialog window. In the input field, type \texttt{powershell}. Then type \texttt{python} from within the PowerShell command line window. If you see a response from the Python interpreter then Python is already installed.
 	
 	The Python installation process is relatively straightforward. Upon launching the installer, make sure the ``Add Python 3.X to PATH" checkbox is selected (see Figure 3.2). Then click the ``Install Now" option to proceed. The full installation will take several minutes to complete.
+	
+	To verify that Python has been installed, open PowerShell and type the command \texttt{python}. Python should now launch. To exit, type \texttt{quit()} and press \keys{Enter}.
 \end{itemize}
 
 \begin{figure}[h]
-	\caption{The Python installer}
+	\caption{The Python installer with PATH option checked}
 	\centering\includegraphics[width=.90\textwidth]{/Chapter3/Figure_2}
 \end{figure}
 
+\section{Your first program: ``Hello World!"}
+If you have ever learned how to code before, you have undoubtedly written a ``Hello World!" program. If not, you will embark upon this rite of new programmer passage now.
+
+The first thing we need to do is set up a place where our new program will live. Launch PowerShell by pressing \keys{Win} + \keys{R} to open the ``Run'' dialog window. In the input field, type \texttt{powershell} to launch the terminal (you may want to create a shortcut to PowerShell so that you can access it easier in the future). We'll be using PowerShell to interact with our file system and to give commands to the Python interpreter. 
+
+is folder will be created off of the top level directory on the drive. 
+
+By default, PowerShell will open at the top level directory on your hard drive. If you are using a personal machine, this will likely be \texttt{C:\textbackslash users\textbackslash your\_user\_name}. However, it may also be the top level of the network drive if you are using a PC in a campus computer lab (e.g., \texttt{G:\textbackslash}). The current directory will be listed immediately prior to the \texttt{>} prompt, as shown in Figure 3.3.
+
 \begin{figure}[h]
-	\caption{Some figure}
+	\caption{The PowerShell terminal}
+	\centering\includegraphics[width=.90\textwidth]{/Chapter3/Figure_3}
+\end{figure}
+
+Let's go ahead and make a directory for our first project called ``hello\_world"\footnote{I usually avoid using space characters in my directory names and filenames; however, you can use them if you wish. Note that if you elect to use space characters, you will need to encapsulate the words in quotation marks when using shell commands (e.g., \texttt{cd "hello world"}).} using the following command:
+
+\texttt{md hello\_world}
+
+Now change our current location to the directory we just created by typing:
+
+\texttt{cd hello\_world}
+
+We are now write the source code for our ``Hello World" program. In this book, we're going to always write our code in the Notepad++ text editor. Launch it now. This can be done either by selecting the application from the Windows Start Menu or it can be launched directly from within the PowerShell terminal using the command:
+
+\texttt{start notepad++}
+
+By default, Notepad++ should open a blank document called ``new 1" when launching for the first time. If it did not, create a new file by selecting \menu{File > New} from the menu bar. 
+
+We now need to tell our text editor to adjust its formatting for Python syntax. We do this by selecting the following option from the menu bar: \menu{Language > P > Python}. 
+
+Finally, let's save our blank file. From the menu bar, select \menu{File > Save as}. Navigate to the \texttt{hello\_world} directory you just created. Name the file \texttt{hello\_world}. Lastly, make sure to save the file type as ``Python file (*.py, *.pyw)."\footnote{If you correctly set the editor syntax formatting to the Python language, this file type should already be selected.} When this has been done, our new program directory should now contain an empty source code file (or script) called \texttt{hello\_world.py}. Note that the file extention \texttt{*.py} is reserved for Python scripts.
+
+Let's now write our first lines of code. Using Notepad++, type the contents of Figure 3.4 into the \texttt{hello\_world.py} filed that you just created.
+
+\begin{figure}[h]
+	\caption{hello\_world.py}
 	\begin{lstlisting}
-	// Hello.java
-	import javax.swing.JApplet;
-	import java.awt.Graphics;
-	
-	public class Hello extends JApplet {
-	public void paintComponent(Graphics g) {
-	g.drawString("Hello, world!", 65, 95);
-	}    
-	}
+	print ("Hello world!")
+	print ("I did it! I wrote my first Python program!")
 	\end{lstlisting}
 \end{figure}
+
+Note that you should not type the numbers preceding each line into your text editor. These numbers are included merely so we can reference specific lines of code later in the book. When this text has been entered correctly, save the file by pressing \keys{Ctrl} + \keys{S}. 
+
+We have now successfully written our first Python script. We now need to test whether the Python interpreter will run it as desired. Return to PowerShell and view the contents of the \texttt{hello\_world} directory with the command \texttt{ls}. The \texttt{hello\_world.py} file that we just created should be the only contents of this directory (See Figure 3.5).\\
+
+\begin{figure}[h]
+	\caption{Contents of the \texttt{hello\_world} directory}
+	\centering\includegraphics[width=.90\textwidth]{/Chapter3/Figure_5}
+\end{figure}
+
+Once you have verified that you are located in the correct directory, run the script by typing:
+
+\texttt{python hello\_world.py}
+
+If you have performed the steps correctly, you should see something like Figure 3.6. Congratulations! You have written your first computer program in Python!
+
+\begin{figure}[h]
+	\caption{Contents of the \texttt{hello\_world} directory}
+	\centering\includegraphics[width=.90\textwidth]{/Chapter3/Figure_6}
+\end{figure}
+
+\section{A basic process for program development}
+
+So far, we've followed a series of fairly simple steps when developing our first project. These steps are:
+
+\begin{enumerate}
+	\item Create a project folder using \texttt{mkdir}
+	\item Create/modify the project's python script(s) using a text editor
+	\item Test the project's script(s) using the python interpreter
+\end{enumerate}
+
+We can also easily integrate this process with the Git / GitHub version control workflow we learned about in Chapter 2. The steps involved in this integrated process are:
+
+\begin{enumerate}
+	\item Create a project folder using \texttt{mkdir}
+	\item Initialize a new repository in the project folder using \texttt{git init}
+	\item Create a new repository for the project on GitHub.com
+	\item Link the Git repository to the remote GitHub repository using \texttt{git remote}
+	\item Create the project's python script(s) using a text editor
+	\item Add the scripts to the Git repository using \texttt{git add}
+	\item Make the first Git commit using \texttt{git commit}
+	\item Push the initial commit to GitHub using \texttt{git push}
+	\item Make modifications to the Python script(s) as necessary
+	\item Test project scripts using the python interpreter
+	\item Commit the changes using \texttt{git commit}
+	\item Push the changes to GitHub using \texttt{git push}
+	\item Repeat steps 9-12 until program is complete
+\end{enumerate}
+
+Note that for simple projects, like ``Hello World", we probably wouldn't want to go through the trouble of implementing a version control system. However, as the programs we write become more complex (such as those written when completing the end of chapter exercises in this book), we probably will want to take the time to implement version control into our workflow. A side benefit of using Git / GitHub is that, as you work through the exercises in this text, you will build a shareable GitHub portfolio that demonstrates your skill in Python and accounting data analytics. 
+
+\section{Mathematical operations}
+Python supports the basic mathematical operations you are familiar with such as addition (+), subtraction (-), division (/), and multiplication (*). Within a program, they can be used like:
+
+\begin{figure}[h]
+	\caption{basic math calculations in python}
+	\begin{lstlisting}
+	print(3+5)
+	# the answer is 8
+	print(3-5)
+	# the answer is -2
+	\end{lstlisting}
+\end{figure}
+
+Talk about modulus, square root functions, power, etc.
+
 \end{document}
