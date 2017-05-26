@@ -19,9 +19,25 @@
 \contentsline {section}{\numberline {2.12}Summary}{20}
 \contentsline {section}{\numberline {2.13}Discussion Questions}{20}
 \contentsline {section}{\numberline {2.14}Exercises}{21}
-\contentsline {chapter}{\numberline {3}Introducing Python}{23}
+\contentsline {chapter}{\numberline {3}Basic Python concepts}{23}
 \contentsline {section}{\numberline {3.1}Why Python?}{23}
 \contentsline {section}{\numberline {3.2}Setting up a development environment}{24}
 \contentsline {section}{\numberline {3.3}Your first program: ``Hello World!"}{25}
 \contentsline {section}{\numberline {3.4}A basic process for program development}{28}
 \contentsline {section}{\numberline {3.5}Mathematical operations}{30}
+\contentsline {section}{\numberline {3.6}Commenting your code}{30}
+\contentsline {section}{\numberline {3.7}Variables}{31}
+\contentsline {section}{\numberline {3.8}Strings}{32}
+\contentsline {section}{\numberline {3.9}String indexing}{35}
+\contentsline {section}{\numberline {3.10}Other basic data types}{36}
+\contentsline {section}{\numberline {3.11}Accepting user input}{36}
+\contentsline {section}{\numberline {3.12}Comparison operators}{37}
+\contentsline {section}{\numberline {3.13}Conditional statements}{38}
+\contentsline {section}{\numberline {3.14}Logical operators}{39}
+\contentsline {section}{\numberline {3.15}Iteration}{39}
+\contentsline {section}{\numberline {3.16}Searching for help}{42}
+\contentsline {section}{\numberline {3.17}Summary}{42}
+\contentsline {section}{\numberline {3.18}Discussion questions}{42}
+\contentsline {section}{\numberline {3.19}Exercises}{43}
+\contentsline {chapter}{\numberline {4}Intermediate Python concepts}{47}
+\contentsline {section}{\numberline {4.1}Writing functions}{47}

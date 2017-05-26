@@ -23,7 +23,7 @@
 	numbers=left,
 	numberstyle=\tiny\color{black},
 	keywordstyle=\color{black},
-	commentstyle=\color{dkgreen},
+	commentstyle=\color{gray},
 	stringstyle=\color{black},
 	breaklines=true,
 	breakatwhitespace=true,
@@ -79,7 +79,7 @@ Assumes you are using a Windows-based PC. Mac versions in the future.
 \chapter{Version control}
 \section{Why you should care about version control}
 
-Imagine that the audit engagement team which you have been assigned to is in need of a tool that can assess the valuation of an audit client's stock options using the Black-Scholes-Merton valuation model.\footnote{It's not important to understand what the Black-Scholes-Merton model is to appreciate this example. However, if you're curious, BSM can be used, among other things, to determine the price of certain types of stock options.} The tool needs to be simple to use, scalable, and compatible with a wide variety of operating systems. Knowing your reputation as a skilled programmer who works well under pressure, your supervisor has given you 24 hours to write the Python script to perform this assessment.
+Imagine that the audit engagement team which you have been assigned to is in need of a tool that can assess the valuation of an audit client's stock options using the Black-Scholes-Merton valuation model.\footnote{It's not important to understand what the Black-Scholes-Merton model is to appreciate this example. However, if you're curious, BSM can be used, among other things, to determine the price of certain types of stock options.} The tool needs to be simple to use, scalable, and compatible with a wide variety of operating systems. Knowing your reputation as a skilled programmer who works well under pressure, your supervisor has given you 24 hours to write the Python module to perform this assessment.
 
 You spend the night hunched over your keyboard working frantically to complete the assigned task before the deadline. Your source code undergoes numerous changes as you squash bugs, improve performance, and add extra features that you believe the engagement team might find useful. As the sun begins to rise the next morning, you realize that you have successfully completed the task. You have developed a functional software tool that you are sure will impress your supervisor. 
 
@@ -359,7 +359,7 @@ Let's see you've finished work on the \texttt{bugfix1} branch and now want to me
 
 We can then push the changes to the master branch of the remote repository on GitHub using:
 
-\texttt{ git push origin master}]
+\texttt{ git push origin master}
 
 Note that if we view the commit history for the master repository on GitHub (or locally by using \texttt{git log} within the termimal), we will that the changes made to the repository as a result of the merge are listed as a separate commit. This makes it easy to revert a merge if we so wish (we would simply follow the steps for reverting a commit discussed earlier).
 
@@ -386,7 +386,7 @@ Note that this chapter merely scratches the surface of what you can accomplish u
 
 \section{Exercises}
 \begin{enumerate}
-	\item Create a local repository using Git. This repository should contain:
+	\item Create a local repository using Git. Name the repository \texttt{my\_fav\_picture}. This repository should contain:
 	\begin{itemize}
 		\item a README.md file which contains the name of the project and a brief description of the project. 
 		\item a humorous image which you found online 
@@ -407,7 +407,7 @@ Note that this chapter merely scratches the surface of what you can accomplish u
 \end{enumerate}
 
 % Chapter 3
-\chapter{Introducing Python}
+\chapter{Basic Python concepts}
 \section{Why Python?}
 We will be using the Python\texttrademark \ programming language to complete the data analytics tasks described in this text. The creation of Python is attributed to Guido van Rossum\footnote {Image attributed to Doc Searls (2006oscon\_203.JPG) [CC BY-SA 2.0 (http://creative commons.org/licenses/by-sa/2.0)], via Wikimedia Commons.} a Dutch programmer who wanted to create a language that was easy for beginner programmers to use but powerful enough to handle large and complex projects. Over the past several decades, Python has grown to become one of the most widely used programming languages across the globe and is regularly used by accounting data scientists and is taught in many colleges and universities. \begin{figure}[h]
 	\caption{Van Rossum in 2006}
@@ -427,7 +427,7 @@ Python has a number of important features which contribute to its popularity:
 \section{Setting up a development environment}
 Our development environment will contain three specific tools:
 \begin{enumerate}
-	\item A text editor. We will be writing all of our source code using this editor so it is important that it can recognize Python syntax highlighting. We will be using the \textit{Notepad++} editor; however there are other options available as well. Use the editor that you are most comfortable with. 
+	\item A text editor. We will be writing all of our source code using this editor so it is important that it can recognize Python syntax highlighting. I will be using the \textit{Notepad++} editor in this text; however there are other options available as well. Use the editor that you are most comfortable with. 
 	\item The Python interpreter. The interpreter will take the source code we write and carry out the related instructions.\footnote{We will be using the latest version of the Python 3.X interpreter which, at the time of this book's writing, is version 3.6.1. Note that the interpreter underwent a fairly controversial upgrade in 2008 which resulted in the version numbering switching from 2.7 to 3.X. The Python development team continues to support the 2.7 branch; however, it is currently scheduled to sunset in 2020 and we will not be using it in this book.}
 	\item A command line shell (also referred to as a terminal). We will be using this tool to interact with the Python interpreter. The shell we will be using is Windows Powershell\textsuperscript{\textregistered}. You already have experiencing working with a command line shell from Chapter 2.
 \end{enumerate}
@@ -453,9 +453,7 @@ If you are using a computer that resides on the network of a college or universi
 \section{Your first program: ``Hello World!"}
 If you have ever learned how to code before, you have undoubtedly written a ``Hello World!" program. If not, you will embark upon this rite of new programmer passage now.
 
-The first thing we need to do is set up a place where our new program will live. Launch PowerShell by pressing \keys{Win} + \keys{R} to open the ``Run'' dialog window. In the input field, type \texttt{powershell} to launch the terminal (you may want to create a shortcut to PowerShell so that you can access it easier in the future). We'll be using PowerShell to interact with our file system and to give commands to the Python interpreter. 
-
-is folder will be created off of the top level directory on the drive. 
+The first thing we need to do is set up a place where our new program will live. Launch PowerShell by pressing \keys{Win} + \keys{R} to open the ``Run'' dialog window. In the input field, type \texttt{powershell} to launch the terminal (you may want to create a shortcut to PowerShell so that you can access it easier in the future). We'll be using PowerShell to interact with our file system and to give commands to the Python interpreter.  
 
 By default, PowerShell will open at the top level directory on your hard drive. If you are using a personal machine, this will likely be \texttt{C:\textbackslash users\textbackslash your\_user\_name}. However, it may also be the top level of the network drive if you are using a PC in a campus computer lab (e.g., \texttt{G:\textbackslash}). The current directory will be listed immediately prior to the \texttt{>} prompt, as shown in Figure 3.3.
 
@@ -472,6 +470,8 @@ Now change our current location to the directory we just created by typing:
 
 \texttt{cd hello\_world}
 
+Notice how the path listed prior to the command prop changes to reflect the location of the current working direct. 
+
 We are now write the source code for our ``Hello World" program. In this book, we're going to always write our code in the Notepad++ text editor. Launch it now. This can be done either by selecting the application from the Windows Start Menu or it can be launched directly from within the PowerShell terminal using the command:
 
 \texttt{start notepad++}
@@ -480,7 +480,7 @@ By default, Notepad++ should open a blank document called ``new 1" when launchin
 
 We now need to tell our text editor to adjust its formatting for Python syntax. We do this by selecting the following option from the menu bar: \menu{Language > P > Python}. 
 
-Finally, let's save our blank file. From the menu bar, select \menu{File > Save as}. Navigate to the \texttt{hello\_world} directory you just created. Name the file \texttt{hello\_world}. Lastly, make sure to save the file type as ``Python file (*.py, *.pyw)."\footnote{If you correctly set the editor syntax formatting to the Python language, this file type should already be selected.} When this has been done, our new program directory should now contain an empty source code file (or script) called \texttt{hello\_world.py}. Note that the file extention \texttt{*.py} is reserved for Python scripts.
+Finally, let's save our blank file. From the menu bar, select \menu{File > Save as}. Navigate to the \texttt{hello\_world} directory you just created. Name the file \texttt{hello\_world}. Lastly, make sure to save the file type as ``Python file (*.py, *.pyw)."\footnote{If you correctly set the editor syntax formatting to the Python language, this file type should already be selected.} When this has been done, our new program directory should now contain an empty source code file (or module) called \texttt{hello\_world.py}. Note that the file extention \texttt{*.py} is reserved for Python modules.
 
 Let's now write our first lines of code. Using Notepad++, type the contents of Figure 3.4 into the \texttt{hello\_world.py} filed that you just created.
 
@@ -514,7 +514,7 @@ If you have performed the steps correctly, you should see something like Figure 
 
 \section{A basic process for program development}
 
-So far, we've followed a series of fairly simple steps when developing our first project. These steps are:
+So far, we've articulated a series of fairly simple steps when developing our first project. These steps are:
 
 \begin{enumerate}
 	\item Create a project folder using \texttt{mkdir}
@@ -540,21 +540,447 @@ We can also easily integrate this process with the Git / GitHub version control 
 	\item Repeat steps 9-12 until program is complete
 \end{enumerate}
 
-Note that for simple projects, like ``Hello World", we probably wouldn't want to go through the trouble of implementing a version control system. However, as the programs we write become more complex (such as those written when completing the end of chapter exercises in this book), we probably will want to take the time to implement version control into our workflow. A side benefit of using Git / GitHub is that, as you work through the exercises in this text, you will build a shareable GitHub portfolio that demonstrates your skill in Python and accounting data analytics. 
+Note that for simple projects, like ``Hello World", we probably wouldn't want to go through the trouble of implementing a version control system. However, as the programs we write become more complex (such as those written when completing some of the more challenging end of chapter exercises presented later in this book), we probably will want to take the time to implement version control into our workflow. A side benefit of using Git / GitHub is that, as you work through the exercises in this text, you will build a shareable GitHub portfolio that demonstrates your skill in Python and accounting data analytics. 
 
 \section{Mathematical operations}
 Python supports the basic mathematical operations you are familiar with such as addition (+), subtraction (-), division (/), and multiplication (*). Within a program, they can be used like:
 
 \begin{figure}[h]
-	\caption{basic math calculations in python}
+	\caption{Basic mathematical operations in Python}
 	\begin{lstlisting}
-	print(3+5)
-	# the answer is 8
-	print(3-5)
-	# the answer is -2
+	print(2+4)
+	# prints the number 6
+	print(2-4)
+	# prints the number -2
+	print (2*4)
+	# prints the number 8
+	print (2/4)
+	# prints the number 0.5
+	print 5 % 2
+	# prints the number 1
+	\end{lstlisting}
+\end{figure}
+Note that the symbol \% is reserved for the modulus operator in Python. Modulus returns the remainder left over after division. For example, the expression \texttt{5} \% \texttt{2} would return a value of 1 (which is the remainder left over when 5 is divided by 2).
+
+It's also important to know that Python uses the standard PEMDAS order of operations taught in secondary school algebra classes. That means that Python will evaluate the expression \texttt{4 + 2 * 2} as 10 while the expression \texttt{(4+2) * 2} will be evaluated as 12.
+
+\section{Commenting your code}
+
+Go ahead and create a Python module which contains the code listed in Figure 3.7 above and then run it (for simplicity sake, it's fine to overwrite the \texttt{hello\_world} project you created earlier). I'll wait until you're finished. 
+
+All done? Good. If you did everything correctly, your output should look something like Figure 3.8 below.
+
+\begin{figure}[h]
+	\caption{Output for our simple arithmetic program}
+	\centering\includegraphics[width=.90\textwidth]{/Chapter3/Figure_8}
+\end{figure}
+
+If you carefully compare your program output to the original source code, you'll notice that any line which was preceded by the pound sign (\texttt{\#}) was ignored by the Python interpreter. This is because the pound sign is a special character in Python which is received for identifying comments. Comments can be used to explain the purpose of a section of code in plain English or to temporary disable a portion of a program without removing the specific lines of code from the file. It is critically important for you to develop a habit of writing well-commented code, especially when writing programs whose source code will be shared with other developers.
+
+\section{Variables}
+You can think of a variable as a container which holds some value. To declare a variable we use the assignment operator (=), placing the name of the variable on the left and the initial value it holds on the right.
+
+For example, let's assume we want to write a simple program to calculate the circumference of a circle using the standard formula \textit{C = 2$\pi$r}. Rather than writing out the full value of pi each time we want to use it, we could store its value in a variable and then simply refer to the variable name instead of the numeric constant. See Figure 3.9 as an example:
+
+\begin{figure}[h]
+	\caption{Declaring and using variables}
+	\begin{lstlisting}
+	pi = 3.14159
+	print("The circumference of a circle with a radius of 7 is: ")
+	print(2 * pi * 7)
+	# prints the number 43.98266
+	print("The circumference of a circle with a radius of 5 is: ")
+	print(2 * pi * 5)
+	# prints the number 31.4159
 	\end{lstlisting}
 \end{figure}
 
-Talk about modulus, square root functions, power, etc.
+We can reassign the value of variables later by using the same assignment operator (=). This is demonstrated in Figure 3.10 where the variable \textit{r} is initially declared with a value of 7 and subsequently modified to have a value of 5:
 
+\begin{figure}[h]
+	\caption{Variable reassignment}
+	\begin{lstlisting}
+	pi = 3.14159
+	r = 7
+	print("The circumference of a circle with a radius of 7 is: ")
+	print(2 * pi * r)
+	# prints the number 43.98266
+	r = 5
+	print("The circumference of a circle with a radius of 5 is: ")
+	print(2 * pi * r)
+	# prints the number 31.4159
+	\end{lstlisting}
+\end{figure}
+
+\section{Strings}
+
+So far we have only assigned numeric values to variable; however we can assign alphanumeric characters to variables as well. In fact, a ``string" simply represents a list of characters in a particular order. We identify strings in Python by placing the contents of a string within quotation marks. In fact, without knowing it, you've already been using strings in the previous examples when printing output to the screen. Let's look at an example in Figure 3.11 of how we can write a program that stores strings in variables.
+
+\begin{figure}[h]
+	\caption{Storing strings in variables}
+	\begin{lstlisting}
+	name = "Tim"
+	print(name)
+	# prints Tim
+	print("His name is " + name)
+	# prints His name is Tim
+	\end{lstlisting}
+\end{figure}
+
+Notice that on line 5 we've actually concatenated two strings together: the string \texttt{"Tim"} which is stored in the variable \texttt{name} as well as the string literal \texttt{"His name is"}. We use the addition operator (+) to combined these two strings together and generate the output \texttt{His name is Tim}.
+
+We can also concatenate strings and numeric values together but this does require one additional step. To demonstrate, what do you think the output of the program listed in Figure 3.12 would look like?
+
+\begin{figure}[h]
+	\caption{Concatenating string and non-string values}
+	\begin{lstlisting}
+	name = "Tim"
+	age = 40
+	print(name + " is " + age)
+	\end{lstlisting}
+\end{figure}
+
+You probably guessed that this program would output the sentence \texttt{Tim is 40}, which is a reasonable guess. However, go ahead and try to run this program. Was the output what you expected? 
+
+\begin{figure}[h]
+	\caption{Output for string concatenation example}
+	\centering\includegraphics[width=.90\textwidth]{/Chapter3/Figure_13}
+\end{figure}
+
+Yikes -- what happened? It looks like we've encountered our first program error! The term \texttt{traceback} indicates that this particular error is classified as an \textit{exception}, which means that our code is syntactically correct; however Python encountered a problem when attempting to execute it. Exceptions differ from \textit{syntax errors}, which occur when our program contains code that Python doesn't recognize (for example, if our code includes a typo).
+
+Helpfully, Python has highlighted the line of code (3) in our file where the exception occurred and also provided us with the error type, \texttt{must be str, not int}. This particular error is informing us that Python expected the entire expression within the parentheses to have a \texttt{string} data type; however, it encountered an integer value (the variable \texttt{age}) as well. Remember from elementary math that integers are just like whole numbers but also include negative numbers (i.e., they have no decimal places!) So why did Python generate an error when it encountered the integer data type?
+
+If you think about this carefully you'll realize that what Python has done here makes a lot of sense. Python knows that, mathematically speaking, it's impossible to add a numeric value to a string value (for example, it would be impossible to add the number 500 to the name of the month "January"). Thus, Python assumes that we have made a mistake and informs us of our error. 
+
+In order to fix our program, we need to tell Python to interpret the value of age, not as a numeric value, but as a string value.\footnote{Python is an example of a strongly-typed language. This means that it will not implicitly try to convert data types for us. While this requires us to think about more carefully about how we write code, it also makes it less likely that our programs will contain unintentional errors.} That is, it should interpret the contents of age as simply representing a string of two numeric characters (4 and 0). We can do this by encapsulating the \texttt{age} variable with the function \texttt{str()}. The corrected example shown in Figure 3.14 will display the output \texttt{Tim is 40} as expected.
+
+\begin{figure}[h]
+	\caption{Converting integers to strings}
+	\begin{lstlisting}
+	name = "Tim"
+	age = 40
+	print(name + " is " + str(age))
+	\end{lstlisting}
+\end{figure}
+
+As we have learned so far, Python interprets quotation marks as representing the beginning and ending of a string. You may be wondering what to do if you want a quotation mark to be included in the contents of a string itself. For example let's say we want to print the string \texttt{Tim said "hi" to me}. Typing the code:
+
+\texttt{print("Tim said "hi" to me")}
+
+would return a syntax error because Python expected the string to end when it encountered the quotation mark immediately preceding the word \texttt{hi}. We need a way to tell Python that the quotation marks surrounding the word \texttt{hi} should not be interpreted as marking the beginning and ending of a string. We can do this by inserting the backslash (\texttt{\textbackslash}) character immediately before the these marks. Note that:
+
+\texttt{print("Tim said \textbackslash"hi\textbackslash" to me" )}
+
+would display the output as intended.
+
+Other characters that can be useful when formatting strings are \texttt{\textbackslash n} which inserts a new line into a string and \texttt{\textbackslash t} which can be used to insert a tab into a string. For example, the command:
+
+\texttt{print("a\textbackslash nb")}
+
+would display the output:\\
+\texttt{a\\b}
+
+\section{String indexing}
+We can also access individual characters within a string by using string indexing. Python assigns an index to each character in a string, with the first item having an index of 0. To access a specific character, we simply provide Python with the name of the string as well as the specific index we wish to extract (the index needs to be encapsulated in brackets). See the example in Figure 3.15.
+
+\begin{figure}[h]
+	\caption{String indexing example}
+	\begin{lstlisting}
+	foo = "abcdefg"
+	print (fop[0])	# prints a
+	print (foo[1])	# prints b
+	print (foo[6])	# prints g
+	print (foo[7])	# error, index exceeds range of the string
+	\end{lstlisting}
+\end{figure}
+
+We can also start indexing from the end of the string instead of the beginning by using negative numbers. See the example in Figure 3.16.
+
+\begin{figure}[h]
+	\caption{String reverse indexing example}
+	\begin{lstlisting}
+	foo = "abcdefg"
+	print (foo[-1])	# prints g
+	print (foo[-2])	# prints f
+	\end{lstlisting}
+\end{figure}
+
+We can also extract a chunk of several characters from a string using a process called \textit{slicing}. To do so, we need to specify a starting index and an ending index separated by a colon. If we leave either the starting or ending index empty, Python will assume we mean the first and last index of the string, respectively. See the example in Figure 3.17.
+
+\begin{figure}[h]
+	\caption{String slicing example}
+	\begin{lstlisting}
+	foo = "abcdefg"
+	print (foo[0:3])	# prints abcd
+	print (foo[4:])		# prints efg
+	print (foo[:4])		# prints abcde
+	\end{lstlisting}
+\end{figure}
+
+\section{Other basic data types}
+Python has a standard list of data types, of which the following are common enough that you should familiarize yourself with them at this point:
+\begin{itemize}
+	\item boolean: can only have a value of \texttt{true} or \texttt{false}. Useful when evaluating conditional expressions.
+	\item int: integers; similar to whole numbers but can also include negative values
+	\item float: floating point; represent real numbers containing a fractional part (decimal place)\
+	\item str: string, a sequence of individual Unicode characters
+\end{itemize}
+
+Python will implicitly assign variables a type at their point of declaration. For example, the declaration:
+
+\texttt{foo = 3.0}
+
+would result in Python creating a variable \texttt{foo} with value of 3.0 and a type of float. 	
+
+\section{Accepting user input}
+
+So far all of our programs have specified the values for variables within the code itself. However, most of the programs that we write will need to accept input from the user as well. We can capture user input using the \texttt{input()} function. An example of how this works is provided in Figures 3.18 and 3.19:
+
+\begin{figure}[h]
+	\caption{Accepting user input with \texttt{input()}}
+	\begin{lstlisting}
+	name = input("What is your name? ")
+	age = input("What is your age? ")
+	print("Hi, " + name + "! You are " + str(age) + " years old.")
+	\end{lstlisting}
+\end{figure}
+
+This program does the following:
+
+\begin{itemize}
+	\item Displays the string, \texttt{What is your name?}
+	\item Accepts input from the user and stores it in the variable \texttt{name}
+	\item Displays the string, \texttt{What is your age?}
+	\item Accepts input from the user and stores it in the variable \texttt{age}
+	\item Displays the a concatenated string incorporating the variables \texttt{name} and \texttt{age} (note that age is converted to a type string to prevent an execution error)
+\end{itemize}
+
+\begin{figure}[h]
+	\caption{Output for accepting user input example}
+	\centering\includegraphics[width=.90\textwidth]{/Chapter3/Figure_16}
+\end{figure}
+
+\section{Comparison operators}
+
+Python recognizes a number of comparison operators that we can use to evaluate expressions:
+
+\begin{figure}[h]
+	\caption{Python comparison operators}
+	\centering
+\begin{center}
+	\begin{tabular}{|c | c|}
+		\hline Operator & Description \\ [0.5ex]
+		\hline
+		\textless & Less than \\
+		\hline
+		\textgreater & Greater than \\
+		\hline
+		\textless = & Less than or equal to \\
+		\hline
+		\textgreater = & Greater than or equal to \\
+		\hline
+		== & Equal to \\
+		\hline
+		!= & Not equal to \\ [1ex]
+		\hline
+	\end{tabular}
+\end{center}
+\end{figure}
+
+Comparisons constructed using these operators will return a boolean value of either \texttt{true} or \texttt{false}. See the example in Figure 3.21.
+
+\begin{figure}[h]
+	\caption{Using logical and comparison operators}
+	\begin{lstlisting}
+	print(5>6)	# prints false
+	print(6<5)	# prints true
+	print(6==5)	# prints false
+	print(6!=5)	# prints true
+	print("foo"="foo")	# prints true
+	print("foo"!="bar")	# prints true
+	\end{lstlisting}
+\end{figure}
+
+\section{Conditional statements}
+
+So far the programs that we have written have been pretty simple in that every line of code has been executed in a sequential order. However, we can also write programs with have branching paths that only execute based upon the result of an internal test. For example, perhaps we are writing a program that will ask the user a different set of questions dependent on whether they identify as a man or a woman. We can write such a program by using conditional statements. The simplest form is an \texttt{if} statement which evaluates a boolean expression and executes one or more commands if the evaluation returns true. This is usually paired with an \texttt{else} statement that executes if the evaluation returns false. See the example in Figure 3.22.
+
+\begin{figure}[h]
+	\caption{Using the \texttt{if} statement}
+\begin{lstlisting}
+age = input("What is your age? ")
+if(age >= 18):
+	print("Congratulations!")
+	print("You are old enough to vote in the United States!")
+else:
+	print("Sorry!")
+	print("You are not old enough to vote in the United States!)
+\end{lstlisting}
+\end{figure}
+
+This simple program accepts numeric input from the user and stores the response in a variable called \texttt{age}. It then prints a different response depending on whether the numeric value is greater than or equal to 18. 
+
+It is important to note that including a colon (:) after the \texttt{if} and \texttt{else} statements is required. In addition, all lines after the colon that are indented the same amount will be executed if the \texttt{if} or \texttt{else} statement is triggered.
+
+Sometimes a program may need to consider more than two possibilities. In this case we can use the conditional statements \texttt{elif} which stands for ``else if". An example of how to use \texttt{elif} is presented in Figure 3.23.
+
+\begin{figure}[h]
+	\caption{Using the \texttt{elif} statement}
+	\begin{lstlisting}
+	favNumber = input("Can you guess my favorite number?")
+	if (favNumber==5):
+		print("Correct! 5 is my favorite number!")
+	elif (favNumber==4):
+		print("No! 4 is my least favorite number!)
+	else:
+		print("Wrong!")
+	\end{lstlisting}
+\end{figure}
+
+This program contains three branches. One is executed if the user inputs the number 5, another if the user inputs the number 4, and the third if the user inputs any other number.
+
+\section{Logical operators}
+
+Conditional statements can be paired with logical operators to create more complex comparisons. The three logical operators that Python supports are \texttt{and}, \texttt{or}, and \texttt{not}. See Figure 3.24 for an example of how these operators can be used with a conditional statement:
+
+\begin{figure}[h]
+	\caption{Logical operators}
+\begin{lstlisting}
+	age = input("What is your age? ")
+	if(age >= 21):
+		print("You are old enough to vote and drink alcohol.")
+	elif(age >=18) and (age < 21):
+		print("You are old enough to vote but not to drink alcohol.")
+	else:
+		print("You are not old enough to vote or drink alcohol.")
+\end{lstlisting}
+\end{figure}
+
+\section{Iteration}
+While we have learned how to write programs that contain branching paths, our programs so far have been limiting to executing each instruction a single time. However, we will likely want to develop programs that have the capability to use the same code some specified number of times. In order to do this we need to learn about iteration, which is an incredibly important computer programming concept to understand.
+
+The basic idea is straightforward. We start with a test that returns a boolean result of either \texttt{true} or \texttt{false}. If the result is \texttt{true}, our program executes a block of code. Afterwards, the program evaluates the original test again. If the result is still \texttt{true}, the code block executes again. The program continues to loop through the code until the test returns a value of \texttt{false}.
+
+The simplest type of iterative loop is called the \texttt{while} loop. An example program that uses this \texttt{while} as well as sample output are presented in Figures 3.25 and 3.26.
+
+\begin{figure}[h]
+\caption{An example using the \texttt{while} loop.}
+\begin{lstlisting}
+keepRunning = "yes"
+while (keepRunning == "yes"):
+	keepRunning = keepRunning("Should the program keep running? ")
+print("Ok, I'll stop the program. Bye!")
+\end{lstlisting}
+\end{figure}
+
+\begin{figure}[h]
+	\caption{Output for an example using the while loop}
+	\centering\includegraphics[width=.90\textwidth]{/Chapter3/Figure_26}
+\end{figure}
+
+Let's work our way through this example. The program first declares a variable \texttt{keepRunning} which holds the string \texttt{yes}.\footnote{In this book we'll be using the Lower CamelCase convention for naming our variables and functions. This means that when several words are joined together, the first letter of the first word is lowercase but the first letters for subsequent words are uppercase. Naming conventions in programming are primarily an aesthetic choice; however they do sometimes generate heated debate.} It then evaluates the expression to the right of the \texttt{while} command which tests whether the value of \texttt{keepRunning} is \texttt{yes}. This expression initially evaluates as \texttt{true} so the program enters the loop. Within the loop, the program prompts the user to answer the question \texttt{"Should the program keep running"?}. Note that the value of \texttt{keepRunning} is then overwritten with the input the user provides. Since there are no more lines of code within the block, the program re-evaluates the expression to the right of the \texttt{while} command. If the expression still evaluates as \texttt{true} (i.e., \texttt{keepRunning} still holds the string \texttt{yes}) then the program enters the loop as well and the process repeates. If the expression evaluates as \texttt{false}, the program skips over the loop and prints \texttt{"Ok, I'll stop the program. Bye!"}. Note that, in this example, the code within the loop could theoretically execute an infinite number of times so long as the user keep entering in the string \texttt{yes} when prompted.
+
+There also may be times where we want a program to execute over a loop some predetermined number of times. In this case, we would want to use a different type of iterative loop called a \texttt{for} loop. An example of a program using this type of loop (as well as the respective output) is provided in Figures 3.27 and 3.28.
+
+\begin{figure}[h]
+	\caption{An example using the \texttt{for} loop.}
+	\begin{lstlisting}
+	for i in range(0,3):
+		print("We've run through the loop " + str(i++) + " time(s).")
+	print("Bye!")
+	\end{lstlisting}
+\end{figure}
+
+\begin{figure}[h]
+	\caption{Output for an example using the for loop}
+	\centering\includegraphics[width=.90\textwidth]{/Chapter3/Figure_28}
+\end{figure}
+
+The first line of code declares a new variable, \texttt{i}. The command \texttt{in range(0,3)} then tells Python to iterate over a sequence that contains 3 items beginning with 0 (i.e., the sequence 0, 1, 2). To begin, \texttt{i} is initially assigned the value of the first item in the sequence (\texttt{0}). The program then enters the loop. Within the loop, the message \texttt{We've run through the loop X time(s)!} is displayed, with X representing the value of \texttt{i+1}. Note that if we instructed Python to simply display the value \texttt{i} instead of \texttt{i+1}, the user would see the sequence 0, 1, 2 instead of 1, 2, 3. As discussed earlier in the chapter, we also need to tell Python to convert \texttt{i} to a string using \texttt{str()}. The loop then executes again, this time with \texttt{i} taking the value of the next item in the sequence (1). When finished, the program then iterates through the sequence one final time (i = 2) before breaking out of the loop and displaying the \texttt{Bye!} message.
+
+\section{Searching for help}
+As a novice programmer, you will frequently encounter situations where you need a bit of help. Your first stop for help should usually be the latest version of the Python documentation which can be found at \texttt{https://docs.python.org/3}. As the ``authoritative guidance" prepared by the Python Foundation, you can be assured that this documentation is up-to-date and accurate.
+
+Search engines such as Google\texttrademark , can also be helpful tools for finding answers to your programming problems. However, you should be aware that many online programming websites have weak or non-existent methods for quality control. Thus, you should attempt to verify that any source code you plan to adopt into your own programs comes from a reputable source.\footnote{Certain websites, such as Stack Overflow\texttrademark , have adopted a community rating feature which allegedly prioritizes high quality responses to user questions.}
+\section{Summary}
+This chapter began by presenting a brief background of the Python programming language and then discussed how to set up a simple development environment. Common data types were presented as well as functions for displaying output and accepting user input. Constructing conditional statements using comparison and logical operators was also introduced. The chapter concluded with a discussion of iteration using both \texttt{for} and \texttt{while} loops.
+
+\section{Discussion questions}
+\begin{enumerate}
+	\item Indicate the data type for each of the following expressions (your choices are bool, int, str, or float):
+	\begin{enumerate}
+		\item 3
+		\item 3.0
+		\item s
+		\item -3
+		\item True
+		\item bar
+	\end{enumerate}
+	\item Indicate the output that would be returned from each of the following expressions:
+	\begin{enumerate}
+		\item "pythonrocks"[1]
+		\item "pythonrocks"[2]
+		\item "pythonrocks"[:2]
+		\item "pythonrocks"[2:]
+	\end{enumerate}
+	\item Indicate the output that would be returned from each of the following expressions:
+	\begin{enumerate}
+		\item 6 \textgreater = 4
+		\item 3 != 3
+		\item 2 \textgreater 1
+	\end{enumerate}
+	\item Indicate whether each of the following expressions would evaluate as \texttt{true} or \texttt{false} assuming the variable \texttt{foo} is previously declared as \texttt{foo = 12}:
+	\begin{enumerate}
+		\item if (foo == 13) or (foo == 12)
+		\item if (foo == ``12")
+		\item if (foo not 12)
+		\item if (foo == 12) and (foo == 13)
+		\item if (foo not 13)
+	\end{enumerate}
+	\item How would you write the following code more efficiently using a \texttt{for} loop?
+	\begin{lstlisting}
+	print(2)
+	print(4)
+	print(6)
+	print(8)
+	print("Bye!")
+	\end{lstlisting}
+		
+\end{enumerate}
+\section{Exercises}
+\begin{enumerate}
+	\item Write a program that takes the age of the user and converts it to dog years (you can assume that one dog year is equivalent to one human year). For example, if you are 98 years old in human years that means you are 14 years old in dog years.
+	\item Write a program that takes a user's weight (in kilograms) and height (in centimeters) and calculates their Body Mass Index (BMI). Based upon their BMI, the program should then indicate whether the user is considered underweight (BMI of 18 or less), normal weight (BMI of greater than 18 but less than 26) or overweight (BMI of 26 or greater). Note that the formula for calculating BMI is weight/height\textsuperscript{2}.
+	
+	As a check, the BMI for a user with a height of 180cm and 70kg would be 21.6.
+	\item Write a program that takes the users name and displays it back in reverse order. For example, if the user indicates that her name is \texttt{Sarah}, the program should print the name \texttt{haraS}.
+	\item Modify the program in Figure 3.27 so it prints the messsage \texttt{"We've run through..."} a specific number of times requested by the user. Note that the \texttt{input()} function you have learned about assigns using the string data type and that strings can be converted to integers using the function \texttt{int()}.
+	\item Write a program that takes a user's name and iterates over each letter in the name using a \texttt{for} loop. For each round of iteration, your program should print the message \texttt{Letter X of your name is "A"}, where X represents the position of the letter and A represents the letter itself.
+	
+	For example, if the user entered the name \texttt{Tom}, the program would output:
+	
+	\texttt{Letter 1 of your name is T\\Letter 2 of your name is o\\Letter 3 of your name is m}
+	\item \textbf{Portfolio project:} The \textit{Fibonacci sequence} is an integer sequence identified by 13th century mathematician Leonardo of Pisa that is characterized by the fact that every number after the first two is the sum of the two proceeding ones. The first ten items in the sequence are: \texttt{1, 1, 2, 3, 5, 8, 13, 21, 34, 55}.
+	
+	Write a Python program that displays the first 25 numbers in the \textit{Fibonacci sequence}. Each line of output should display both the number itself and its position in the sequence. For example:\\ \\
+	\texttt{1:	1} \\ \texttt{2:  1} \\ \texttt{3:  2} \\ \texttt{4:  3...}
+	\\ \\ As a check, the 15th number in the Fibonacci sequence is 610 and the 25th number is 75,025.
+	\item \textbf{Portfolio project:} Write a program that guesses a secret number. The program should contain the following features:
+	\begin{itemize}
+		\item It should ask the user to think of a number between 0 and 100.
+		\item It should guess what the number is and prompt the user to indicate whether the guess was too high, too low, or correct.
+		\item It should repeat the preceding step until the user indicates that the number is correct.
+		\item It should display an error message if the user enters a command that the program does not recognize.
+	\end{itemize}
+	As an example, your program's output might look something like:
+	\begin{figure}[h]
+		\centering\includegraphics[width=.90\textwidth]{/Chapter3/Exercise}
+	\end{figure}
+
+	Hint: Remember that you can round floats to the nearest integer by using the function \texttt{int()}.	
+\end{enumerate}
+
+\chapter{Intermediate Python concepts}
+\section{Writing functions}
 \end{document}
