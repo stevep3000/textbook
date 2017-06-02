@@ -23,7 +23,7 @@
 \contentsline {section}{\numberline {3.1}Why Python?}{23}
 \contentsline {section}{\numberline {3.2}Setting up a development environment}{24}
 \contentsline {section}{\numberline {3.3}Your first program: ``Hello World!"}{25}
-\contentsline {section}{\numberline {3.4}A basic process for program development}{28}
+\contentsline {section}{\numberline {3.4}An example development workflow}{28}
 \contentsline {section}{\numberline {3.5}Mathematical operations}{30}
 \contentsline {section}{\numberline {3.6}Commenting your code}{30}
 \contentsline {section}{\numberline {3.7}Variables}{31}
@@ -40,4 +40,14 @@
 \contentsline {section}{\numberline {3.18}Discussion questions}{42}
 \contentsline {section}{\numberline {3.19}Exercises}{43}
 \contentsline {chapter}{\numberline {4}Intermediate Python concepts}{47}
-\contentsline {section}{\numberline {4.1}Writing functions}{47}
+\contentsline {section}{\numberline {4.1}Introducing functions}{47}
+\contentsline {section}{\numberline {4.2}Global versus local variables}{48}
+\contentsline {section}{\numberline {4.3}Lists}{49}
+\contentsline {section}{\numberline {4.4}Dictionaries}{51}
+\contentsline {section}{\numberline {4.5}File input and output}{53}
+\contentsline {section}{\numberline {4.6}Getting data from the web}{53}
+\contentsline {section}{\numberline {4.7}Advanced: Modules, classes, and objects}{53}
+\contentsline {section}{\numberline {4.8}Advanced: Inheritance}{53}
+\contentsline {section}{\numberline {4.9}Summary}{53}
+\contentsline {section}{\numberline {4.10}Discussion questions}{53}
+\contentsline {section}{\numberline {4.11}Exercises}{54}

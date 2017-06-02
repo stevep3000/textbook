@@ -512,7 +512,7 @@ If you have performed the steps correctly, you should see something like Figure 
 	\centering\includegraphics[width=.90\textwidth]{/Chapter3/Figure_6}
 \end{figure}
 
-\section{A basic process for program development}
+\section{An example development workflow}
 
 So far, we've articulated a series of fairly simple steps when developing our first project. These steps are:
 
@@ -961,6 +961,7 @@ This chapter began by presenting a brief background of the Python programming la
 	For example, if the user entered the name \texttt{Tom}, the program would output:
 	
 	\texttt{Letter 1 of your name is T\\Letter 2 of your name is o\\Letter 3 of your name is m}
+	\item Write a program that translates the user's name into Pig Latin. English words are translated into pig latin by taking the first letter of the word, moving it to the end of the word, and adding "ay". For example, the name "Steve" in Pig Latin would become "Tevesay."
 	\item \textbf{Portfolio project:} The \textit{Fibonacci sequence} is an integer sequence identified by 13th century mathematician Leonardo of Pisa that is characterized by the fact that every number after the first two is the sum of the two proceeding ones. The first ten items in the sequence are: \texttt{1, 1, 2, 3, 5, 8, 13, 21, 34, 55}.
 	
 	Write a Python program that displays the first 25 numbers in the \textit{Fibonacci sequence}. Each line of output should display both the number itself and its position in the sequence. For example:\\ \\
@@ -982,5 +983,208 @@ This chapter began by presenting a brief background of the Python programming la
 \end{enumerate}
 
 \chapter{Intermediate Python concepts}
-\section{Writing functions}
+\section{Introducing functions}
+When writing Python programs, we will often to write code that can be reused in a variety of different circumstances within the program. We can do so by defining functions. An example of a Python function and the related program output is provided in Figures 4.1 and 4.2.
+\begin{figure}[h]
+\caption{A function example}
+\begin{lstlisting}
+	def PrintInitials(firstName, lastName):
+		print(firstName[0] + "." + lastName[0])
+	
+	firstName = input("What is your first name? ")
+	lastName = input("What is your last name? ")
+	print("Your initals:", end=" "), PrintInitials(firstName, lastName)
+	print("Tom Smith's initials:", end=" "), PrintInitials("Tom", "Smith")
+\end{lstlisting}
+\end{figure}
+
+Let's break down the syntax for this function.
+
+\begin{itemize}
+	\item First, we tell Python to define a new function called \texttt{PrintInitials} using the command \texttt{def}.
+	\item We thenn tell the function to expect two arguments each time it is called, \texttt{firstName} and \texttt{lastName}. 
+	\item We end the function definition with a colon \texttt{I}. 
+	\item We write the specific code that the function should execute (each line of code must be indented to be attached to the function).
+\end{itemize}
+
+\begin{figure}[h]
+	\caption{Output for a function example}
+	\centering\includegraphics[width=.90\textwidth]{/Chapter4/Figure_1}
+\end{figure}
+
+Now whenever we want to call this specific function, we simply call it by name and encapsulate the specific argument values we want to pass in parentheses separated by a comma. The program presented in Figure 4.1 provides an example of passing variable as arguments, \texttt{PrintInitials(firstName, lastName)}, as well as specific strings, \texttt{PrintInitials("Tom","Smith)}.\footnote{This program also contains a simple "hack" to make sure that the initials are printed on the same line as the preceding text. While the \texttt{print("")} function normally appends a newline character at the end of its output, the keyword argument \texttt{end = " "} tells the function to append a space instead.} Be aware that all arguments in Python are passed by reference. This means that if you change the value of a variable passed as an argument within a function, the value also changes for any other part of your program that has access to that variable.
+
+When writing functions, we can also use the \texttt{return} expression to pass an argument back when the function exits. For example, the function presented in Figure 4.3 calculates the user's initials in a new variable called \texttt{initials} which is returned to the calling function \texttt{print()}.
+
+\begin{figure}[h]
+	\caption{A example using \texttt{return}}
+	\begin{lstlisting}
+	def ReturnInitials(firstName, lastName):
+		initials = firstName[0] + "." + lastName[0] + "."
+		return initials
+
+	firstName = input("What is your first name? ")
+	lastName = input("What is your last name? ")
+	print("Your initals are", end=" ")
+	print(ReturnInitials(firstName, lastName))
+
+	\end{lstlisting}
+\end{figure}
+
+\section{Global versus local variables}
+It is important to understand that variables which are defined inside a function body have what is called \textit{local scope}. This means that these variables can only be accessed by code contained within the function itself. Conversely, variables which have \textit{global scope} can be accessed by the entirety of the program. Figure 4.4 provides an example of declaring variables with local versus global scope.
+
+\begin{figure}[h]
+	\caption{Global versus local scope}
+	\begin{lstlisting}
+	myGlobalVar = "Hello!" # a global variable
+	def myFunction():
+		myLocalVar = "Hello!" # a local variable
+		return myVar
+	
+	print myGlobalVar # prints "Hello!" 
+	print myLocalVar # exception - variable is out of scope
+	
+	\end{lstlisting}
+\end{figure}
+
+\section{Lists}
+All of the programming examples we have reviewed so far have involved simple types of data (primarily numbers and strings). However, we will often encounter programming problems where we need to structure different types of data together in complex ways using compound data types. The first compound data type we will review is called the \texttt{list}. Lists are simply containers of data elements that are organized from first to last. We can declare lists using the following syntax:
+
+\texttt{numbers = [1, 2, 3, 4, 5]} \\
+\texttt{animals = ["cow", "mouse", "horse", "pig"]} \\
+\texttt{prices = [1.99, 2.99, 3.00, "free", 9.99]}
+
+As you can see, the contents of lists are placed within brackets and separated by commas. Lists can store any of the types of data that we have learned about so far (such as \texttt{string}, \texttt{int}, and \texttt{float}) and can even store combinations of different data types. 
+We can then access individual elements with a list by referring to the specific index we want to access, similar to the string indexing method we learned about in Chapter 2.
+
+\texttt{numbers[0]} returns the integer \texttt{1}\\
+\texttt{animals[1]} returns the string \texttt{mouse}\\
+\texttt{prices[2:4]} returns a list containing the float \texttt{2.99} and the string \texttt{free}.
+
+We can also use the \texttt{for loops} that we learned about in Chapter 2 to iterate over the elements in a list. For example, the code presented in Figure 4.5 prints the elements of two lists using iteration. 
+
+\begin{figure}[h]
+	\caption{Lists and iteration}
+	\begin{lstlisting}
+	animals = ["cow", "mouse", "horse", "pig"]
+	numbers = [1, 2, 3, 4, 5]
+
+	for i in animals:
+		print(i);
+
+	for i in numbers:
+		print(str(i))
+	\end{lstlisting}
+\end{figure}
+
+We can also create lists that have more than one dimension. For example, let's say we wanted to create a list of X and Y coordinates. We could initialize such a list as follows:
+
+\texttt{coords = [[1, 2], [1, 7], [2, 3]]}
+	
+If we then wanted to access the first set of coordinates (1, 2) we could type:
+
+\texttt{coords[0]}
+
+By nesting our bracketed terms, we can access specific elements within a multidimensional list. For example, if we wanted to access a specific coordinate within a set (for example, the Y coordinate 7 from the second set of coordinates) we could type:
+
+\texttt{coords[1][1]}
+
+It's also important to understand that lists are mutable. This means that we can assign a new value to a list after it has been created. For example, if we wanted to change the value of the first element in a list, we could do so using the assignment operator as follows:
+
+\texttt{myList[0] = "foo"}
+
+Python also supports a large number of manipulation methods for lists that are worth reviewing. A brief description of these methods and example code are provided below.
+
+\begin{itemize}
+	\item len(): Returns the number of elements in a list.
+	\\ \texttt{len(myList)}
+	\item append(): Adds a new element after the last element in a list.
+	\\ \texttt{myList.append("qux")}
+	\item pop(): Removes the last element from a list. If an index is provided within parentheses, this method will remove that specific element from a list.
+	\\ \texttt{myList.pop() \\ myList.pop(1)}
+	\item insert(): Inserts a new element into a list at the index provided 
+	\\ \texttt{myList.insert(1, "foo")}
+	\item remove(): Removes the first element in the list which contains the value specified 
+	\\ \texttt{myList.remove("foo")})
+	\item index(): Find the index for the first occurance of an element in a list.
+	\\ \texttt{myList.index("foo")}
+	\item sort(): Sort in ascending numeric or alphabetical order (list elements must be either entirely numeric or entirely string).
+	\\ \texttt{myList.sort()}
+\end{itemize}
+
+\section{Dictionaries}
+Dictionaries are similar to lists in that they can contain elements of various data types. However, while the indices of lists are required to be integers (e.g., 1, 2, 3), dictionaries can have indices (specifically referred to as keys) of any type. A dictionary is really just a data structure that contains a collection of these key-value pairs. 
+
+Dictionaries are initialized using curly braces, values are preceded by colons, and key-value pairs are separated by commas. After initialization, specific values in the dictionary can be referenced by using their respective key. The code example and output provided below demonstrate the concept (see Figures 4.5 and 4.6)
+
+\begin{figure}[h]
+	\caption{A simple dictionary}
+	\begin{lstlisting}
+	gradePoints = {"A": 4.0, "B": 3.0, "C": 2.0, "D": 1.0, "F": 0.0}
+	print(gradePoints["A"])
+	print(gradePoints["B"])
+	print(gradePoints["C"])
+	print(gradePoints["D"])
+	print(gradePoints["F"])
+	\end{lstlisting}
+\end{figure}
+
+\begin{figure}[h]
+	\caption{Output for the simple dictionary example}
+	\centering\includegraphics[width=.90\textwidth]{/Chapter4/Figure_6}
+\end{figure}
+
+This program creates a dictionary which assigns grade point values to keys representing university letter grades. Each grade point value is then accessed by reference to its respective letter. 
+
+It is important to note that we should never try to access a key that doesn't exist,  For example, if we modified the code above to include the line \texttt{print(gradePoints["E"])}, Python would generate an error and halt the program. This can be prevented by using a conditional expression:
+
+\texttt{if "E" in gradePoints: print (gradePoints["E"])}\\
+\texttt{else: print ("Grade not found.")}
+
+\section{File input and output}
+\section{Getting data from the web}
+\section{Advanced: Modules, classes, and objects}
+\section{Advanced: Inheritance}
+\section{Summary}
+\section{Discussion questions}
+\begin{enumerate}
+	\item What is the difference between local versus global scoping of variables? Why do you think programmers generally prefer to avoid using variables with global scope?
+	\item Assume that we've created a list with the following assignment: \\ \texttt{var myList = [1, 4, ["foo", 3, "bar"], "baz"]}
+	\\Specify the output that would be returned by each of the following expressions:
+	\begin{enumerate}
+		\item \texttt{myList[0]}
+		\item \texttt{myList[2]}
+		\item \texttt{myList[:3]}
+		\item \texttt{myList]-2]}
+		\item \texttt{myList[2][2]}
+		\item \texttt{myList[::]}
+		\item \texttt{4 in x}	
+		\item \texttt{myList.len()}
+		\item \texttt{myList.index(4)}
+	\end{enumerate}
+	\item Assume that we've created a list with the following assignment: \\ \texttt{var myList = [1, 4, ["foo", 3, "bar"], "baz"]}
+	\\Indicate how \texttt{myList} would look after calling each of the following methods (assume the methods are called sequentially).
+	\begin{enumerate}
+		\item \texttt{myList.pop()}
+		\item \texttt{myList.index(1, "bar")}
+		\item \texttt{myList.append("qux")}
+		\item \texttt{myList.remove(1)}
+		\item \texttt{myList.sort()}
+	\end{enumerate}
+	
+\end{enumerate}
+
+\section{Exercises}
+\begin{enumerate}
+	\item In Exercise 3.6 you were asked to write a program which displays the first 25 numbers in the \textit{Fibonacci sequence}. Modify this program so that this calculation and related printout is encapsulated in a function. The function should take a single parameter, \texttt{num}, which is specified by the user and indicates the number of elements in the sequence to print. 
+	
+	\item Write a program that will ask the user to enter a temperature in Fahrenheit and prints the temperature in Celsius. The program should contain a function which takes a single argument, \texttt{farTemp}, and returns the converted temperature. Note that the conversion formula is \textit{C = (F - 32) * (5/9)}. As a check, 76 degrees Farenheit is equivalent to approximately 24 degrees Celsius.
+	
+	\item Write a function that combines two lists of identical length by alternating each element and returns the combined list. For example, if the first list is \texttt{["foo", "bar", "baz", "qux"]} and the second list is \texttt{[1, 2, 3, 4]}, the function would return \texttt{["foo", 1, "bar", 2, "baz", 3, "qux", 4]}.
+	
+	\item Write a function that takes two lists and return a new list that contains only the unique values from both lists. For example, if the first list is \texttt{[1, 2, 3, 4]} and the second list is \texttt{[6, 5, 4, 3]}, the function would return \texttt{[3, 4]}.
+
+\end{enumerate}
+
 \end{document}
