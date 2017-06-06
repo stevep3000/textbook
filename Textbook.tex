@@ -1094,7 +1094,7 @@ It's also important to understand that lists are mutable. This means that we can
 
 \texttt{myList[0] = "foo"}
 
-Python also supports a large number of manipulation methods for lists that are worth reviewing. A brief description of these methods and example code are provided below.
+Python also supports a large number of manipulation methods for lists that are worth reviewing. A brief description of some of these methods is provided below.
 
 \begin{itemize}
 	\item len(): Returns the number of elements in a list.
@@ -1114,7 +1114,7 @@ Python also supports a large number of manipulation methods for lists that are w
 \end{itemize}
 
 \section{Dictionaries}
-Dictionaries are similar to lists in that they can contain elements of various data types. However, while the indices of lists are required to be integers (e.g., 1, 2, 3), dictionaries can have indices (specifically referred to as keys) of any type. A dictionary is really just a data structure that contains a collection of these key-value pairs. 
+Dictionaries are similar to lists in that they can contain elements of various data types. However, while the indices of lists are required to be integers (e.g., 1, 2, 3), dictionaries can have indices (specifically referred to as "keys") of any type. A dictionary is really just a data structure that contains a collection of these key-value pairs. 
 
 Dictionaries are initialized using curly braces, values are preceded by colons, and key-value pairs are separated by commas. After initialization, specific values in the dictionary can be referenced by using their respective key. The code example and output provided below demonstrate the concept (see Figures 4.5 and 4.6)
 
@@ -1137,14 +1137,141 @@ Dictionaries are initialized using curly braces, values are preceded by colons, 
 
 This program creates a dictionary which assigns grade point values to keys representing university letter grades. Each grade point value is then accessed by reference to its respective letter. 
 
-It is important to note that we should never try to access a key that doesn't exist,  For example, if we modified the code above to include the line \texttt{print(gradePoints["E"])}, Python would generate an error and halt the program. This can be prevented by using a conditional expression:
+It is important to note that we should never try to access a key that doesn't exist,  For example, if we modified the code above to include the line \texttt{print(gradePoints["E"])}, Python would generate an error and halt the program. This can be prevented by using a conditional expression to confirm that a key exists prior to attempting to access its value:
 
 \texttt{if "E" in gradePoints: print (gradePoints["E"])}\\
 \texttt{else: print ("Grade not found.")}
 
+We can loop through dictionaries to obtain keys and corresponding values by using the \texttt{items.()} method. Figure 4.8 demonstrates this concept. 
+
+\begin{figure}[h]
+\caption{Iterating over a dictionary}
+\begin{lstlisting}
+	employees = {"Name": "Steve", "Job": "Accounting professor", "Age": 90}
+	
+	for k, v in employees.items():
+	print (k + ": " + str(v))
+\end{lstlisting}
+\end{figure}
+
+This program prints of the key-value pairs in the \texttt{employees} dictionary. During iteration, the name each key is stored in the variable \texttt{k} while the related value is stored in the variable \texttt{v}. Note also that, since \texttt{v} contains integer values in this example, it needs to be passed as a string using \texttt{str()} to the \texttt{print()} function.
+
+Dictionary values can also be easily changed by referencing their related key: \\ \texttt{employees["Name"] = "Bob"}
+
+New key-value pairs can by using the assignment operator: \\ \texttt{employees["Weight"] = 150}
+
+Finally, key-value pairs can be deleted from a dictionary by using the \texttt{del} statement:
+
+\texttt{del employees["Age"]}
+
+Be warned that it can be dangerous to make significant changes to dictionaries since the content will change for other functions that reference the same dictionary. Before modifying a dictionary's contents, consider whether it would be more useful to create a modified copy of the dictionary. The \texttt{copy()} method can be used to create a dictionary copy as follows:
+
+\texttt{employees2 = employees.copy()}
+
 \section{File input and output}
-\section{Getting data from the web}
-\section{Advanced: Modules, classes, and objects}
+While we have already learned how to create programs which can collect data input from a user, the programs we will write to handle accounting data will often need to be able to read/write data from/to a file. Python 3+ incorporates a number of handy i/o functions and methods that can make working reading and writing files fairly simple.
+
+To begin, let's create a new file:
+
+\texttt{myFile = open("myFile.txt", "a")}
+
+This function creates a new file object called \texttt{myFile} which points to the path of the file to be opened (\textbackslash myFile.txt). The second paramater (\texttt{"a"}) tells Python to create a new file called "myfile.txt" if the file does not already exist but append any modifications we make if an existing file does exist. If we omit the second parameter, Python assumes that are simply opening an existing file for reading only. In this case, if the file does not exist, Python will generate an error.
+
+Once we have created a new file object, we can modify the file by using the \texttt{write()} method as follows:
+
+\texttt{myFile.write("Mary had a little lamb")}
+
+This line of code will append the string \texttt{Mary had a little lamb} to the file referenced by the myFile object. This method will also return the number of characters contained in the string (including spaces) which can be useful when checking for errors. 
+
+Python contains many methods that can be used to read data from a file. We can read the entire contents from a file using the \texttt{read()} method as follows:
+
+\texttt{newFile.read()}
+
+Or we can read a single line from a file using \texttt{readline()}:
+
+\texttt{newFile.readline()}
+
+We can also read lines from a file one at a time by iterating over the file object as follows:
+
+\texttt{for line in newFile:   print(line, end="")}
+
+However, reading entire lines of data is often not terribly useful. You may normally find yourself wanting to read individuals data elements which are separated by some specific delimiting character, such as a space or a comma. For example, let's assume that we want to write a program that reads a file \texttt{names.txt} which contains the following data:
+
+\texttt{sam bob julie steve rachel}
+
+We want our program to read each of the names in the file individually and store them in a list called \texttt{nameList}. The code snippet presented in Figure 4.9 demonstrates how this program might be written.
+
+\begin{figure}[h]
+\caption{Reading a space delimited file}
+\begin{lstlisting}
+	file = open("names.txt")
+	names = []
+
+	for line in file:
+		for word in line.split(" "):
+			names.append(word)
+
+	print("The contents of the names list are:")
+	print(names)
+	file.close()
+	\end{lstlisting}
+\end{figure}
+
+This program begins by opening the \texttt{names.txt} file. Note that we have omitted the second parameter from the \texttt{open()} function because we want Python to open the file for reading only. Next, we create an empty list \texttt{names} which will store the data elements that we read from the \texttt{names.txt} file.
+
+We then use a pair of nested \texttt{for} loops to read each name individually. The first loop simply iterates over each line in the file. However, the second loop iterates over each \textit{word} in the line by splitting the line into individual segments delimited by the space character (" "). Each word read is then added to the list using the \texttt{append()} method that we discussed earlier. Finally, the program print the new contents of the \texttt{names} list data structure. If we wanted, we could then access individual items of the list by referencing its specific index (e.g., \texttt{print(names[0])}.
+
+When we are done writing to the file, we need to call \texttt{.close()} to close the file and free up the system resources taken up by the file object. Note that any references your program makes to a file object after it has been closed will fail. 
+
+\section{Reading and writing data using JSON}
+
+While the methods that we have learned about so far are useful for reading and writing simple data, they have some drawbacks. First, the \texttt{read()} and \texttt{write()} methods only work with string data types. Therefore, numeric values would need to be converted to a different data type, using a function like \texttt{int()}, if they need to be manipulated. In addition, these simple methods are really not very convenient when trying to read/write more complex data structures like lists or dictionaries. 
+
+Thankfully, Python supports the ability to save more complicated data types using the JSON (Javascript Object Notation) data interchange format. JSON is commonly used by many different types of applications so adding support for it into your programs can be quite useful (you can read more about the JSON format at \texttt{https://wwww.json.org}).
+
+To encode an object using JSON, we pass the data to be encoded as well as an open file object to the \texttt{dumps()} function. Data encoded in the JSON format can be decoded by using the \texttt{load()} function. An example of a simple program which demonstrates the use of these functions is presented in Figure 4.10.
+
+\begin{figure}[h]
+	\caption{Reading and writing using JSON}
+	\begin{lstlisting}
+	import json
+	
+	names = ["sam", "bob", "julie", "steve", "rachel"]
+	newNames = []
+	
+	file = open("names.json", "a")
+	
+	json.dump(names, file)
+	file.close()
+	
+	file = open("names.json")
+	newNames = json.load(file)
+	print("The contents of newNames is:")
+	print(newNames)
+	file.close()
+	\end{lstlisting}
+\end{figure}
+
+A brief review of this code is in order. The first line of the program imports the \texttt{json} module which allows us to use Python's JSON-specific encoding/decoding functionality.\footnote{You can think of Python modules as simply collections of source code which can provide access to additional Python functionality. We'll be using many different Python modules as we advance through this text}. The program then creates a list called \texttt{names} which contains five elements. It also initializes an empty list called \texttt{newnames}. A new file object (called \texttt{file}) is then initialized and mapped to the path \texttt{\textbackslash names.json} (the .json file extension is typically used to denote JSON-encoded data files). Note that the program passes the \texttt{"a"} parameter since \texttt{names.json} is a new file that will be written to.
+
+The program then calls the \texttt{dump} function which is part of the \texttt{json} module, as discussed earlier. The first argument passed to the function is the name of the list we wish to write, while the second argument represents the name of the file object to be written to. On line 9, the program closes the \texttt{file} object and removes it from memory. At this point, if we viewed the working directory of our program, we would see that, in addition to our Python script, it now contains a file called \texttt{names.json}.
+
+The program then creates a brand new file object and associates it with the \texttt{\textbackslash names.json} file path. Note that the \texttt{"a"} argument has been omitted from the call to the open function because we want Python to open an existing file for reading only (this is the default function call). The program then uses the \texttt{load} function from the \texttt{json} module to load the contents of the \texttt{names.json} file to the empty \texttt{newNames} list. The program then prints the contents of \texttt{newNames} to ensure that the JSON data was successfully decoded. Finally, the program closes the file object and removes it from memory.
+
+\section{Advanced: Classes and objects}
+
+So far we have learned about various types of data and data structures, as well as how to create various functions to manipulate that date. You can perhaps imagine that it might be helpful if there were a way to somehow bundle together certain types of data, as well as their related functions into a single unitary package. 
+
+Python is an example of what is called an \textit{object oriented programming language}. This feature allows us to create unique data structures (called classes) which contain both data and specific functions that interact with that data (called interfaces). These classes are essentially blueprints for creating specific data types (called objects) that contain the data types and functions specified in the classes. This will become more clear as we talk through the following example presented in Figure 4.11:
+
+\begin{figure}[h]
+	\caption{A basic student class}
+	\begin{lstlisting}
+	\end{lstlisting}
+
+\end{figure}
+
+
 \section{Advanced: Inheritance}
 \section{Summary}
 \section{Discussion questions}
@@ -1184,7 +1311,19 @@ It is important to note that we should never try to access a key that doesn't ex
 	\item Write a function that combines two lists of identical length by alternating each element and returns the combined list. For example, if the first list is \texttt{["foo", "bar", "baz", "qux"]} and the second list is \texttt{[1, 2, 3, 4]}, the function would return \texttt{["foo", 1, "bar", 2, "baz", 3, "qux", 4]}.
 	
 	\item Write a function that takes two lists and return a new list that contains only the unique values from both lists. For example, if the first list is \texttt{[1, 2, 3, 4]} and the second list is \texttt{[6, 5, 4, 3]}, the function would return \texttt{[3, 4]}.
+	
+	\item Create dictionary that contains a series of keys representing abbreviations of five US states (e.g., NY, MA, CA) whose related valuates are the city capitals of each state (e.g., New York City, Boston, Sacramento). Write a program that will prompt the user to enter the abbreviation of a US state. If the user enters the abbreviation of a state included in the dictionary, the program should print that state's capital. If the state is not included in the dictionary, the program should return a message indicating that fact.
+	
+	\item \textbf{Portfolio project:} Write a simple program that creates a database of your friends' birthdays. The program should give the user the options to 1) add a new friend and birthday to the database, 2) remove a friend and birthday from the database, 3) change the birthday for a friend already included in the database, 4) print the current friends and birthdays stored in the database, and 5) export the contents of the database to a JSON file. You should use conditional statements to manage user input. You may want to consider using a dictionary as the organizational structure supporting your database.
+	
+	\item \textbf{Portfolio project:} The file \texttt{wordlist.txt} posted on the textbook website contains a list of 69,903 English words. Using this word list, create a game of Hangman using Python. The program should read the word list file and randomly choose a single word from the list. It should then provide the user with a limited number of chances to guess individual letters that make up the word. An example of what such a program might look like is presented in Figure 4.11.
+	
+	\begin{figure}[h]
+		\caption{Sample program output for exercise 7}
+		\centering\includegraphics[width=.80\textwidth]{/Chapter4/Exercise_7}
+	\end{figure}
 
+	Hint: To help choose a random word from the list provided, considder using the \texttt{randint()} function which is provided as part of Python's \texttt{random} module. For example, \texttt{"number = random.randint(1,10)} will assign a random number between 1 and 0 to the variable \texttt{number}.
 \end{enumerate}
 
 \end{document}

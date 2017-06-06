@@ -45,9 +45,9 @@
 \contentsline {section}{\numberline {4.3}Lists}{49}
 \contentsline {section}{\numberline {4.4}Dictionaries}{51}
 \contentsline {section}{\numberline {4.5}File input and output}{53}
-\contentsline {section}{\numberline {4.6}Getting data from the web}{53}
-\contentsline {section}{\numberline {4.7}Advanced: Modules, classes, and objects}{53}
-\contentsline {section}{\numberline {4.8}Advanced: Inheritance}{53}
-\contentsline {section}{\numberline {4.9}Summary}{53}
-\contentsline {section}{\numberline {4.10}Discussion questions}{53}
-\contentsline {section}{\numberline {4.11}Exercises}{54}
+\contentsline {section}{\numberline {4.6}Reading and writing data using JSON}{55}
+\contentsline {section}{\numberline {4.7}Advanced: Classes and objects}{57}
+\contentsline {section}{\numberline {4.8}Advanced: Inheritance}{57}
+\contentsline {section}{\numberline {4.9}Summary}{57}
+\contentsline {section}{\numberline {4.10}Discussion questions}{57}
+\contentsline {section}{\numberline {4.11}Exercises}{58}
