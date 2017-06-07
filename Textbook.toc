@@ -46,8 +46,10 @@
 \contentsline {section}{\numberline {4.4}Dictionaries}{51}
 \contentsline {section}{\numberline {4.5}File input and output}{53}
 \contentsline {section}{\numberline {4.6}Reading and writing data using JSON}{55}
-\contentsline {section}{\numberline {4.7}Advanced: Classes and objects}{57}
-\contentsline {section}{\numberline {4.8}Advanced: Inheritance}{57}
-\contentsline {section}{\numberline {4.9}Summary}{57}
-\contentsline {section}{\numberline {4.10}Discussion questions}{57}
-\contentsline {section}{\numberline {4.11}Exercises}{58}
+\contentsline {section}{\numberline {4.7}Advanced: Classes}{57}
+\contentsline {section}{\numberline {4.8}Advanced: Inheritance}{61}
+\contentsline {section}{\numberline {4.9}Summary}{62}
+\contentsline {section}{\numberline {4.10}Discussion questions}{62}
+\contentsline {section}{\numberline {4.11}Exercises}{63}
+\contentsline {chapter}{\numberline {5}Data scraping}{67}
+\contentsline {section}{\numberline {5.1}Introducing Beautiful Soup}{67}

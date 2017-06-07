@@ -1258,21 +1258,151 @@ The program then calls the \texttt{dump} function which is part of the \texttt{j
 
 The program then creates a brand new file object and associates it with the \texttt{\textbackslash names.json} file path. Note that the \texttt{"a"} argument has been omitted from the call to the open function because we want Python to open an existing file for reading only (this is the default function call). The program then uses the \texttt{load} function from the \texttt{json} module to load the contents of the \texttt{names.json} file to the empty \texttt{newNames} list. The program then prints the contents of \texttt{newNames} to ensure that the JSON data was successfully decoded. Finally, the program closes the file object and removes it from memory.
 
-\section{Advanced: Classes and objects}
+\section{Advanced: Classes}
 
-So far we have learned about various types of data and data structures, as well as how to create various functions to manipulate that date. You can perhaps imagine that it might be helpful if there were a way to somehow bundle together certain types of data, as well as their related functions into a single unitary package. 
+So far we have learned about various types of data as well as how to create various functions to manipulate that date. You can perhaps imagine that it might be helpful if there were a way to somehow bundle together certain types of data, as well as their related functions into a single unitary package. 
 
-Python is an example of what is called an \textit{object oriented programming language}. This feature allows us to create unique data structures (called classes) which contain both data and specific functions that interact with that data (called interfaces). These classes are essentially blueprints for creating specific data types (called objects) that contain the data types and functions specified in the classes. This will become more clear as we talk through the following example presented in Figure 4.11:
+Python is an example of what is called an \textit{object oriented programming language}. As such, Python allows us to create unique data structures (called classes) which contain both data and specific functions that interact with that data (called interfaces). These classes are essentially blueprints for creating specific data types (called objects) that contain the data types and functions specified in the classes. This probably all sounds very confusing but I promise that it will become more clear as we talk through the following example.
+
+Imagine we have been hired to develop a simple program for tracking a client's accounts receivable. The specifications that the client has for this program are relatively simple:
+
+\begin{itemize}
+	\item Each invoice added to the program should be assigned a unique invoice number
+	\item For each invoice, the program should keep track of the customer name, the amount due, and whether the invoice has been paid
+	\item The program must provide the ability for users to modify the amount due on the invoice
+	\item The program must provide the ability for users to display the customer name, amount due, and payment status on demand
+\end{itemize}
+
+As we begin, we need to think carefully about how this program is going to store the invoice data that it is responsible for keeping track of. For example, we could store the invoice number as an integer varaiable called \texttt{invoiceNo}, the customer's name in a string called \texttt{customer}, the amount owed in a float called \texttt{amount}, and the payment status (paid or upaid) in a boolean variable called \texttt{paid}. We would then also need to think about creating functions that would allow the user to modify the amount due, set the payment status, and to display the attributes of each invoice. Perhaps we could call these functions \texttt{modifyAmount()}, \texttt{setPaid()}, and \texttt{display()}, respectively.
+
+Obviously, each invoice will need its own set of variables and functions. So how might we keep track of which variables and functions are assigned to each invoice? Well, we could adopt a naming convention which would allow the specific invoice to be inferred from a variable/function name (e.g., \texttt{inv1\_customer}. \texttt{inv2\_customer}, \texttt{inv3\_setPaid()}, etc.) This makes conceptual sense but keeping track of all of these variables and functions would become unmanageable as the number of invoices grows in size. In addition, this approach would generate an enormous amount of repetitive code.
+
+Since all invoices have essentially the same set of attributes, it would be much easier to instead develop a blueprint (called a ``class'') which describes the specific variables and functions that are needed by each invoice. Then every time a new invoice needs to be created, we can use this blueprint to create an instance of the class (called an ``object'') which represents the specific invoice. Let's review Figure 4.11 for an example of how this might work.
 
 \begin{figure}[h]
-	\caption{A basic student class}
+	\caption{A simple program for tracking accounts receivable}
 	\begin{lstlisting}
+	class Invoice:
+		"Common base class for invoices"
+		invoiceNoCounter = 0
+	
+		def __init__(self, customer, amount):
+			self.customer = customer
+			self.amount = amount
+			Invoice.invoiceNoCounter += 1
+			self.invoiceNo = Invoice.invoiceNoCounter
+			self.paid = False
+	
+		def changeAmount(self, amount):
+			self.amount = amount
+	
+		def setPaid(self):
+			self.paid = not self.paid
+	
+		def display(self):
+			print("Customer: " + self.customer, end =", ") 
+			print("Invoice #: " + str(self.invoiceNo), end = ", ")
+			print("Amount: " + str(self.amount), end = ", ")
+			print("Paid: " + str(self.paid))
+	
+	invoice1 = Invoice("Acme Company", 1541.99)
+	invoice2 = Invoice("XYZ Inc.", 4750.15)
+	invoice1.display()
+	invoice2.display()
+	invoice1.setPaid()
+	invoice2.changeAmount(4500.99)
+	invoice1.display()
+	invoice2.display()
 	\end{lstlisting}
-
+	
 \end{figure}
 
+To create a class, we use the \texttt{class} statement followed immediately by the name of the class that we wish to create (in this case, we are creating a new class called \texttt{Invoice}. All of the code associated with the class definition is then indented after this initial statement.
+
+The first line of the class definition (line 2 in Figure 4.11) is reserved for the class's ``documentation string.'' This is simply a variable with a string type that typically contains a brief description of the class. The exact contents of the documentation string are entirely up to you.\footnote{The document string is stored in the class variable \texttt{\_\_.doc\_\_}}
+
+Line 3 of the program initializes a new variable \texttt{invoiceNoCounter}. This variable is referred to as a ``class variable" because it will be shared by all instances of the class. The purpose of this variable is track the number of invoices that have been recorded in the system for purposes of assigning each invoice a unique invoice number. This variable is initially assigned a value of 0.
+
+On line 5 we define a class function called \texttt{\_\_init\_\_}. Functions that are defined within class definitions are referred to as ``methods" and we will be using this terminology from this point forward. The double underscores before and after the method name indicates that this is a special name reserved by the Python interpreter. The \texttt{\_\_init\_\_} method contains code that will be executed each time time a new instance of a class is created. Every class definition you create should contain a \texttt{\_\_init\_\_} method. 
+
+Note that the \texttt{\_\_init\_\_} method within our Invoice class has three arguments. The first argument, \texttt{self}, is always included as the first argument for any class method that you create. \texttt{self} is simply an identifier used to refer to a specific instance of a class. Be advised that you do not have to specifically pass the self argument when calling a function, Python will implicitly pass it for you. The second paramter, \texttt{customer}, will take the name of the customer associated with a specific invoice being created. The final parameter, \texttt{amount}, will take the dollar amount of the invoice being created. The body of the \texttt{\_\_init\_\_} method takes the later 2 parameter values and assigns them to two new instance variables called \texttt{customer} and \texttt{amount}, respectively (variables defined within a class that are shared with class instances are refereed to as ``members.") The prefex \texttt{self} indicates that the new members should be initialized uniquely for each specific instance of the class. This ensures that each class instance will have its own unique \texttt{customer} and {amount} members.
+
+The third line of the \texttt{\_\_init\_\_} method (Line 8) increments the \texttt{invoiceNoCounter} class variable which we declared earlier by 1. Recall that class variables are shared by all instances of the class, which we reference this variable using the class name \texttt{Invoice}. The fourth line of the method assigns this value to a new member \texttt{invoiceNo}. The \texttt{self} prefix indicates that this variable will be created uniquely for each instance of the class. The final line of the method creates a new instance member called \texttt{paid} which will indicate whether the invoice has been paid. This member is assigned an initial value of \texttt{False}.
+
+Line 12 defines a new class method \texttt{changeAmount} which is used to change the value of an invoice object. The method takes the value passed as \texttt{amount} and assigns it to a new instance member of the same name. 
+
+Line 15 defines a new class method \texttt{setPaid} which toggles the value of the \texttt{self.paid} data member. Note that the expression \texttt{not self.paid} returns the inverse of the current value of \texttt{self.paid} (i.e., if the current value of \texttt{self.paid} is \texttt{true}, the expression returns \texttt{false}.) Finally, the class method \texttt{display} defined on line 18 prints the value of the instance's members.
+
+With the class definition complete, we can new create individual instances of the class. Let's review the expression included in line 24 of the program and repeated below:
+
+\texttt{invoice1 = Invoice("Acme Company", 1541.99)}
+
+This statement object called \texttt{invoice1} which has a class type of \texttt{Invoice}. Remember that the  \texttt{\_\_init\_\_} method is called when an instance of a class is created, that this method takes three arguments, and that Python automatically passes the first argument \texttt{self} for us. This means that Python expects us to pass a value for the remaining \texttt{customer} and \texttt{amount} arguments when initializing the object. In the code above, the string \texttt{Acme Company} is passed as the \texttt{company} argument and \texttt{1541.99} is passed as the \texttt{amount} argument. ]
+
+The remaining lines of the program call various other object methods. For example, the call to \texttt{invoice1.setPaid()} on Line 28 toggles the \texttt{paid} data member within the \texttt{invoice1} object. The call to \texttt{invoice2.setamount} on Line 29 passes the value \texttt{4500.99} as the argument \texttt{amount} which is used to update the value of the \texttt{invoice2.amount} data member. Finally, the calls to the \texttt{display} method display the value of the data members for each object. The output that would be displayed upon running the full program is presented in Figure 4.12.
+
+\begin{figure}[h]
+	\caption{Output for the AR tracking program}
+	\centering\includegraphics[width=.90\textwidth]{/Chapter4/Figure_12}
+\end{figure}
 
 \section{Advanced: Inheritance}
+
+In the previous section, we created a simple Python class definition for creating invoice objects. This class contained data members for an object's invoice number, customer name, amount, and payment status as well as specific methods for accessing and manipulating those members. 
+
+Suppose that our client is happy with our work so far and has now asked us to modify our Python program to also track accounts \texttt{payable} invoices. Our revised program should share many of the features of our previous program to track accounts receivable invoices: it should store the payables invoice number, whether it has been paid, and should provide the ability to modify payable amounts, update the paid status, and display invoice attributes. 
+
+We could start from scratch and create a new class to create accounts payable invoice objects. However, we could instead modify our original invoice class to contain only data members and methods that are common across all invoice objects. We could then create two derived classes from the parent invoice class that relate to accounts payable and accounts receivable classes specifically. These derived classes would inherent the attributes from the parent class. The example in Figure 4.12 demonstrates how the parent class could be defined, while the derived classes are presented in Figure 4.13.
+
+\begin{figure}[h]
+	\caption{The parent invoice class}
+	\begin{lstlisting}
+	class Invoice:
+		"Common base class for invoices"
+		invoiceNoCounter = 0
+
+		def changeAmount(self, amount):
+			self.amount = amount
+
+		def setPaid(self):
+			self.paid = not self.paid
+
+		def display(self):
+			print("Customer/Vendor: " + self.company, end =", ") 
+			print("Invoice #: " + str(self.invoiceNo), end = ", ")
+			print("Amount: " + str(self.amount), end = ", ")
+			print("Paid: " + str(self.paid))
+	\end{lstlisting}
+\end{figure}
+
+Note that the parent \texttt{Invoice} class is very similar to the version of the class presented earlier. It still contains a class variable for ensuring that accounts receivable invoices contain a unique ID number. It also has methods to change the amount of the invoice, set the payment status, and display the invoice attributes.  Note that we modified the \texttt{display} method slightly due to the fact that the company listed on a receivables invoice would be referred to as the ``customer,'' while the company listed on a payables invoice would be referred to as the ``vendor.''
+
+\begin{figure}[h]
+	\caption{The derived classes}
+	\begin{lstlisting}
+	class AccountsReceivable(Invoice):
+	"Derived class for accounts receivable invoices"
+	def __init__(self, customer, amount):
+	self.company = customer
+	self.amount = amount
+	Invoice.invoiceNoCounter += 1
+	self.invoiceNo = Invoice.invoiceNoCounter
+	self.paid = False
+	
+	class AccountsPayable(Invoice):
+	"Derived class for accounts payable invoices"
+	def __init__(self, vendor, amount, invoiceNo):
+	self.company = vendor
+	self.amount = amount
+	self.invoiceNo = invoiceNo
+	self.paid = False
+	\end{lstlisting}
+\end{figure}
+
+Derived classes are declared similarly to their parent class; however the parent class to be inherited from is identified in parentheses after the class name. Note that both derived classes share all of the same methods as the \texttt{Invoice} parent class, with the exception of the \texttt{\_\_init\_\_} which has been overriden in each of the derived classes. This is due to the fact that initializing instances of each of the derived classes requires the passing of different arguments. For example, note that initializing an \texttt{AccountsPayable} object requires the passing of an \texttt{invoiceNo} argument which is assigned to \texttt{self.invoiceNo}, while initializing the \texttt{AccountsReceivable} object assigns a \texttt{self.invoiceNo} value generated from the parent class \texttt{Invoice.invoiceNoCounter}.
+
+Here is some further code and the related output. 
+
 \section{Summary}
 \section{Discussion questions}
 \begin{enumerate}
@@ -1316,7 +1446,7 @@ Python is an example of what is called an \textit{object oriented programming la
 	
 	\item \textbf{Portfolio project:} Write a simple program that creates a database of your friends' birthdays. The program should give the user the options to 1) add a new friend and birthday to the database, 2) remove a friend and birthday from the database, 3) change the birthday for a friend already included in the database, 4) print the current friends and birthdays stored in the database, and 5) export the contents of the database to a JSON file. You should use conditional statements to manage user input. You may want to consider using a dictionary as the organizational structure supporting your database.
 	
-	\item \textbf{Portfolio project:} The file \texttt{wordlist.txt} posted on the textbook website contains a list of 69,903 English words. Using this word list, create a game of Hangman using Python. The program should read the word list file and randomly choose a single word from the list. It should then provide the user with a limited number of chances to guess individual letters that make up the word. An example of what such a program might look like is presented in Figure 4.11.
+	\item \textbf{Portfolio project:} The file \texttt{wordlist.txt} posted on the textbook website contains a list of 69,903 English words. Using this word list, create a game of Hangman using Python. The program should read the word list file and randomly choose a single word from the list. It should then provide the user with a limited number of chances to guess individual letters that make up the word. An example of what such a program might look like is presented in Figure 4.13.
 	
 	\begin{figure}[h]
 		\caption{Sample program output for exercise 7}
@@ -1324,6 +1454,10 @@ Python is an example of what is called an \textit{object oriented programming la
 	\end{figure}
 
 	Hint: To help choose a random word from the list provided, considder using the \texttt{randint()} function which is provided as part of Python's \texttt{random} module. For example, \texttt{"number = random.randint(1,10)} will assign a random number between 1 and 0 to the variable \texttt{number}.
+	
+	\item \textbf{Portfolio project:} Modify the example in 4.11 so that it is interactive. The user should have the ability to manually add new invoices and display the attributes of invoices that have already been entered. Hint: You will likely want to use a list data structure to store the invoice objects your program generates. For a further challenge, add the ability to delete specific invoices (it may be helpful to review some of the standard Python list methods that were discussed earlier in the chapter).
 \end{enumerate}
 
+\chapter{Data scraping}
+\section{Introducing Beautiful Soup}
 \end{document}
