@@ -1167,7 +1167,6 @@ Finally, key-value pairs can be deleted from a dictionary by using the \texttt{d
 Be warned that it can be dangerous to make significant changes to dictionaries since the content will change for other functions that reference the same dictionary. Before modifying a dictionary's contents, consider whether it would be more useful to create a modified copy of the dictionary. The \texttt{copy()} method can be used to create a dictionary copy as follows:
 
 \texttt{employees2 = employees.copy()}
-
 \section{File input and output}
 While we have already learned how to create programs which can collect data input from a user, the programs we will write to handle accounting data will often need to be able to read/write data from/to a file. Python 3+ incorporates a number of handy i/o functions and methods that can make working reading and writing files fairly simple.
 
@@ -1350,9 +1349,7 @@ The remaining lines of the program call various other object methods. For exampl
 
 In the previous section, we created a simple Python class definition for creating invoice objects. This class contained data members for an object's invoice number, customer name, amount, and payment status as well as specific methods for accessing and manipulating those members. 
 
-Suppose that our client is happy with our work so far and has now asked us to modify our Python program to also track accounts \texttt{payable} invoices. Our revised program should share many of the features of our previous program to track accounts receivable invoices: it should store the payables invoice number, whether it has been paid, and should provide the ability to modify payable amounts, update the paid status, and display invoice attributes. 
-
-We could start from scratch and create a new class to create accounts payable invoice objects. However, we could instead modify our original invoice class to contain only data members and methods that are common across all invoice objects. We could then create two derived classes from the parent invoice class that relate to accounts payable and accounts receivable classes specifically. These derived classes would inherent the attributes from the parent class. The example in Figure 4.12 demonstrates how the parent class could be defined, while the derived classes are presented in Figure 4.13.
+Suppose that our client is happy with our work so far and has now asked us to modify our Python program to also track accounts \textit{payable} invoices. Our revised program should share many of the features of our previous program to track accounts receivable invoices: it should store the payables invoice number, whether it has been paid, and should provide the ability to modify payable amounts, update the paid status, and display the invoice attributes. 
 
 \begin{figure}[h]
 	\caption{The parent invoice class}
@@ -1360,13 +1357,13 @@ We could start from scratch and create a new class to create accounts payable in
 	class Invoice:
 		"Common base class for invoices"
 		invoiceNoCounter = 0
-
+	
 		def changeAmount(self, amount):
 			self.amount = amount
-
+	
 		def setPaid(self):
 			self.paid = not self.paid
-
+	
 		def display(self):
 			print("Customer/Vendor: " + self.company, end =", ") 
 			print("Invoice #: " + str(self.invoiceNo), end = ", ")
@@ -1375,35 +1372,51 @@ We could start from scratch and create a new class to create accounts payable in
 	\end{lstlisting}
 \end{figure}
 
+We could start from scratch and create a new class definition for accounts payable invoices. However, we could instead modify our original invoice class to contain only data members and methods that are common across all invoice objects. We could then create two derived classes from this parent invoice class that relate to accounts payable and accounts receivable invoices specifically. These derived classes would inherent the common attributes from the parent class. The example in Figure 4.13 demonstrates how the parent class could be defined, while the derived classes are presented in Figure 4.14.
+
 Note that the parent \texttt{Invoice} class is very similar to the version of the class presented earlier. It still contains a class variable for ensuring that accounts receivable invoices contain a unique ID number. It also has methods to change the amount of the invoice, set the payment status, and display the invoice attributes.  Note that we modified the \texttt{display} method slightly due to the fact that the company listed on a receivables invoice would be referred to as the ``customer,'' while the company listed on a payables invoice would be referred to as the ``vendor.''
 
 \begin{figure}[h]
 	\caption{The derived classes}
 	\begin{lstlisting}
 	class AccountsReceivable(Invoice):
-	"Derived class for accounts receivable invoices"
-	def __init__(self, customer, amount):
-	self.company = customer
-	self.amount = amount
-	Invoice.invoiceNoCounter += 1
-	self.invoiceNo = Invoice.invoiceNoCounter
-	self.paid = False
+		"Derived class for accounts receivable invoices"
+		def __init__(self, customer, amount):
+			self.company = customer
+			self.amount = amount
+			Invoice.invoiceNoCounter += 1
+			self.invoiceNo = Invoice.invoiceNoCounter
+			self.paid = False
 	
 	class AccountsPayable(Invoice):
-	"Derived class for accounts payable invoices"
-	def __init__(self, vendor, amount, invoiceNo):
-	self.company = vendor
-	self.amount = amount
-	self.invoiceNo = invoiceNo
-	self.paid = False
+		"Derived class for accounts payable invoices"
+		def __init__(self, vendor, amount, invoiceNo):
+			self.company = vendor
+			self.amount = amount
+			self.invoiceNo = invoiceNo
+			self.paid = False
 	\end{lstlisting}
 \end{figure}
 
-Derived classes are declared similarly to their parent class; however the parent class to be inherited from is identified in parentheses after the class name. Note that both derived classes share all of the same methods as the \texttt{Invoice} parent class, with the exception of the \texttt{\_\_init\_\_} which has been overriden in each of the derived classes. This is due to the fact that initializing instances of each of the derived classes requires the passing of different arguments. For example, note that initializing an \texttt{AccountsPayable} object requires the passing of an \texttt{invoiceNo} argument which is assigned to \texttt{self.invoiceNo}, while initializing the \texttt{AccountsReceivable} object assigns a \texttt{self.invoiceNo} value generated from the parent class \texttt{Invoice.invoiceNoCounter}.
+Derived classes are declared similarly to their parent class; however the parent class to be inherited from is identified in parentheses after the class name. Both derived classes will share all of the same methods as the \texttt{Invoice} parent class, with the exception of the \texttt{\_\_init\_\_} which has been overriden in each of the derived class definitions. This is due to the fact that we want our accounts payable and accounts receivable objects to be initialized with different arguments. For example, note that initializing an \texttt{AccountsPayable} object requires the passing of an \texttt{invoiceNo} argument which is assigned to \texttt{self.invoiceNo}, while initializing the \texttt{AccountsReceivable} object assigns a \texttt{self.invoiceNo} value generated from the parent class \texttt{Invoice.invoiceNoCounter}. This is due to the fact that invoice numbers for the AR invoices should be generated internally, while the invoice numbers for the AP invoices need to be supplied by the vendors.
 
-Here is some further code and the related output. 
+For an example of how these derived classes could be instantiated and how to call their methods, carefully review the following code excerpt and the related output presented in Figure 4.15. 
+
+\texttt{invoice1 = AccountsReceivable("Acme Company", 1541.99) \\
+invoice2 = AccountsPayable("XYZ Inc.", 4750.15, 2833303) \\
+invoice1.display() \\
+invoice2.changeAmount(4500.99) \\
+invoice2.display()} 
+
+\begin{figure}[h]
+	\caption{Output for the modified invoice tracking program}
+	\centering\includegraphics[width=.90\textwidth]{/Chapter4/Figure_15}
+\end{figure}
 
 \section{Summary}
+
+We began this chapter by introducing functions, which are useful programming tools for writing reusable code. We then discussed lists and dictionaries, which are commonly used data structures for handling more complex data. We learned the basic steps involved in saving to and reading from files, including encoding/decoding using the JSON format. The chapter concluded with an introductory discussion of object oriented programming concepts including classes and inheritance.
+ 
 \section{Discussion questions}
 \begin{enumerate}
 	\item What is the difference between local versus global scoping of variables? Why do you think programmers generally prefer to avoid using variables with global scope?
@@ -1429,6 +1442,9 @@ Here is some further code and the related output.
 		\item \texttt{myList.remove(1)}
 		\item \texttt{myList.sort()}
 	\end{enumerate}
+	\item The following code stub starts the definition of a class called \texttt{JournalEntry}. Objects instantiated using this definition should have the members \\ \texttt{accountName} and \texttt{amount}. Complete the code stub by replacing the commented code \texttt{\#Line 1} and \texttt{\#Line 2}.
+	
+	\texttt{class JournalEntry: \\ \mbox{~~~~}def \_\_init\_\_(self, accountName, amount): \\ \mbox{~~~~~~~~}\#Line 1: Create a member for the account name \\ \mbox{~~~~~~~~}\#Line 2: Create a member for the journal entry amount}
 	
 \end{enumerate}
 
@@ -1453,11 +1469,270 @@ Here is some further code and the related output.
 		\centering\includegraphics[width=.80\textwidth]{/Chapter4/Exercise_7}
 	\end{figure}
 
-	Hint: To help choose a random word from the list provided, considder using the \texttt{randint()} function which is provided as part of Python's \texttt{random} module. For example, \texttt{"number = random.randint(1,10)} will assign a random number between 1 and 0 to the variable \texttt{number}.
+	Hint: To help choose a random word from the list provided, consider using the \texttt{randint()} function which is provided as part of Python's \texttt{random} module. For example, \texttt{"number = random.randint(1,10)} will assign a random number between 1 and 0 to the variable \texttt{number}.
 	
-	\item \textbf{Portfolio project:} Modify the example in 4.11 so that it is interactive. The user should have the ability to manually add new invoices and display the attributes of invoices that have already been entered. Hint: You will likely want to use a list data structure to store the invoice objects your program generates. For a further challenge, add the ability to delete specific invoices (it may be helpful to review some of the standard Python list methods that were discussed earlier in the chapter).
+	\item \textbf{Portfolio project:} Modify the example in Figure 4.11 so that it is interactive and also keeps track of a new invoice attribute - the payment due date. The user should have the ability to manually add new invoices and display the attributes of invoices that have already been entered. Hint: You will likely want to use a list data structure to store the invoice objects your program generates. For a further challenge, add the ability to delete specific invoices (it may be helpful to review some of the standard Python list methods that were discussed earlier in the chapter).
 \end{enumerate}
 
-\chapter{Data scraping}
-\section{Introducing Beautiful Soup}
+\chapter{Collecting data from the web}
+	Websites often contain useful data for performing accounting analytic tasks. For example, a client may post certain relevant accounting data on an internal corporate website, or an auditor may want to gather pricing data from the external website of a vendor for purposes of performing valuation test work. Thankfully, it is relatively easy to write Python programs that can gather data from the web.
+	
+\section{HTML}
+	
+	HTML is an acronym that stands for HyperText Markup Language. You can think of HTML as essentially a programming language for displaying information in a web browser. It is comprised of a collection of short statements (referred to as ``tags'') which tell the browser how website content should be presented to the viewer. At their most basic level, tags can apply simple formatting to website text. For example, the tag \texttt{<b>} can be used to make text appear bolded. Within a webpage's HTML document, this tag could be used as follows:
+	
+	\texttt{Hello! <b> This text is bolded </b> but this text is not.}
+	
+	If a web browser were to then read this line of HTML code, it would display the following:
+	
+	Hello! \textbf{This text is bolded} but this text is not.
+	
+	Note that HTML tags are always encapsulated in angle brackets and the closing tag is always prefaced with a forward slash (/). HTML contains a wide variety of tags that can be used to display information in a myriad of different ways, such as including information in tables, or in graphics and videos. A brief list of some common HTML tags is presented in Figure 5.1. For our purposes, learning about HTML in great depth is beyond the scope of this book\footnote{That being said, understanding HTML can be an invaluable skill for a budding data scientist. For beginners, I recommend Jon Duckett's book \textit{HTML and CSS: Design and Build Websites} which is published by John Wiley \& Sons.} That being said, once we understand how information used in a particular website is tagged, we can use that knowledge to gather data that is of interest to our analyses. For example, if we were interested in obtaining all of the information that is displayed on a website in \textbf{bolded} text, we could write a Python program that reads the website's HTML code and saves any data encapsulated in \texttt{<b>} tags. This is commonly referred to as ``web scraping''.
+
+\begin{figure}[h]
+	\caption{Common HTML tags}
+	\centering
+	\begin{center}
+		\begin{tabular}{|c | c|}
+			\hline Tag & Description \\ [0.5ex]
+			\hline
+			\texttt{<HTML>} & The entire HTML document \\
+			\hline
+			\texttt{<HEAD>} & The header of the document \\
+			\hline
+			\texttt{<TITLE>} & The title of the document \\
+			\hline
+			\texttt{<BODY>} & The body part of the document \\
+			\hline
+			\texttt{<P>} & A paragraph \\
+			\hline
+			\texttt{<DIV>} & A custom container unit \\
+			\hline
+			\texttt{<H1>} & A section heading (subheadings are \texttt{<H2>} through \texttt{<H6>}) \\
+			\hline
+			\texttt{<IMG>} & An image \\
+			\hline
+			\texttt{<LI>} & A list item \\
+			\hline
+			\texttt{<TABLE>} & A table \\
+			\hline
+			\texttt{<TR>} & A table row \\
+			\hline
+			\texttt{<TD>} & A data cell for a table \\
+			\hline
+			\texttt{<THEAD>} & The header for a table \\
+			\hline
+			\texttt{<TH>} & A header cell for at table \\
+			\hline
+			\texttt{<A>} & A hyperlink \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{figure}
+
+\section{Necessary libraries}
+	
+	We will be writing our web scraper using the free Python library \textit{Beautiful Soup} written by Leonard Richardson. The project's website, which includes the latest release and documentation, is located at:
+	
+	\texttt{https://www.crummy.com/software/BeautifulSoup/}
+	
+	To give Python the ability to access the web and pass HTML data to \textit{Beautiful Soup}, we'll be using the free Python library \textit{Requests}. The website for the library, which also includes the latest release and documentation, is located at:
+	
+	\texttt{http://docs.python-requests.org/en/latest}
+	
+	We'll be using the Python package management system, \textit{Pip} to install both libraries. \footnote{If you're using Python version 3.4 or later, \textit{Pip} should already be installed on your machine. You can verify this by by typing \texttt{pip} from your terminal console. If for some reason \textit{Pip} is not installed on your system, you can follow the installation instructions available at \texttt{https://docs.python.org/3/installing/}} \textit{Pip} allows Python packages to be installed using the command:
+	
+	\texttt{pip install package-hame}
+	
+	In our case, we'll be running the following two commands within PowerShell to install \textit{Beautiful Soup} and \textit{Requests}:
+	
+	\texttt{pip install beautifulsoup4} \\
+	\texttt{pip install Requests}
+	
+	If the packages have installed correctly, \textit{Pip} should display output similar to Figures 5.2 and 5.3.
+	
+\begin{figure}[h]
+	\caption{Successful installation output for \textit{Beautiful Soup}}
+	\centering\includegraphics[width=.80\textwidth]{/Chapter5/Figure_1}
+\end{figure}
+
+\begin{figure}[h]
+	\caption{Successful installation output for \textit{Requests}}
+	\centering\includegraphics[width=.80\textwidth]{/Chapter5/Figure_2}
+\end{figure}
+
+\section{Viewing a webpage's HTML code}
+	Prior to scraping the data from a web page, we need to understand how the data on that particular page is being tagged. We can do that by viewing the page's HTML source code within a web browser. In this example, we'll be scraping a website that contains a fictional company's ending inventory information. You'll note that this website lists inventory data across a series of three individual webpages which can be navigated using hyperlinks in the lower-left corner of the page. This website can be found at:
+	
+	\texttt{http://www.steveperreault.com/textbook.inventory1.html}
+	
+	Once you've navigated to the site, right click anywhere in the browser frame and open the \textit{Inspector} pane, as demonstrated in Figure 5.4. The inspector tool allows us to see the underlying HTML code for any portion of a webpage that we click on. \footnote{The option to select this tool may look slightly different if you are using another browser; in this case we are using Google Chrome.\texttrademark}
+	
+	\begin{figure}[h]
+		\caption{The \textit{Inspector} menu option}
+		\centering\includegraphics[width=.80\textwidth]{/Chapter5/Figure_3}
+	\end{figure}
+
+	Activate the selection tool from within the \textit{Inspector} pane (see Figure 5.5) and then click on any of the tabular inventory data contained in the browser pane. The \texttt{Inspector} page will change to display the HTML code associated with the inventory data (see Figure 5.6).
+	
+\begin{figure}[h]
+	\caption{The \textit{Inspector} selection tool}
+	\centering\includegraphics[width=.95\textwidth]{/Chapter5/Figure_4}
+\end{figure}
+
+\begin{figure}[h]
+	\caption{The HTML source for the inventory data table}
+	\centering\includegraphics[width=.95\textwidth]{/Chapter5/Figure_5}
+\end{figure}
+
+	You will notice that the inventory table as a whole is encapsulated within \texttt{<table>} tags. Individual rows of a table are contained within \texttt{<tr>} tags. The first row of the table represents the header and is enclosed within \texttt{<thead>} tags and contains five cells for the table headings, each enclosed within \texttt{<th>} tags. The body of the table is encapsulated within \texttt{<tbody>} tags. Finally, cells containing standard data are enclosed within \texttt{<td>} tags. This is the standard scheme for tagging tabular data in an HTML document. 
+
+\section{Building a basic webscraper using Python}
+
+	Now that we understand how the data we are interested in has been tagged, we can write a Python program to collect that data using \textit{Beautiful Soup} and \textit{Requests}. To keep things understandable, we'll develop the application slowly in individual pieces. 
+	
+	First, we need to tell Python to import the \textit{Requests} module so we have access to the tools we need to access the web. 
+	
+	\texttt{import requests}
+	
+	Now, let's create a new variable, called \texttt{url} which will store the address of the webpage we want to scrape (represented as a string).
+	
+	\texttt{url = "http://www.steveperreault.com/textbook/inventory1.html"}
+	
+	Next, we will call the \textit{Requests} method \texttt{get} which will return webpage data from the address we provide. We'll pass the \texttt{url} variable we just created to this method and store the returned data into a new object called \texttt{response}.
+	
+	\texttt{response = requests.get(url)}
+	
+	The HTML content of the webpage is stored in a method called \texttt{content}. We can verify that the object was created correctly by printing the contents of that method as follows.
+	
+	\texttt{print (response.content)}
+	
+	If we've done everything correctly, running this program should display the raw HTML from the webpage we are attempting to scrape, similar to that shown in Figure 5.7. While this is a good first step, we now need to modify the program to strip out the extraneous information, including the HTML tags, and display only the data we are interested in. \textit{Beautiful Soup} has several helpful methods that will aid us in this effort. 
+	
+\begin{figure}[h]
+	\caption{Raw HTML data}
+	\centering\includegraphics[width=.95\textwidth]{/Chapter5/Figure_8}
+\end{figure}	
+	
+	First, let's modify our program to also import the \textit{Beautiful Soup} methods we need. Note that the \texttt{from} prefix ensures that we are importing from the \texttt{bs4} module which is compatible with Python version 3+.
+	
+	\texttt{from bs4 import BeautifulSoup}
+	
+	We'll then create a new \textit{Beautiful Soup} object from the \texttt{requests} object that was created earlier.
+	
+	\texttt{soup = BeautifulSoup(response.content)}
+	
+	This new \texttt{soup} object contains all of the HTML presented in the original document (you can \texttt{print()} its contents to verify this). We're only interested in capturing the data contained within the table and, as we learned earlier, that data is encapsulated within \texttt{<tbody>} tags. We can use the \texttt{find()} method to identify only data contained with the \texttt{tbody} tag and save that into a new object called \texttt{table}.
+	
+	\texttt{table = soup.find("tbody")}
+	
+	We will then call the object's \texttt{prettify()} method which formats the content by placing each HTML tag on its own line. Then we'll print out the contents of the \texttt{table} object so we can see what we've collected so far.
+	
+	\texttt{table.prettify()} \\
+	\texttt{print(table)}
+	
+	Again, if we've done everything correctly, the output of our program should look similar to that presented in Figure 5.8. Note that the program has only captured the data contained within the \texttt{tbody} tags -- all of the other HTML code has been removed from the object.
+		
+\begin{figure}[h]
+	\caption{"Prettified" table data}
+	\centering\includegraphics[width=.95\textwidth]{/Chapter5/Figure_9}
+\end{figure}
+
+	Remember that within our table body, rows are identified by the \texttt{<tr>} tag, while individual data cells are identified by the \texttt{<td>} tag. We want to take the data within each of these cells and store it in a data structure that can then be accessed and manipulated by Python. Thankfully, the list data structure that we learned about in Chapter 4 is perfect for storing tabular data. Let's go ahead and create a new list called \texttt{inventory} now.
+	
+	\texttt{inventory = []}
+	
+	We now need to tell our Python program to grab the data that is contained in the \texttt{table} object and place it into our new \texttt{inventory} list structure. Specifically, the program should read through the \texttt{table} object and, every time it encounters the \texttt{<tr>} tag, it should make a new row in the \texttt{inventory} list. Then, when it encounters data encapsulated within \texttt{<td>} tags, we want it to copy that data as a new element into the \texttt{inventory} list. This process should proceed until Python has processed the entire \texttt{table} object.
+	
+	This sounds just like an iterative process which means we'll be able to apply the iteration concepts from Chapter 3. The specific loop we'll want to include in our program is presented in Figure 5.8.
+
+\begin{figure}[h]
+\caption{Copying data to a list}
+\begin{lstlisting}
+for row in table.findAll("tr"):
+	rowContents = []
+	for cell in row.findAll("td"):
+		rowContents.append(cell.string)
+	inventory.append(rowContents)
+\end{lstlisting}
+\end{figure}	
+
+Note the first expression uses \textit{Beautiful Soup's} \texttt{findAll} method to tell Python to iterate over all of the rows in the table which are identified by the \texttt{<tr>} tag. When a new row is found, the program then initializes a new list called \texttt{rowContents} which will be used to store the data elements in that row. On line 3, a second \texttt{for} loop is used to iterate over all of the cells in the row chich are identified by the \texttt{<td>} tag. Every time a new cell is encountered, its content (contained within the \texttt{string} member) is appended to the end of the \texttt{rowContents} list. Finally, when all the cells in a row have been processed, \texttt{rowContents} is appended to the \texttt{inventory} list. The process then starts again for the next row in the table. 
+
+After the completion of this process, the \texttt{inventory} list data structure should contain the inventory data that were are interested in. If we were to display its contents, the output would look similar to that presented in Figure 5.10.
+
+\begin{figure}[h]
+	\caption{Contents of \texttt{inventory} list data structure}
+	\centering\includegraphics[width=.95\textwidth]{/Chapter5/Figure_10}
+\end{figure}
+
+It is likely the case that we will want to save the contents of our list to a file so they can be used in other programs. We could write the code to do this ourself, iterating over the elements in the list and saving each to a text file (we learned how to do this in Chapter 4) However, Python contains a handy built-in module called \texttt{csv} which can more easily output the contents of our \texttt{inventory} data structure into a comma-delimited format. We're going to use this module now to save us some code.
+
+First, we'll import the module, create a new file object called \texttt{output} and associate the file object with the file \texttt{inventory.csv}\footnote{\texttt{.CSV} is the common file extension for comma-delimited files.} Recall that the \texttt{a} parameter ensures that a new \texttt{inventory.csv} will be created if one does not exist already. This was covered earlier in Chapter 4.
+
+\texttt{import csv} \\
+\texttt{output = open("inventory.csv", "a")}
+
+We then call the \texttt{writer} method which will create a new object {writerObj} that will be used to write data to the file object we just created.
+
+\texttt{writerObj = csv.writer(output)}
+
+Finally, the method \texttt{writerows} is used to write all the rows in the \texttt{inventory} list to the CSV file we specified.
+
+\texttt{writerObj.writerows(inventory)}
+
+Executing this program will create a new file in our working directory \texttt{inventory.csv} which contains a comma delimited list of all of the inventory data from the website. We can open the file in a spreadsheet program such as Microsoft Excel\texttrademark to verify that its contents.
+
+There is still one last thing that we're missing - the table headers. Recall that we only told \textit{Beautiful Soup} to parse data within \texttt{<tbody>} tags; however, the table's column headers are contained within \texttt{<thead>} tags. We could write some additional code to tell \texttt{Beautiful Soup} to gather that data for us and then add it to the \texttt{inventory.csv} file following the steps we just reviewed. However, unless you are working with a table that has a very large number of columns, it is often easier to simply insert the table headers into the CSV file manually. We can do this using the \texttt{writerow} method which will write a single row of data to the \texttt{inventory.csv} file. Be sure to make this call prior to writing the rest of the tabular data to the file.
+
+\texttt{writerObj.writerow(["Warehouse", "SKU", "Desc", "onHand", "Price"])}
+
+The full source code for the program and the related CSV file (as viewed in Microsoft Excel) are presented in Figures 5.11 and 5.12, respectively.
+
+\begin{figure}[h]
+\caption{The complete basic web scraper}
+\begin{lstlisting}
+	import requests
+	from bs4 import BeautifulSoup
+	import csv
+
+	url = "http://www.steveperreault.com/textbook/inventory1.html"
+
+	response = requests.get(url)
+
+	soup = BeautifulSoup(response.content)
+
+	table = soup.find("tbody")
+
+	inventory = []
+
+	for row in table.findAll("tr"):
+		rowContents = []
+		for cell in row.findAll("td"):
+			rowContents.append(cell.string)
+		inventory.append(rowContents)
+
+	output = open("inventory.csv", "a")
+	writerObj = csv.writer(output)
+	writerObj.writerow(["Warehouse", "SKU", "Desc", "onHand", "Price"])
+	writerObj.writerows(inventory)
+\end{lstlisting}
+
+\end{figure}
+
+\begin{figure}[h]
+	\caption{The contents of \texttt{inventory.csv}}
+	\centering\includegraphics[width=.95\textwidth]{/Chapter5/Figure_12}
+\end{figure}
+
+\section{Scraping multi-page websites}
+
+Note that the program we developed
+
+\section{Parsing XML}
+
+\section{Discussion questions}
+\begin{enumerate}
+	\item Provide some basic tags and indicate what these are.
+\end{enumerate}
 \end{document}

@@ -1,0 +1,53 @@
+/* Style sheet for Introduction to Accounting Data Analytics Using Python. Copyright 2017 Steve Perreault. */
+
+body {
+  background-color: white;
+}
+
+#content{
+  font-family: 'Inconsolata', monospace;
+  margin-top: 2%;
+  float: none;
+  color: black;
+}
+
+#navigation{
+  font-family: 'Inconsolata', monospace;
+  margin: 2%;
+  float: none;
+  text-align: right;
+  color: black;
+}
+
+#title {
+  text-align: center;
+  font-family: 'EB Garamond', serif;
+  color: black;
+  font-size: 500%;
+}
+
+.container-fluid .row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+a:link {
+    color: blue;
+}
+
+/* visited link */
+a:visited {
+    color: blue;
+}
+
+/* mouse over link */
+a:hover {
+    color: blue;
+    text-decoration: none; 
+}
+
+/* selected link */
+a:active {
+    color: blue;
+}
+

@@ -48,8 +48,14 @@
 \contentsline {section}{\numberline {4.6}Reading and writing data using JSON}{55}
 \contentsline {section}{\numberline {4.7}Advanced: Classes}{57}
 \contentsline {section}{\numberline {4.8}Advanced: Inheritance}{61}
-\contentsline {section}{\numberline {4.9}Summary}{62}
-\contentsline {section}{\numberline {4.10}Discussion questions}{62}
-\contentsline {section}{\numberline {4.11}Exercises}{63}
-\contentsline {chapter}{\numberline {5}Data scraping}{67}
-\contentsline {section}{\numberline {5.1}Introducing Beautiful Soup}{67}
+\contentsline {section}{\numberline {4.9}Summary}{63}
+\contentsline {section}{\numberline {4.10}Discussion questions}{63}
+\contentsline {section}{\numberline {4.11}Exercises}{64}
+\contentsline {chapter}{\numberline {5}Collecting data from the web}{67}
+\contentsline {section}{\numberline {5.1}HTML}{67}
+\contentsline {section}{\numberline {5.2}Necessary libraries}{68}
+\contentsline {section}{\numberline {5.3}Viewing a webpage's HTML code}{70}
+\contentsline {section}{\numberline {5.4}Building a basic webscraper using Python}{71}
+\contentsline {section}{\numberline {5.5}Scraping multi-page websites}{76}
+\contentsline {section}{\numberline {5.6}Parsing XML}{77}
+\contentsline {section}{\numberline {5.7}Discussion questions}{77}

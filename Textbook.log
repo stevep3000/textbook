@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300) (preloaded format=pdflatex 2017.5.19)  7 JUN 2017 16:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300) (preloaded format=pdflatex 2017.5.19)  9 JUN 2017 16:44
 entering extended mode
 **./Textbook.tex
 (Textbook.tex
@@ -1305,7 +1305,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 1735) has occurred while \output is active []
 
  [59]
-Overfull \hbox (1.75813pt too wide) in paragraph at lines 1330--1331
+Overfull \hbox (1.75813pt too wide) in paragraph at lines 1329--1330
 []\OT1/cmr/m/n/10 The third line of the [][]\OT1/cmtt/m/n/10 init[][] \OT1/cmr/
 m/n/10 method (Line 8) in-cre-ments the \OT1/cmtt/m/n/10 invoiceNoCounter
  []
@@ -1314,7 +1314,7 @@ m/n/10 method (Line 8) in-cre-ments the \OT1/cmtt/m/n/10 invoiceNoCounter
 File: images//Chapter4/Figure_12.png Graphic file (type png)
 
 <use images//Chapter4/Figure_12.png>
-Package pdftex.def Info: images//Chapter4/Figure_12.png used on input line 1346
+Package pdftex.def Info: images//Chapter4/Figure_12.png used on input line 1345
 .
 (pdftex.def)             Requested size: 310.4979pt x 64.42535pt.
 
@@ -1325,39 +1325,172 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [60]
+[61 <./images//Chapter4/Figure_12.png>]
+Underfull \vbox (badness 1648) has occurred while \output is active []
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+ [62]
+<images//Chapter4/Figure_15.png, id=293, 428.802pt x 56.00925pt>
+File: images//Chapter4/Figure_15.png Graphic file (type png)
+
+<use images//Chapter4/Figure_15.png>
+Package pdftex.def Info: images//Chapter4/Figure_15.png used on input line 1413
+.
+(pdftex.def)             Requested size: 310.4979pt x 40.55821pt.
+ [63 <./images//Chapter4/Figure_15.png>]
+Overfull \hbox (2.7499pt too wide) in paragraph at lines 1445--1446
+[]\OT1/cmr/m/n/10 The fol-low-ing code stub starts the def-i-ni-tion of a class
+ called \OT1/cmtt/m/n/10 JournalEntry\OT1/cmr/m/n/10 .
+ []
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Overfull \hbox (5.4972pt too wide) in paragraph at lines 1447--1448
+[]\OT1/cmtt/m/n/10 #Line 2: Create a member for the journal entry amount 
+ []
 
-[61 <./images//Chapter4/Figure_12.png>] [62] [63]
-<images//Chapter4/Exercise_7.png, id=296, 423.984pt x 369.7815pt>
+[64] <images//Chapter4/Exercise_7.png, id=300, 423.984pt x 369.7815pt>
 File: images//Chapter4/Exercise_7.png Graphic file (type png)
 
 <use images//Chapter4/Exercise_7.png>
-Package pdftex.def Info: images//Chapter4/Exercise_7.png used on input line 145
-3.
+Package pdftex.def Info: images//Chapter4/Exercise_7.png used on input line 146
+9.
 (pdftex.def)             Requested size: 276.00105pt x 240.72186pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[64] [65 <./images//Chapter4/Exercise_7.png>] [66
-
-]
+[65] [66 <./images//Chapter4/Exercise_7.png>]
 Chapter 5.
-[67] (Textbook.aux)
+[67
+
+] [68] <images//Chapter5/Figure_1.png, id=315, 585.98924pt x 307.74976pt>
+File: images//Chapter5/Figure_1.png Graphic file (type png)
+
+<use images//Chapter5/Figure_1.png>
+Package pdftex.def Info: images//Chapter5/Figure_1.png used on input line 1556.
+
+(pdftex.def)             Requested size: 276.00105pt x 144.95232pt.
+
+<images//Chapter5/Figure_2.png, id=316, 386.04225pt x 139.722pt>
+File: images//Chapter5/Figure_2.png Graphic file (type png)
+
+<use images//Chapter5/Figure_2.png>
+Package pdftex.def Info: images//Chapter5/Figure_2.png used on input line 1561.
+
+(pdftex.def)             Requested size: 276.00105pt x 99.8962pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [69 <./images//Chapter5/Figure_1.png>]
+<images//Chapter5/Figure_3.png, id=320, 574.5465pt x 239.6955pt>
+File: images//Chapter5/Figure_3.png Graphic file (type png)
+
+<use images//Chapter5/Figure_3.png>
+Package pdftex.def Info: images//Chapter5/Figure_3.png used on input line 1573.
+
+(pdftex.def)             Requested size: 276.00105pt x 115.14761pt.
+ [70 <./images//Chapter5/Figure_2.png> <./images//Chapter5/Figure_3.png>]
+<images//Chapter5/Figure_4.png, id=324, 442.65375pt x 199.947pt>
+File: images//Chapter5/Figure_4.png Graphic file (type png)
+
+<use images//Chapter5/Figure_4.png>
+Package pdftex.def Info: images//Chapter5/Figure_4.png used on input line 1580.
+
+(pdftex.def)             Requested size: 327.74895pt x 148.05302pt.
+
+<images//Chapter5/Figure_5.png, id=325, 440.24475pt x 301.72725pt>
+File: images//Chapter5/Figure_5.png Graphic file (type png)
+
+<use images//Chapter5/Figure_5.png>
+Package pdftex.def Info: images//Chapter5/Figure_5.png used on input line 1585.
+
+(pdftex.def)             Requested size: 327.74895pt x 224.63744pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[71 <./images//Chapter5/Figure_4.png>]
+<images//Chapter5/Figure_8.png, id=329, 496.254pt x 284.262pt>
+File: images//Chapter5/Figure_8.png Graphic file (type png)
+
+<use images//Chapter5/Figure_8.png>
+Package pdftex.def Info: images//Chapter5/Figure_8.png used on input line 1614.
+
+(pdftex.def)             Requested size: 327.74895pt x 187.73927pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [72 <./images//Chapter5/Figure_5.png>]
+<images//Chapter5/Figure_9.png, id=333, 417.9615pt x 333.6465pt>
+File: images//Chapter5/Figure_9.png Graphic file (type png)
+
+<use images//Chapter5/Figure_9.png>
+Package pdftex.def Info: images//Chapter5/Figure_9.png used on input line 1638.
+
+(pdftex.def)             Requested size: 327.74895pt x 261.64325pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[73 <./images//Chapter5/Figure_8.png>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [74 <./images//Chapter5/Figure_9.png>]
+<images//Chapter5/Figure_10.png, id=341, 390.86024pt x 130.086pt>
+File: images//Chapter5/Figure_10.png Graphic file (type png)
+
+<use images//Chapter5/Figure_10.png>
+Package pdftex.def Info: images//Chapter5/Figure_10.png used on input line 1666
+.
+(pdftex.def)             Requested size: 327.74895pt x 109.08488pt.
+ [75 <./images//Chapter5/Figure_10.png>]
+Overfull \hbox (19.88876pt too wide) in paragraph at lines 1684--1685
+[]\OT1/cmr/m/n/10 Executing this pro-gram will cre-ate a new file in our work-i
+ng di-rec-tory \OT1/cmtt/m/n/10 inventory.csv
+ []
+
+
+Overfull \hbox (6.74693pt too wide) in paragraph at lines 1688--1689
+[]\OT1/cmtt/m/n/10 writerObj.writerow(["Warehouse", "SKU", "Desc", "onHand", "P
+rice"]) 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<images//Chapter5/Figure_12.png, id=345, 552.8655pt x 345.6915pt>
+File: images//Chapter5/Figure_12.png Graphic file (type png)
+
+<use images//Chapter5/Figure_12.png>
+Package pdftex.def Info: images//Chapter5/Figure_12.png used on input line 1725
+.
+(pdftex.def)             Requested size: 327.74895pt x 204.93732pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[76] [77] [78 <./images//Chapter5/Figure_12.png>] (Textbook.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 25026 strings out of 493328
- 485810 string characters out of 3139115
- 589305 words of memory out of 3000000
- 28182 multiletter control sequences out of 15000+200000
- 11259 words of font info for 40 fonts, out of 3000000 for 9000
+ 25093 strings out of 493328
+ 487516 string characters out of 3139115
+ 585305 words of memory out of 3000000
+ 28245 multiletter control sequences out of 15000+200000
+ 11611 words of font info for 41 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,8n,84p,10425b,1232s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\sperreau\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi6
@@ -1375,12 +1508,13 @@ nts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 public/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
 sfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
 m/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt8.pfb><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on Textbook.pdf (73 pages, 1093013 bytes).
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt8.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on Textbook.pdf (84 pages, 1378501 bytes).
 PDF statistics:
- 378 PDF objects out of 1000 (max. 8388607)
+ 426 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 254 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 304 words of extra memory for PDF output out of 10000 (max. 10000000)
 
