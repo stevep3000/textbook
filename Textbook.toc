@@ -52,10 +52,27 @@
 \contentsline {section}{\numberline {4.10}Discussion questions}{63}
 \contentsline {section}{\numberline {4.11}Exercises}{64}
 \contentsline {chapter}{\numberline {5}Collecting data from the web}{67}
-\contentsline {section}{\numberline {5.1}HTML}{67}
+\contentsline {section}{\numberline {5.1}A brief overview of HTML}{67}
 \contentsline {section}{\numberline {5.2}Necessary libraries}{68}
 \contentsline {section}{\numberline {5.3}Viewing a webpage's HTML code}{70}
 \contentsline {section}{\numberline {5.4}Building a basic webscraper using Python}{71}
 \contentsline {section}{\numberline {5.5}Scraping multi-page websites}{76}
-\contentsline {section}{\numberline {5.6}Parsing XML}{77}
-\contentsline {section}{\numberline {5.7}Discussion questions}{77}
+\contentsline {section}{\numberline {5.6}Discussion Questions}{79}
+\contentsline {section}{\numberline {5.7}Exercises}{79}
+\contentsline {chapter}{\numberline {6}Working with tabular data}{81}
+\contentsline {section}{\numberline {6.1}Installing Pandas}{81}
+\contentsline {section}{\numberline {6.2}Constructing data frames manually}{82}
+\contentsline {section}{\numberline {6.3}Constructing data frames from .CSV}{82}
+\contentsline {section}{\numberline {6.4}Printing data frames}{83}
+\contentsline {section}{\numberline {6.5}Changing frame indices}{83}
+\contentsline {section}{\numberline {6.6}Sorting data}{84}
+\contentsline {section}{\numberline {6.7}Arithmetic operations}{84}
+\contentsline {section}{\numberline {6.8}Aggregating data}{85}
+\contentsline {section}{\numberline {6.9}Merging data frames}{86}
+\contentsline {section}{\numberline {6.10}Cross-tabulation}{86}
+\contentsline {section}{\numberline {6.11}Missing data}{86}
+\contentsline {section}{\numberline {6.12}Descriptive statistics}{86}
+\contentsline {section}{\numberline {6.13}Discussion Questions}{86}
+\contentsline {section}{\numberline {6.14}Exercises}{87}
+\contentsline {chapter}{\numberline {7}Basic statistical analysis}{89}
+\contentsline {chapter}{\numberline {8}Visualization using matlib}{91}

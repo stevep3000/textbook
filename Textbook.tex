@@ -1172,9 +1172,9 @@ While we have already learned how to create programs which can collect data inpu
 
 To begin, let's create a new file:
 
-\texttt{myFile = open("myFile.txt", "a")}
+\texttt{myFile = open("myFile.txt", "w", newline="")}
 
-This function creates a new file object called \texttt{myFile} which points to the path of the file to be opened (\textbackslash myFile.txt). The second paramater (\texttt{"a"}) tells Python to create a new file called "myfile.txt" if the file does not already exist but append any modifications we make if an existing file does exist. If we omit the second parameter, Python assumes that are simply opening an existing file for reading only. In this case, if the file does not exist, Python will generate an error.
+This function creates a new file object called \texttt{myFile} which points to the path of the file to be opened (\textbackslash myFile.txt). The second paramater (\texttt{"w"}) tells Python to open the file for writing. If we omit the second parameter, Python assumes that are simply opening an existing file for reading only. In this case, if the file does not exist, Python will generate an error. The final parameter \texttt{newline=""} is required for properly formatting a CSV file on Windows-based systems.
 
 Once we have created a new file object, we can modify the file by using the \texttt{write()} method as follows:
 
@@ -1477,7 +1477,7 @@ We began this chapter by introducing functions, which are useful programming too
 \chapter{Collecting data from the web}
 	Websites often contain useful data for performing accounting analytic tasks. For example, a client may post certain relevant accounting data on an internal corporate website, or an auditor may want to gather pricing data from the external website of a vendor for purposes of performing valuation test work. Thankfully, it is relatively easy to write Python programs that can gather data from the web.
 	
-\section{HTML}
+\section{A brief overview of HTML}
 	
 	HTML is an acronym that stands for HyperText Markup Language. You can think of HTML as essentially a programming language for displaying information in a web browser. It is comprised of a collection of short statements (referred to as ``tags'') which tell the browser how website content should be presented to the viewer. At their most basic level, tags can apply simple formatting to website text. For example, the tag \texttt{<b>} can be used to make text appear bolded. Within a webpage's HTML document, this tag could be used as follows:
 	
@@ -1671,7 +1671,7 @@ It is likely the case that we will want to save the contents of our list to a fi
 First, we'll import the module, create a new file object called \texttt{output} and associate the file object with the file \texttt{inventory.csv}\footnote{\texttt{.CSV} is the common file extension for comma-delimited files.} Recall that the \texttt{a} parameter ensures that a new \texttt{inventory.csv} will be created if one does not exist already. This was covered earlier in Chapter 4.
 
 \texttt{import csv} \\
-\texttt{output = open("inventory.csv", "a")}
+\texttt{output = open("inventory.csv", "w", newline="")}
 
 We then call the \texttt{writer} method which will create a new object {writerObj} that will be used to write data to the file object we just created.
 
@@ -1687,10 +1687,10 @@ There is still one last thing that we're missing - the table headers. Recall tha
 
 \texttt{writerObj.writerow(["Warehouse", "SKU", "Desc", "onHand", "Price"])}
 
-The full source code for the program and the related CSV file (as viewed in Microsoft Excel) are presented in Figures 5.11 and 5.12, respectively.
+The full source code for the program so far and the related CSV file (as viewed in Microsoft Excel) are presented in Figures 5.11 and 5.12, respectively.
 
 \begin{figure}[h]
-\caption{The complete basic web scraper}
+\caption{A basic web scraper}
 \begin{lstlisting}
 	import requests
 	from bs4 import BeautifulSoup
@@ -1712,7 +1712,7 @@ The full source code for the program and the related CSV file (as viewed in Micr
 			rowContents.append(cell.string)
 		inventory.append(rowContents)
 
-	output = open("inventory.csv", "a")
+	output = open("inventory.csv", "w", newline="")
 	writerObj = csv.writer(output)
 	writerObj.writerow(["Warehouse", "SKU", "Desc", "onHand", "Price"])
 	writerObj.writerows(inventory)
@@ -1727,12 +1727,204 @@ The full source code for the program and the related CSV file (as viewed in Micr
 
 \section{Scraping multi-page websites}
 
-Note that the program we developed
+While the program we have written does an excellent job scraping a single webpage, our inventory list is not yet complete. Recall that the complete inventory list is spread across a series of three sequentially numbered webpages(\texttt{inventory1.html, inventory 2.html,} and \texttt{inventory3.html}) and that the scraper we have written only collects the data included on the first page.\footnote{It is often the case that, when webpages contain data which spans across multiple pages, the webpage names will be numbered sequentially}.
 
-\section{Parsing XML}
+We could address this issue creating three separate programs that each contain modified versions of the \texttt{url} string which point to the three webpages we want to gather data from. However, there is a more elegant solution to this problem which uses iteration to grab the data that we need. 
 
-\section{Discussion questions}
+Let's first modify the string \texttt{url} as follows:
+
+\texttt{url = "http://www.steveperreault.com/textbook/inventoryX.html"}
+
+We'll then encapsulate the code which gather ands writes the data to the \texttt{inventory} list within a \texttt{for} loop which we will set to run a series of three times (once for each webpage we want to gather data from): 
+
+\texttt{for i in range(1,4):}
+
+Each time the loop executes, we will use string indexing to create a new url string (\texttt{newUrl}) which replaces the \texttt{X} character with the iteration count as follows:
+
+\texttt{newUrl = url[0:-6] + str(i) + url [-5:]}
+
+Note that this expression is slicing the \texttt{url} string six spaces before the end (i.e., removing \texttt{.html} portion), inserting the iteration count which is held in the integer \texttt{i}, and then appending the last five characters of \texttt{url} (\texttt{.html}) to the end of the new string. 
+
+There's a couple of additional changes we need to make. First we need to move the list constructor \texttt{inventory = []} outside of the loop because we don't want it to be overwritten each time the loop iterates. In addition, we need to make sure that the creation of the \texttt{writerObj} object and calls to its methods occur after the loop has finished executing. This is because we only want to write the \texttt{inventory} list structure to the \texttt{CSV} file after the data has been fully collected. 
+
+The complete and final source code for our basic webscraper is presented in Figure 5.13.
+
+\begin{figure}[h]
+	\caption{A basic web scraper with support for loading multiple webpages}
+	\begin{lstlisting}
+	import requests
+	from bs4 import BeautifulSoup
+	import csv
+	
+	url = "http://www.steveperreault.com/textbook/inventoryX.html"
+	
+	inventory = []
+	
+	for i in range(1,4):
+		newUrl = url[0:-6] + str(i) + url[-5:]
+		print("Gathering data from " + newUrl)
+		response = requests.get(newUrl)
+		soup = BeautifulSoup(response.content)
+	
+		table = soup.find("tbody")
+	
+		for row in table.findAll("tr"):
+			rowContents = []
+			for cell in row.findAll("td"):
+				rowContents.append(cell.string)
+				inventory.append(rowContents)
+	
+	output = open("inventory.csv", "w", newline="")
+	writerObj = csv.writer(output)
+	
+	writerObj.writerow(["Warehouse", "SKU", "Desc", "onHand", "Price"])
+	writerObj.writerows(inventory)
+	\end{lstlisting}
+	
+\end{figure}
+
+\section{Discussion Questions}
 \begin{enumerate}
-	\item Provide some basic tags and indicate what these are.
+	\item What does HTML stand for? What do the terms that make up this acronym refer to?
+	\item Imagine you are developing a web scraper and want to all of the image data contained within a webpage. How would you modify the code presented in Figure 5.13 to gather such data?
 \end{enumerate}
+\section{Exercises}
+\begin{enumerate}
+	\item \textbf{Portfolio Project}: Develop your own interactive web scraper. The program should prompt the user to type a URL address and then generate a CSV file which contains all tabular data contained within the page. Test that your program works by finding a webpage that contains data in tabular form and providing it to the program you have written. 
+\end{enumerate}
+
+\chapter{Working with tabular data}
+
+\section{Installing Pandas}
+We'll be using the \textit{Python Data Analysis Library} (Pandas) module to help us analyze tabular data. Pandas adds data frame functionality to Python, similar to what is included in languages such as R. Data frames are similar to the traditional spreadsheets that you are familiar with, in that they allow for mixed data types to be presented within labeled rows and columns. Pandas also contains a wide variety of analysis tools that are useful in accounting analytics contexts. The project's website, which includes the latest release and documentation, is located at:
+
+\texttt{https://pandas.pydata.org}
+
+Similar to how we have previously installed other Python modules, we'll be installing Pandas from with Powershell using the command:
+
+\texttt{pip install pandas}
+
+In addition to Pandas, the installer should also install the numpy module, upon which Pandas is based. When writing code that will use Pandas functionality, we will always need to import both modules as follows:
+
+\texttt{import pandas as pd \\ import numpy as np}
+
+\section{Constructing data frames manually}
+A data frame is simply a table with labeled rows and columns. Let's imagine that we want to create a data frame using the inventory data that we collected in the previous chapter. We would begin by first creating a dictionary where each column in our table is included as a key along with a corresponding list of values (refer back to Chapter 4 for a discussion of dictionaries). For example:
+
+\texttt{data = \{"sku": ["EN876923", "EN687311"], "qty": [106, 49]\}}
+
+We can then create the data frame by calling the \texttt{DataFrame} function and passing the dictionary as well as a list representing the headers for each row:\footnote{The \texttt{pd} prefix to the \texttt{DataFrame} function indicates that we are calling the function contained within the Pandas namespace. This prefix should always be used before calling a Pandas function.}
+
+\texttt{inventory = pd.DataFrame(data, index=["Warehouse A", "Warehouse B"])}
+
+If we then print out the \texttt{table} data frame, we would see the following:
+
+\begin{figure}[h]
+	\caption{Creating a data frame manually}
+	\centering\includegraphics[width=.90\textwidth]{/Chapter6/Figure_1}
+\end{figure}
+
+\section{Constructing data frames from .CSV}
+Of course, you will rarely want to create a data frame manually. Rather, you will typically populate your data frames using an external source, such as a CSV file. Let's create a new data frame from the \texttt{inventory.csv} data file we prepared in the previous chapter. To do so, we would call Pandas' \texttt{read\_csv} function as follows:
+
+\texttt{inventory = pd.read\_csv("inventory.csv")}
+
+Note that, by default, Pandas will assign sequential numeric row headers, similar to a typically spreadsheet. These header values are referred to as the data frame's "index."
+
+\section{Printing data frames}
+Like other data types, Pandas data frames can be printed to the screen by passing them to the \texttt{print()} function. We may occasionally want to print a portion of a frame to screen to ensure that it has been set up properly. To avoid printing the entire contents of the data frame, we can call the \texttt{head()} which, by default, returns the first five rows of data. \texttt this method can also take the parameter \texttt{n=X}, where X represents a custom number of rows to be printed.
+
+\section{Changing frame indices}
+
+Any column within a data frame can become the frame's index by using the \texttt{reset\_index()} and \texttt{set\_index()} functions. By passing the \texttt{drop=True} parameter to \texttt{reset\_index} we remove the existing sequential numeric index from the data frame. We then call \texttt{set\_index} with the name of the column header representing the new index as the sole parameter. 
+
+For example, let's say we want to index our \texttt{inventory} data frame by the name of the warehouse the inventory is located in. This could be done with the following expression:
+
+\texttt{newInventory = inventory.reset\_index(drop=True).set\_index("Warehouse")}
+
+To verify that our re-indexing worked as intended, we could print the first five rows of the new data frame as follows:
+
+\texttt{print(new.Table.head())}
+
+The respective output is presented in Figure 6.2.
+
+\begin{figure}[h]
+	\caption{Re-indexing a data frame}
+	\centering\includegraphics[width=.90\textwidth]{/Chapter6/Figure_2}
+\end{figure}
+
+\section{Sorting data}
+
+Data frames can be sorted by index using \texttt{sort\_index()}. This method will sort in ascending order; however a frame can be sorted in descending order by passing the \texttt{ascending = False} parameter. By default, the method returns a new data frame, however you can tell Pandas to sort and overwrite the existing data frame by passing \texttt{inplace = True}. For example:
+
+\texttt{newInventory.sort\_index(inplace=True, ascending=False)}
+
+Pandas can sort data frames by data value using the \texttt{sort\_values()} method and passing the header of the column to sort by. For example, if we wanted to sort the \texttt{inventory} data frame by price, we could use the following expression:
+
+\texttt{newInventory.sort\_values("Price", inplace=True, ascending=False)}
+
+\section{Arithmetic operations}
+
+Pandas also provides support for the four basic arithmetic operations (addition, subtraction, multiplication, and division). Let's say that we want to take the \texttt{onHand} and \texttt{Price} columns from the \texttt{newInventory} data frame, multiply the two, and create a new column that represents the extended price. 
+
+\texttt{newInventory["Ext"] = newInventory.Price * newInventory.onHand}
+
+Note that the term in brackets represents the header for the new column and the and the calculation is performed using the standard Python multiplication operator. Other arithmetic operations can be performed using the various other operators. The output for this example if provided in Figure 6.3.
+
+\begin{figure}[h]
+	\caption{Arithmetic operations}
+	\centering\includegraphics[width=.90\textwidth]{/Chapter6/Figure_3}
+\end{figure}
+
+\section{Aggregating data}
+When working with accounting information, we will often find the need to summarize or aggregate data. For example, perhaps we want to group sales of individual products by category or summarize the value of journal entries affecting a particular account. Pandas contains a function called \texttt{groupby()} which allows us to perform this task easily. We just need to pass the the column to aggregate by as well as an aggregation function which can be selected from the options presented in Figure 6.4.
+
+\begin{figure}[h]
+	\caption{A sample of common \texttt{groupby()} aggregation functions}
+	\centering
+	\begin{center}
+		\begin{tabular}{|c | c|}
+			\hline Function name & Description  \\ [0.5ex]
+			\hline
+			\texttt{sum()} & Sum the numerical rows in the group \\
+			\hline
+			\texttt{prod()} & Multiply the numerical rows in the group \\
+			\hline
+			\texttt{mean()} & The average of the numerical rows in the group \\
+			\hline
+			\texttt{count()} & The number of rows in the group \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{figure}
+
+For example, let's say we want to identify the total quantity of inventory items contained in the \texttt{newInventory} data frame across all warehouses. Since each item has a unique SKU number, we could use \texttt{groupby()} to aggregate inventory by this identifier and aggregate the sum of the grouped items to a new dataframe. We would use the following expression:
+
+\texttt{sumInventory = newInventory.groupby("SKU").sum()}
+
+Printing the \texttt{sumInventory} data frame would yield the output presented in Figure 6.5.
+
+\begin{figure}[h]
+	\caption{Aggregation output}
+	\centering\includegraphics[width=.90\textwidth]{/Chapter6/Figure_4}
+\end{figure}
+
+\section{Merging data frames}
+Note that the contents of the \texttt{sumInventory} data frame omit the project description and warehouse name. This is because both values are non-numeric and, thus, cannot be aggregated using the \texttt{sum()} aggregation function. Fear not - we insert the description of each SKU back into \texttt{sumInventory} by merging it with the \texttt{newInventory} data frame.
+
+\section{Cross-tabulation}
+\section{Missing data}
+\section{Descriptive statistics}
+
+
+
+\section{Discussion Questions}
+\begin{enumerate}
+	\item Manually create a data frame
+	\item Re-index the data frame
+	\item Sort the data frame in ascending order.
+\end{enumerate}
+\section{Exercises}
+\chapter{Basic statistical analysis}
+\chapter{Visualization using matlib}
 \end{document}
