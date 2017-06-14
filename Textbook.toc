@@ -69,10 +69,12 @@
 \contentsline {section}{\numberline {6.7}Arithmetic operations}{84}
 \contentsline {section}{\numberline {6.8}Aggregating data}{85}
 \contentsline {section}{\numberline {6.9}Merging data frames}{86}
-\contentsline {section}{\numberline {6.10}Cross-tabulation}{86}
-\contentsline {section}{\numberline {6.11}Missing data}{86}
-\contentsline {section}{\numberline {6.12}Descriptive statistics}{86}
-\contentsline {section}{\numberline {6.13}Discussion Questions}{86}
-\contentsline {section}{\numberline {6.14}Exercises}{87}
-\contentsline {chapter}{\numberline {7}Basic statistical analysis}{89}
-\contentsline {chapter}{\numberline {8}Visualization using matlib}{91}
+\contentsline {section}{\numberline {6.10}Deleting data and removing duplicates}{87}
+\contentsline {section}{\numberline {6.11}Descriptive statistics}{89}
+\contentsline {section}{\numberline {6.12}Cross-tabulation}{90}
+\contentsline {section}{\numberline {6.13}Summary}{92}
+\contentsline {section}{\numberline {6.14}Discussion Questions}{92}
+\contentsline {section}{\numberline {6.15}Exercises}{92}
+\contentsline {chapter}{\numberline {7}Basic probability and statistics}{95}
+\contentsline {chapter}{\numberline {8}Visualization}{97}
+\contentsline {chapter}{\numberline {9}What next?}{99}

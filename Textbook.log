@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300) (preloaded format=pdflatex 2017.5.19)  13 JUN 2017 16:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300) (preloaded format=pdflatex 2017.5.19)  14 JUN 2017 16:42
 entering extended mode
 **./Textbook.tex
 (Textbook.tex
@@ -1500,7 +1500,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [81
 
 ]
-Overfull \hbox (11.99689pt too wide) in paragraph at lines 1818--1819
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 1833--1834
 []\OT1/cmtt/m/n/10 inventory = pd.DataFrame(data, index=["Warehouse A", "Wareho
 use B"]) 
  []
@@ -1509,11 +1509,11 @@ use B"])
 File: images//Chapter6/Figure_1.png Graphic file (type png)
 
 <use images//Chapter6/Figure_1.png>
-Package pdftex.def Info: images//Chapter6/Figure_1.png used on input line 1824.
+Package pdftex.def Info: images//Chapter6/Figure_1.png used on input line 1839.
 
 (pdftex.def)             Requested size: 310.4979pt x 140.60678pt.
  [82 <./images//Chapter6/Figure_1.png>]
-Overfull \hbox (19.5568pt too wide) in paragraph at lines 1843--1844
+Overfull \hbox (19.5568pt too wide) in paragraph at lines 1858--1859
 []\OT1/cmtt/m/n/10 newInventory = inventory.reset[]index(drop=True).set[]index(
 "Warehouse") 
  []
@@ -1522,24 +1522,20 @@ Overfull \hbox (19.5568pt too wide) in paragraph at lines 1843--1844
 File: images//Chapter6/Figure_2.png Graphic file (type png)
 
 <use images//Chapter6/Figure_2.png>
-Package pdftex.def Info: images//Chapter6/Figure_2.png used on input line 1853.
+Package pdftex.def Info: images//Chapter6/Figure_2.png used on input line 1870.
 
 (pdftex.def)             Requested size: 310.4979pt x 92.04688pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [83]
-<images//Chapter6/Figure_3.png, id=373, 514.92375pt x 149.96025pt>
+[83] <images//Chapter6/Figure_3.png, id=373, 553.46774pt x 140.32425pt>
 File: images//Chapter6/Figure_3.png Graphic file (type png)
 
 <use images//Chapter6/Figure_3.png>
-Package pdftex.def Info: images//Chapter6/Figure_3.png used on input line 1876.
+Package pdftex.def Info: images//Chapter6/Figure_3.png used on input line 1893.
 
-(pdftex.def)             Requested size: 310.4979pt x 90.42761pt.
+(pdftex.def)             Requested size: 310.4979pt x 78.72664pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1548,13 +1544,65 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 Underfull \vbox (badness 5847) has occurred while \output is active []
 
  [84 <./images//Chapter6/Figure_2.png>]
-<images//Chapter6/Figure_4.png, id=377, 289.08pt x 141.52875pt>
+<images//Chapter6/Figure_4.png, id=377, 266.1945pt x 140.32425pt>
 File: images//Chapter6/Figure_4.png Graphic file (type png)
 
 <use images//Chapter6/Figure_4.png>
-Package pdftex.def Info: images//Chapter6/Figure_4.png used on input line 1909.
+Package pdftex.def Info: images//Chapter6/Figure_4.png used on input line 1928.
 
-(pdftex.def)             Requested size: 310.4979pt x 152.02165pt.
+(pdftex.def)             Requested size: 310.4979pt x 163.68195pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[85 <./images//Chapter6/Figure_3.png>]
+Overfull \hbox (14.30684pt too wide) in paragraph at lines 1940--1941
+[]\OT1/cmtt/m/n/10 table = pd.merge(frame1, frame2, left[]on="index1", right[]o
+n="index2") 
+ []
+
+<images//Chapter6/Figure_5.png, id=382, 623.32875pt x 199.34476pt>
+File: images//Chapter6/Figure_5.png Graphic file (type png)
+
+<use images//Chapter6/Figure_5.png>
+Package pdftex.def Info: images//Chapter6/Figure_5.png used on input line 1952.
+
+(pdftex.def)             Requested size: 310.4979pt x 99.30103pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [86 <./images//Chapter6/Figure_4.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1964--1965
+
+ []
+
+[87 <./images//Chapter6/Figure_5.png>]
+<images//Chapter6/Figure_6.png, id=389, 423.984pt x 285.4665pt>
+File: images//Chapter6/Figure_6.png Graphic file (type png)
+
+<use images//Chapter6/Figure_6.png>
+Package pdftex.def Info: images//Chapter6/Figure_6.png used on input line 1982.
+
+(pdftex.def)             Requested size: 310.4979pt x 209.0596pt.
+
+<images//Chapter6/Figure_8.png, id=390, 526.96875pt x 284.86424pt>
+File: images//Chapter6/Figure_8.png Graphic file (type png)
+
+<use images//Chapter6/Figure_8.png>
+Package pdftex.def Info: images//Chapter6/Figure_8.png used on input line 1993.
+
+(pdftex.def)             Requested size: 310.4979pt x 167.85545pt.
+ [88 <./images//Chapter6/Figure_6.png>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<images//Chapter6/Figure_9.png, id=394, 336.0555pt x 162.00525pt>
+File: images//Chapter6/Figure_9.png Graphic file (type png)
+
+<use images//Chapter6/Figure_9.png>
+Package pdftex.def Info: images//Chapter6/Figure_9.png used on input line 2037.
+
+(pdftex.def)             Requested size: 310.4979pt x 149.69427pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1562,26 +1610,39 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [85 <./images//Chapter6/Figure_3.png>] [86 <./images//Chapter6/Figure_4.png>] 
-[87]
-[88
+ [89 <./images//Chapter6/Figure_8.png>] [90 <./images//Chapter6/Figure_9.png>]
+<images//Chapter6/Figure_10.png, id=401, 352.31625pt x 104.18925pt>
+File: images//Chapter6/Figure_10.png Graphic file (type png)
+
+<use images//Chapter6/Figure_10.png>
+Package pdftex.def Info: images//Chapter6/Figure_10.png used on input line 2061
+.
+(pdftex.def)             Requested size: 310.4979pt x 91.82193pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [91 <./images//Chapter6/Figure_10.png>] [92] [93] [94
 
 ]
 Chapter 7.
-[89] [90
+[95] [96
 
 ]
 Chapter 8.
-[91] (Textbook.aux)
+[97] [98
+
+]
+Chapter 9.
+[99] (Textbook.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 25115 strings out of 493328
- 488157 string characters out of 3139115
- 586305 words of memory out of 3000000
- 28265 multiletter control sequences out of 15000+200000
+ 25135 strings out of 493328
+ 488856 string characters out of 3139115
+ 585305 words of memory out of 3000000
+ 28285 multiletter control sequences out of 15000+200000
  11611 words of font info for 41 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,8n,84p,10425b,1232s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1604,9 +1665,9 @@ pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/P
 rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program F
 iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt8.pfb><C:/Program Files/MiKT
 eX 2.9/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on Textbook.pdf (97 pages, 1447930 bytes).
+Output written on Textbook.pdf (105 pages, 1579578 bytes).
 PDF statistics:
- 472 PDF objects out of 1000 (max. 8388607)
+ 502 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 324 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 349 words of extra memory for PDF output out of 10000 (max. 10000000)
 

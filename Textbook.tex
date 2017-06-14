@@ -50,7 +50,7 @@
 	
 	This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/ or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
 	
-	First edition: August 2017
+	Version 0.1.0: August 2017
 \endgroup
 \tableofcontents
 
@@ -1791,6 +1791,21 @@ The complete and final source code for our basic webscraper is presented in Figu
 \section{Exercises}
 \begin{enumerate}
 	\item \textbf{Portfolio Project}: Develop your own interactive web scraper. The program should prompt the user to type a URL address and then generate a CSV file which contains all tabular data contained within the page. Test that your program works by finding a webpage that contains data in tabular form and providing it to the program you have written. 
+	
+	Wikipedia, in particular, is a rich source of tabular HTML data. A few examples of Wikipedia pages containing such data are:
+	
+	\begin{itemize}
+		\item List of cities by population \\ https://en.wikipedia.org/wiki/List\_of\_cities\_proper\_by\_population
+		
+		\item List of countries by median age\\
+		https://en.wikipedia.org/wiki/List\_of\_countries\_by\_median\_age
+		
+		\item List of countries by labor force size \\
+		https://en.wikipedia.org/wiki/List\_of\_countries\_by\_labour\_force
+		
+	\end{itemize}
+	
+	 
 \end{enumerate}
 
 \chapter{Working with tabular data}
@@ -1848,6 +1863,8 @@ To verify that our re-indexing worked as intended, we could print the first five
 
 The respective output is presented in Figure 6.2.
 
+That being said, modifying a data frame's index can present some problems if we try to transform our data frames in the future. As a result, we'll stick with the original sequential numeric index for the examples presented in this chapter.
+
 \begin{figure}[h]
 	\caption{Re-indexing a data frame}
 	\centering\includegraphics[width=.90\textwidth]{/Chapter6/Figure_2}
@@ -1857,17 +1874,17 @@ The respective output is presented in Figure 6.2.
 
 Data frames can be sorted by index using \texttt{sort\_index()}. This method will sort in ascending order; however a frame can be sorted in descending order by passing the \texttt{ascending = False} parameter. By default, the method returns a new data frame, however you can tell Pandas to sort and overwrite the existing data frame by passing \texttt{inplace = True}. For example:
 
-\texttt{newInventory.sort\_index(inplace=True, ascending=False)}
+\texttt{inventory.sort\_index(inplace=True, ascending=False)}
 
 Pandas can sort data frames by data value using the \texttt{sort\_values()} method and passing the header of the column to sort by. For example, if we wanted to sort the \texttt{inventory} data frame by price, we could use the following expression:
 
-\texttt{newInventory.sort\_values("Price", inplace=True, ascending=False)}
+\texttt{inventory.sort\_values("Price", inplace=True, ascending=False)}
 
 \section{Arithmetic operations}
 
-Pandas also provides support for the four basic arithmetic operations (addition, subtraction, multiplication, and division). Let's say that we want to take the \texttt{onHand} and \texttt{Price} columns from the \texttt{newInventory} data frame, multiply the two, and create a new column that represents the extended price. 
+Pandas also provides support for the four basic arithmetic operations (addition, subtraction, multiplication, and division). Let's say that we want to take the \texttt{onHand} and \texttt{Price} columns from the \texttt{inventory} data frame, multiply the two, and create a new column that represents the extended price. 
 
-\texttt{newInventory["Ext"] = newInventory.Price * newInventory.onHand}
+\texttt{inventory["Ext"] = inventory.Price * inventory.onHand}
 
 Note that the term in brackets represents the header for the new column and the and the calculation is performed using the standard Python multiplication operator. Other arithmetic operations can be performed using the various other operators. The output for this example if provided in Figure 6.3.
 
@@ -1900,9 +1917,11 @@ When working with accounting information, we will often find the need to summari
 
 For example, let's say we want to identify the total quantity of inventory items contained in the \texttt{newInventory} data frame across all warehouses. Since each item has a unique SKU number, we could use \texttt{groupby()} to aggregate inventory by this identifier and aggregate the sum of the grouped items to a new dataframe. We would use the following expression:
 
-\texttt{sumInventory = newInventory.groupby("SKU").sum()}
+\texttt{sumInventory = inventory.groupby("SKU").sum().reset\_index()}
 
-Printing the \texttt{sumInventory} data frame would yield the output presented in Figure 6.5.
+Note that this requires us to also reset the numeric sequential index to fit the new data frame using \texttt{reset\_index}. Omitting this call will default to using the first column of data as the index, which could present problems with transforming the frame going forward.
+
+Printing the \texttt{sumInventory} data frame would yield the output presented in Figure 6.4.
 
 \begin{figure}[h]
 	\caption{Aggregation output}
@@ -1912,19 +1931,166 @@ Printing the \texttt{sumInventory} data frame would yield the output presented i
 \section{Merging data frames}
 Note that the contents of the \texttt{sumInventory} data frame omit the project description and warehouse name. This is because both values are non-numeric and, thus, cannot be aggregated using the \texttt{sum()} aggregation function. Fear not - we insert the description of each SKU back into \texttt{sumInventory} by merging it with the \texttt{newInventory} data frame.
 
-\section{Cross-tabulation}
-\section{Missing data}
+The \texttt{merge()} method can easily be used to combine rows that share a common index. As parameters, it takes the two frames to be merged, and the name of the column to be used to perform the match. If the column index has the same name within both names, you can simply pass that name, as follows:
+
+\texttt{table = pd.merge(frame1, frame2, on="index")}
+
+If the column index has a different name, you can specify the name of the index to be used as follows:
+
+\texttt{table = pd.merge(frame1, frame2, left\_on="index1", right\_on="index2")}
+
+Note that, within this expression, the left and right keys refer to the first and second parameters passed to the method, respectively.
+
+With this knowledge, we can now merge the contents of the \texttt{sumInventory} and \texttt{inventory} frames into a new data frame as follows:
+
+\texttt{sumInventoryExt = pd.merge(inventory, sumInventory, on="SKU")}
+
+Printing the output of sumInventoryExt will return the following:
+
+\begin{figure}[h]
+	\caption{Merge output with duplicates}
+	\centering\includegraphics[width=.90\textwidth]{/Chapter6/Figure_5}
+\end{figure}
+
+A review of this output indicates that this is not quite what we want. It seems like each row of \texttt{sumInventoryExt} contains multiple columns for the \texttt{onHand}, \texttt{Price}, and {Ext} variables and that Pandas has attached either a \texttt{\_x} or \texttt{\_y} suffix to these columns. This is because the \texttt{sumInventory} data frame contains the inventory listing at the summarized level, while \texttt{inventory} does not. As a result, Pandas cannot find key matches within these three columns across the data frame and so it includes data from both frames when creating \texttt{sumInventoryExt}. This is not helpful to us, so let's do something about it.
+
+\section{Deleting data and removing duplicates}
+
+Let's create a new data frame called \texttt{skuList} which contains only a listing of individual SKU numbers and their respective conditions. We'll build this new frame from the \texttt{inventory} frame, eliminating the data that we don't need using the following commands:
+
+\texttt{skuList = inventory.drop("Warehouse", 1)\\
+skuList.drop("Price", 1, inplace = True)\\
+skuList.drop("onHand", 1, inplace = True)\\
+skuList.drop("Ext", 1, inplace = True)\\}
+
+The first expression creates a new data frame which is set to the same value of the \texttt{inventory} frame with the \texttt{Warehousn} column removed. The parameter \\texttt{1} which is passed to the \texttt{drop} method tells Pandas that \texttt{Warehouse} is a column label (passing a value of 0 would denote a row label). The next three lines of code remove the remaining unneeded columns from the \texttt{skuList} frame. Recall that the parameter \texttt{inplace = True} tells Pandas that the existing \texttt{skuList} frame should be modified.
+
+Alternatively, we could construct the new frame \texttt{skuList} and simply include only the \texttt{SKU} and \texttt{Desc} columns from the \texttt{inventory} frame as follows:
+
+\texttt{skuList = inventory[["SKU","Desc"]]}
+
+Either way, the end result is a new data frame called \texttt{skuList} which includes only two columns labeled \texttt{SKU} and \texttt{Descr}. However, this new frame still contains a large number of duplicate rows which we should remove using the \texttt{drop\_duplicates()} method.
+
+\texttt{skuList = skuList.drop\_duplicates().reset\_index(drop=True)}
+
+Note that we also use the \texttt{reset\_index()} method to drop the old index and build a new one based upon the new number of rows in the data frame.
+
+Printing out this new table should result in output similar to Figure 6.7, which represents a list of unique inventory SKUs and their related descriptions.
+
+\begin{figure}[h]
+	\caption{Contents of skuList}
+	\centering\includegraphics[width=.90\textwidth]{/Chapter6/Figure_6}
+\end{figure}
+
+We can now merge \texttt{skuList} with the \texttt{sumInventory} frame we created earlier to created a summarized inventory listing which also includes SKU numbers and product descriptions as follows:
+
+\texttt{sumInventoryExt = pd.merge(skuList, sumInventory, on="SKU")}
+
+We can then print out the contents of \texttt{sumInventoryExt} to verify that the merge was performed properly. This should result in output that looks similar to Figure 6.8.
+
+\begin{figure}[h]
+	\caption{Contents of sumInventoryExt}
+	\centering\includegraphics[width=.90\textwidth]{/Chapter6/Figure_8}
+\end{figure}
+
 \section{Descriptive statistics}
 
+Pandas supports a number of description statistics functions that can be applied to rows or columns in a data frame. We can apply the parameter \texttt{1} or \texttt{0} to which tells the function whether to perform the calculation using a column or row, respectively (Pandas assumes \texttt{1} if no value is provided). For example, if we wanted to calculate the average price for the inventory items contained within the \texttt{sumInventoryExt} data frame, we could use the following expression:
 
+\texttt{print(sumInventoryExt["Price"].mean())}
+
+A sample of some of the more common descriptive functions is presented in Figure 6.9
+
+\begin{figure}[h]
+	\caption{A sample of common descriptive functions}
+	\centering
+	\begin{center}
+		\begin{tabular}{|c | c|}
+			\hline Function name & Description  \\ [0.5ex]
+			\hline
+			\texttt{mean()} & Mean \\
+			\hline
+			\texttt{median()} & Median \\
+			\hline
+			\texttt{mode()} & Mode \\
+			\hline
+			\texttt{std()} & Standard deviation  \\
+			\hline
+			\texttt{sem()} & Standard error of the mean \\
+			\hline
+			\texttt{skew()} & Skewness  \\
+			\hline
+			\texttt{kurt()} & Kurtosis  \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{figure}
+
+In addition, the Pandas function \texttt{describe()} can be used to obtain some quick summary statistics. It can be called as follows:
+
+\texttt{print(sumInventoryExt["Price"].describe())}
+
+An example of its output is provided in Figure 6.9.
+
+\begin{figure}[h]
+	\caption{The \texttt{describe()} function}
+	\centering\includegraphics[width=.90\textwidth]{/Chapter6/Figure_9}
+\end{figure}
+
+\section{Cross-tabulation}
+
+Pandas can also create cross-tabulations, which are joint frequency distributions with rows and columns representing different values of two categorical variables. We can use cross-tabs to identify potential relationships between the variables (or factors) being examined. 
+
+For example, let's say that we want to understand whether the quantity of an inventory item on hand is related to the price of that item. Our initial prediction is that this relationship would be a negative one; that is, the more expensive the item, the fewer the quantity we would expect in inventory. 
+
+Since our data needs to be categorical, we'll create two new data frames which indicate whether the inventory items have above or below average prices and quantities. This can be done using the descriptive functions we discussed in the previous section:
+
+\texttt{price\_cat = inventory["Price"] > inventory["Price"].mean() \\
+quant\_cat = inventory["onHand"] > inventory["onHand"].mean()}
+
+Printing out either of these two data frames will return a list of true/false values which indicate whether the specific inventory item met the criteria we specified (i.e., a value of \texttt{True} in the \texttt{price\_cat} frame would indicate that a specific inventory item has a price that is above the average).
+
+We'll then create and print a cross-tabulation of the joint frequencies of the two factors using the \texttt{crosstab} function as follows:
+
+\texttt{print(pd.crosstab(price\_cat, quant\_cat))}
+
+The related output is provided in Figure 6.11.
+
+\begin{figure}[h]
+	\caption{Cross-tab output}
+	\centering\includegraphics[width=.90\textwidth]{/Chapter6/Figure_10}
+\end{figure}
+
+The results of this analysis do not seem to support our prediction. For the inventory items that have a higher than average price (
+\texttt{Price=True}) there are more individual items that have a below average quantity than an above average quantity (11 versus 7). Furthermore, this same relationship appears to exist for the inventory items that have a lower than average price (\texttt{Price=False}, 51 versus 45).
+
+Note, however, that the frequency distribution across our four cells suggests that our data is highly skewed and that we should interpret this result with a great degree of caution. That is, it appears that there are some abnormally high priced items in inventory that are dramatically inflating the average price (this can be confirmed by reviewing the data or calling the \texttt{skew()} function discussed earlier). We'll learn how to deal with data outliers such as this in the next chapter.
+
+\section{Summary}
+In this chapter we discussed how to work with tabular data using Pandas data frames. We reviewed how data frames can be created (either manually or by importing from CSV files) and how their indices can be manipulated. We learned how to sort, aggregate, and perform arithmetic operations on data frame values. We learned how data values can be aggregated based upon common keys and how to delete unecessary data and remove duplicates from a frame. Functions that can be used to generate descriptive statistics from data frame values were then presented. The chapter concluded with a brief discussion of how Pandas can generate a cross-tabulation report.
 
 \section{Discussion Questions}
 \begin{enumerate}
-	\item Manually create a data frame
-	\item Re-index the data frame
-	\item Sort the data frame in ascending order.
+\item As you know, Pandas is a software library for performing data science using the Python programming language. Conduct some brief internet research to determine if alternatives to Python/Pandas exist for performing data science. If so, name these alternatives.
+\item Conduct some brief internet research regarding the history of the Pandas library. Who is responsible for its development? How is the library distributed? 
 \end{enumerate}
 \section{Exercises}
-\chapter{Basic statistical analysis}
-\chapter{Visualization using matlib}
+\begin{enumerate}
+	\item Manually create a data frame that contains a list of the five most recent Super Bowl champions (this information can easily be found via the web). The data frame should contain columns which list the team name, the year the title was won, and the city the game was played at. Print the frame to screen to ensure that it was constructed properly.
+	\item Modify the data frame you prepared for question 1 so that the row index labels reflects the year the championship was won. Again, print the frame to screen to ensure that this change was properly made.
+	\item Modify the data frame you prepared in questions 1 and 2 by adding an addition column called \texttt{Score} which reflects the final score of the game. Again, print the frame to screen to ensure that the new addition is appropriately included.
+	\item \textbf{Portfolio project}: Perform an analysis to see if there is a relationship between per capita alcohol consumption and average temperature. You are interested in understanding whether people, on average, consume more alcohol in climates that are cold. You should follow these steps:
+\begin{itemize}
+	\item Using the web scraper you developed in Chapter 5, download the average yearly temperature by country as a CSV file from \\
+	https://en.wikipedia.org/wiki/List\_of\_countries\_by\_average\\ \_yearly\_temperature
+	\item Using the same method, download the per capita alcohol consumption by country from https://https://en.wikipedia.org/wiki/List\_of
+	\_countries\_by\_alcohol\_consumption\_per\_capita
+	\item Import the data into two data frames, performing any data clean up that is necessary.
+	\item Using Pandas' descriptive statistics functions, determine the average amount of alcohol consumed across all countries. Does the alcohol consumption data vary significantly from the mean (you will likely need to use the \texttt{std()} function to answer this question).
+	\item Use cross-tabulation to determine if alcohol consumption patterns (above or belove average) might be related to local climate.
+\end{itemize}
+\end{enumerate}
+\chapter{Basic probability and statistics}
+\chapter{Visualization}
+\chapter{What next?}
 \end{document}
