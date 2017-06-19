@@ -57,8 +57,9 @@
 \contentsline {section}{\numberline {5.3}Viewing a webpage's HTML code}{70}
 \contentsline {section}{\numberline {5.4}Building a basic webscraper using Python}{71}
 \contentsline {section}{\numberline {5.5}Scraping multi-page websites}{76}
-\contentsline {section}{\numberline {5.6}Discussion Questions}{79}
-\contentsline {section}{\numberline {5.7}Exercises}{79}
+\contentsline {section}{\numberline {5.6}Summary}{79}
+\contentsline {section}{\numberline {5.7}Discussion Questions}{79}
+\contentsline {section}{\numberline {5.8}Exercises}{80}
 \contentsline {chapter}{\numberline {6}Working with tabular data}{81}
 \contentsline {section}{\numberline {6.1}Installing Pandas}{81}
 \contentsline {section}{\numberline {6.2}Constructing data frames manually}{82}
@@ -75,6 +76,16 @@
 \contentsline {section}{\numberline {6.13}Summary}{92}
 \contentsline {section}{\numberline {6.14}Discussion Questions}{92}
 \contentsline {section}{\numberline {6.15}Exercises}{92}
-\contentsline {chapter}{\numberline {7}Basic probability and statistics}{95}
-\contentsline {chapter}{\numberline {8}Visualization}{97}
-\contentsline {chapter}{\numberline {9}What next?}{99}
+\contentsline {chapter}{\numberline {7}Forecasting}{95}
+\contentsline {section}{\numberline {7.1}Preparing our data}{95}
+\contentsline {section}{\numberline {7.2}Summary statistics}{98}
+\contentsline {section}{\numberline {7.3}Creating a histogram}{99}
+\contentsline {section}{\numberline {7.4}Installing scipy}{101}
+\contentsline {section}{\numberline {7.5}Correlation}{102}
+\contentsline {section}{\numberline {7.6}Linear regression}{102}
+\contentsline {section}{\numberline {7.7}Developing our model}{102}
+\contentsline {section}{\numberline {7.8}Logit regression}{102}
+\contentsline {section}{\numberline {7.9}Handling outliers}{102}
+\contentsline {chapter}{\numberline {8}More visualization with matplotlib}{103}
+\contentsline {chapter}{\numberline {9}Machine learning for document review}{105}
+\contentsline {chapter}{\numberline {10}What next?}{107}

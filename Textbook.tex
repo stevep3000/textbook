@@ -33,7 +33,7 @@
 \frontmatter
 \pagestyle{plain}
 \begin{titlepage}
-	\title {\huge \textbf{Introduction to Accounting Data Analytics Using Python}}
+	\title {\huge \textbf{Introduction to Data Analysis for Accountants: A Python Approach}}
 	\date{First Edition}
 	\author{Stephen Perreault, PhD, CPA}
 	\maketitle
@@ -1783,6 +1783,9 @@ The complete and final source code for our basic webscraper is presented in Figu
 	
 \end{figure}
 
+\section{Summary}
+The chapter begin with a discussion of common HTML tags and reviewed how the HTML code of a webpage can be viewed. It then discussed how to use the \textit{Beautiful Soup} and \textit{Requests} libraries to build a simple Python program to scrape tabular data from single-page websites. Use of iteration to scrape from multi-page websites was also discussed.
+
 \section{Discussion Questions}
 \begin{enumerate}
 	\item What does HTML stand for? What do the terms that make up this acronym refer to?
@@ -2076,10 +2079,10 @@ In this chapter we discussed how to work with tabular data using Pandas data fra
 \end{enumerate}
 \section{Exercises}
 \begin{enumerate}
-	\item Manually create a data frame that contains a list of the five most recent Super Bowl champions (this information can easily be found via the web). The data frame should contain columns which list the team name, the year the title was won, and the city the game was played at. Print the frame to screen to ensure that it was constructed properly.
-	\item Modify the data frame you prepared for question 1 so that the row index labels reflects the year the championship was won. Again, print the frame to screen to ensure that this change was properly made.
-	\item Modify the data frame you prepared in questions 1 and 2 by adding an addition column called \texttt{Score} which reflects the final score of the game. Again, print the frame to screen to ensure that the new addition is appropriately included.
-	\item \textbf{Portfolio project}: Perform an analysis to see if there is a relationship between per capita alcohol consumption and average temperature. You are interested in understanding whether people, on average, consume more alcohol in climates that are cold. You should follow these steps:
+	\item Manually create a data frame that contains a list of the four most recent Accounting Standards Updates (ASUs) that have been issued by the FASB (this information can easily be found via the FASB's website at \texttt{http://www.fasb.org}). The data frame should contain columns which list the ASU number, its title, and the the year that it was issued. Print the frame to screen to ensure that it was constructed properly.
+	\item Modify the data frame you prepared for question 1 so that the row index labels reflects the year the ASU was issued. Again, print the frame to screen to ensure that this change was properly made.
+	\item Modify the data frame you prepared in questions 1 and 2 by adding an addition column called \texttt{effectiveDate} which reflects the effective date of the ASU. Again, print the frame to screen to ensure that the new addition is appropriately included.
+	\item \textbf{Portfolio project}:  You are interested in understanding whether people, on average, consume more alcohol in climates that are cold versus those that are warm. Perform an analysis to see if there is a relationship between per capita alcohol consumption and average temperature. You should follow these steps:
 \begin{itemize}
 	\item Using the web scraper you developed in Chapter 5, download the average yearly temperature by country as a CSV file from \\
 	https://en.wikipedia.org/wiki/List\_of\_countries\_by\_average\\ \_yearly\_temperature
@@ -2090,7 +2093,172 @@ In this chapter we discussed how to work with tabular data using Pandas data fra
 	\item Use cross-tabulation to determine if alcohol consumption patterns (above or belove average) might be related to local climate.
 \end{itemize}
 \end{enumerate}
-\chapter{Basic probability and statistics}
-\chapter{Visualization}
+
+\chapter{Forecasting}
+
+In this chapter we will discuss how to use Python to conduct a simple forecasting analysis using linear regression. Linear regression is statistical technique used to determine the strength of a relationship between two or more dicrete variables. It is particularly useful for developing forecasts and, as such, is widely used in accounting contexts, especially in auditing and managerial accounting. This chapter assumes that you already have a basic understanding of inferential statistics and linear regression from your earlier college coursework and will focus primarily on the technical skills needed to conduct a regression analysis in Python\footnote{A basic level of understanding regarding regression can be obtained from most entry-level college statistics textbooks}. 
+
+In the examples presented in this chapter, we well be using linear regression to examine the relationship between the credit rating that a company assigns to its customers and the timeliness of customer payment. We will then use this insight to develop a model that will use a customer's credit rating to estimate how quickly it will pay off its account.  
+
+\section{Preparing our data}
+
+To begin, scrape the contents of the accounts receivables transaction detail located at \texttt{http://www.steveperreault.com/textbook/receivables.htm} to a CSV file following the steps outlined in Chapter 5. Then save the import the data into a new Pandas dataframe as discussed in Chapter 7 (use the default sequential numerical row index).
+
+The data dictionary for this data set is as follows:
+\begin{itemize}
+	\item \texttt{amount}: the amount of the receivable
+	\item \texttt{inv\_date}: the date the invoice was generated
+	\item \texttt{due\_date}: the date that payment of the invoice is due
+	\item \texttt{paid\_date}: the date the invoice was paid
+	\item \texttt{company\_name}: the name of the customer responsible for paying the invoice
+	\item \texttt{street}: the customer street address
+	\item \texttt{city}: the city in which the customer is located
+	\item \texttt{state}: the state in which the customer is located
+	\item \texttt{rating}: a custom code (between 0-100, in increments of ten) which indicates the perceived creditworthiness of the customer based upon evaluations made by the \textit{Roger Wilco Company} credit and collections department. Higher numbers suggest higher perceived creditworthiness.
+\end{itemize}
+
+Let's add two custom columns to our data frame. First, we want to add a column that indicates the age of the receivable at the time it was paid (in days). Essentially, we need to calculate the difference between the invoice date and the date it was subsequently paid. We might be tempted to first try an arithmetic operation like this (assume we've named our data frame \texttt{recs}):
+
+\texttt{recs["Age"] = recs["paid\_date"] - recs["inv\_date"]}
+
+You will note that this returns the following error:
+
+\texttt{unsupported operand type(s) for -: `str' and `str'}
+
+Python is telling us here that the columns \texttt{paid\_date} and \texttt{receivables\_date} have a string type and that we can't perform substraction on strings (d'oh!). To fix this problem, we need to inform Python that these two columns (as well as \texttt{"due\_date"}) should be treated as dates. Thankfully, Python has a handy function called \texttt{to\_datetime} that can be used to convert strings data types to dates. In this example, it can be used as follows:\footnote{We could also convert the date columns when initially reading the CSV file by passing the \texttt{parse\_date=True} and \texttt{keep\_date\_col=True} parameters to the \texttt{read\_csv} function after the filename.}
+
+\texttt{receivables["inv\_date"] = pd.to\_datetime(recs["inv\_date"]) \\
+recs["due\_date"] = pd.to\_datetime(recs["due\_date"]) \\
+recs["paid\_date"] = pd.to\_datetime(recs["paid\_date"])}
+
+We can confirm that the appropriate data type has been assigned for each column by printing the frame's \texttt{dtypes} as follows:
+
+\texttt{print(rec.dtypes)}
+
+The related output is presented in Figure 7.1. The data types \texttt{float} and \texttt{int} should be familiar to you now, but you'll notice that the output also includes two new data types, \texttt{datetime} and \texttt{object}.
+
+\begin{figure}[h]
+	\caption{Displaying a frame's dtypes}
+	\centering\includegraphics[width=.90\textwidth]{/Chapter7/Figure_1}
+\end{figure}
+
+The \texttt{object} data type is simply Panda-terminology for strings. Note thas type has been appropriately assigned to the \texttt{company\_name}, \texttt{street}, \texttt{city}, and \texttt{state} columns. The \texttt{datetime} type is simply a special version of the string data type that Pandas uses when working with dates. We can confirm that our date fields \texttt{inv\_date}, \texttt{due\_date}, and \texttt{paid\_date} appropriately have this type. Note that it's usually a good idea to verify the \texttt{dtypes} of your data frames prior to performing data analysis.
+
+With our data columns now having the appropriate type, we can create a new column, \texttt{Age}, which reflects the difference between the invoice data and the payment date as follows:
+
+\texttt{recs["age"] = recs["paid\_date"] - recs["inv\_date"]}
+
+By default, Pandas will give the new \texttt{age} column a special data type called \texttt{timedelta}, which is a subclass of the \texttt{datetime} type. The \texttt{timedelta} time has advanced functionality that can be used to easily express differences between dates or times by seconds, hours, days, minutes, etc.
+
+Next, we want to create an additional column which indicates whether the invoice was paid late. This variable will contain a binary value (\texttt{true} or \texttt{false}), so it is perfect for the \texttt{bool} type discussed earlier. We'll write a simple expression that determines whether the value in the \texttt{paid\_date} field is greater than the value in the \texttt{due\_date field}. The return value (either \texttt{True} or \texttt{False}) will be stored in a new column within the data frame called \texttt{Late}.
+
+\texttt{recs["late"] = recs["paid\_date"]>recs["due\_date"]}
+
+To verify that we've done everything correctly, let's print the first 5 rows of the data frame and the frame's \texttt{dtypes} as follows:
+
+\texttt{print(recs) \\ print(recs.dtypes)}
+
+The output should look something like Figure 7.2. (Note that the row contents have been split in the display since the size of the table is greater than the size of the terminal window. Don't worry - this is for display purposes only and the contents are indeed stored in a single row within the data frame).
+
+\begin{figure}[h]
+	\caption{Displaying a frame's dtypes}
+	\centering\includegraphics[width=.99\textwidth]{/Chapter7/Figure_2}
+\end{figure}
+
+\section{Summary statistics}
+
+Since we are attempting to learn whether a customer's credit rating is associated with payment timeliness, our initial variables of interest for this analysis are \texttt{age} and \texttt{paydex}. Using the \texttt{descibe} function that we learned about earlier, let's go ahead and print some summary statistics for these variables using the \texttt{describe()} function we learned about in the previous chapter:
+
+\texttt{print(recs["paydex"].describe(),"\textbackslash n") \\print(recs["age"].dt.days.describe())}
+
+Since \texttt{age} has a Timedelta data type, we use the the \texttt{dt.days} attribute to return the difference expressed in days. We have also included a newline character (\texttt{\textbackslash n}) in the first \texttt{print} call simply to place a blank line between the statistics for each column. Your output should look similar to Figure 7.3. We can see that the average age of an invoice is 23.7 days, half are paid within 18 days, and three quarters are paid with 26 days. We can also see that the credit score (\texttt{paydex}) associated with a customer receivable is 75, although it appears that there is a significant portion of the customer base that has a lower credit score.
+
+\begin{figure}[h]
+	\caption{Summary statistics}
+	\centering\includegraphics[width=.90\textwidth]{/Chapter7/Figure_3}
+\end{figure}
+
+\section{Creating a histogram}
+
+A necessary assumption of simple linear regression is that for a given value of our independent variable (\texttt{paydex}), the dependent variable (\texttt{age}) is normally distributed. We can check the normality of our data by creating a simple histogram.
+
+The module \textit{matplotLib} and its sub-module \textit{pyplot} is used to provide plotting functionality for Pandas. If you're using Python from within a campus computer lab, it's likely matplotLib is already installed. If not, it can be installed by running the following commands from within your terminal:
+
+\texttt{pip install matplotlib}
+
+Note that we can use the library from within our programs by including the following command in our Python scripts.
+
+\texttt{import matplotlib, matplotlib.pyplot as plt}
+
+With the library successfully installed, let's go ahead and create that histogram. We'll use pyplot's \texttt{hist()} function and pass the \texttt{age} column that we want to plot. This function also takes a parameter (\texttt{bins}) represents the interval used to display the output along the x-axis (we'll choose a bin size of 20). We will then assign some simple labels to the histogram axes before finally displaying the plot on the screen using the \texttt{show()} function.
+
+\texttt{plt.hist(x=recs["age"].dt.days, bins=20) \\
+plt.xlabel("age") \\
+plt.ylabel("frequency") \\
+plt.show()}
+
+\begin{figure}[h]
+	\caption{Histogram example}
+	\centering\includegraphics[width=.80\textwidth]{/Chapter7/Figure_4}
+\end{figure}
+
+As we can see in Figure 3.4, the data appears to have a somewhat normal (bell-shaped) distribution, although it is right-skewed. We might want to adjust the data to account for this skewness (for example, we can use a log transformation) but since this is an introductory text, we'll accept the data as is. 
+
+The full Python code for setting up our data frame, calculating the summary statistics, and displaying the simple histogram are presented in Figure 7.6.
+
+\begin{figure}[h]
+\caption{Data preparation and summary statistics}
+\begin{lstlisting}
+	import matplotlib, matplotlib.pyplot as plt
+	import pandas as pd
+	import numpy as np
+
+	#import and set up data frame
+	recs = pd.read_csv("accounts_receivable.csv")
+	recs["inv_date"] = pd.to_datetime(recs["inv_date"])
+	recs["due_date"] = pd.to_datetime(recs["due_date"])
+	recs["paid_date"] = pd.to_datetime(recs["paid_date"])
+
+	#calculate age of receivable and late status
+	recs["age"] = recs["paid_date"] - recs["inv_date"]
+	recs["late"] = recs["paid_date"]>recs["due_date"]
+
+	#summary statistics
+	print(recs["paydex"].describe())
+	print(recs["age"].dt.days.describe(), "\n")
+
+	#display histogram
+	plt.hist(x=recs["age"].dt.days, bins=20)
+	plt.xlabel("age")
+	plt.ylabel("frequency")
+	plt.show()
+\end{lstlisting}
+\end{figure}
+
+\section{Installing scipy}
+
+To perform the statistical analysis discussed in the rest of this chapter, we'll be relying on the \textit{scipy} module. This module contains the probability distributions and statistical functions we need to complete this example. Unfortunately, the package needed to install scipy on Windows machines must be downloaded and installed manually. The latest version of the package file currently be downloaded from:
+
+\texttt{http://www.lfd.uci.edu/\textasciitilde gohlke/pythonlibs/\#scipy}
+
+Be sure to download the package file that matches your version of Python (e.g., 3.6). When downloaded, the file should be copied to the directory that Python is installed on your machine. The package can then be installed using the following command from within the terminal: 
+
+\texttt{pip install "file name"}
+
+where file name is the name of the package file downloaded. You can verify that pip has installed correctly by running the command \texttt{pip install scipy} within the terminal. The output \texttt{requirement has already been satisfied} indicates successful installation.
+
+\section{Correlation}
+
+With our data frame fully set up, we can now perform our first test to see whether a customer's credit score is related to the timeliness of payment. We will calculate a Pearson correlation coefficient to measure the linear relationship between the two variables. This can be done using scipy's \texttt{pearsonr()} function as follows:
+
+\texttt
+
+\section{Linear regression}
+\section{Developing our model}
+\section{Logit regression}
+\section{Handling outliers}
+
+\chapter{More visualization with matplotlib}
+\chapter{Machine learning for document review}
 \chapter{What next?}
 \end{document}
