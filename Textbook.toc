@@ -1,9 +1,7 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}
 \contentsline {section}{\numberline {1.1}What is data analytics?}{1}
-\contentsline {section}{\numberline {1.2}Sources of data}{1}
-\contentsline {section}{\numberline {1.3}About this book}{1}
-\contentsline {section}{\numberline {1.4}Intended audience}{1}
-\contentsline {section}{\numberline {1.5}Software used}{1}
+\contentsline {section}{\numberline {1.2}Who is this book for?}{1}
+\contentsline {section}{\numberline {1.3}Hardware and software requirements}{1}
 \contentsline {chapter}{\numberline {2}Version control}{3}
 \contentsline {section}{\numberline {2.1}Why you should care about version control}{3}
 \contentsline {section}{\numberline {2.2}Introducing Git}{4}
@@ -17,8 +15,7 @@
 \contentsline {section}{\numberline {2.10}Advanced: Creating branches}{17}
 \contentsline {section}{\numberline {2.11}Advanced: Merging branches}{19}
 \contentsline {section}{\numberline {2.12}Summary}{20}
-\contentsline {section}{\numberline {2.13}Discussion Questions}{20}
-\contentsline {section}{\numberline {2.14}Exercises}{21}
+\contentsline {section}{\numberline {2.13}Exercises}{20}
 \contentsline {chapter}{\numberline {3}Basic Python concepts}{23}
 \contentsline {section}{\numberline {3.1}Why Python?}{23}
 \contentsline {section}{\numberline {3.2}Setting up a development environment}{24}
@@ -37,8 +34,7 @@
 \contentsline {section}{\numberline {3.15}Iteration}{39}
 \contentsline {section}{\numberline {3.16}Searching for help}{42}
 \contentsline {section}{\numberline {3.17}Summary}{42}
-\contentsline {section}{\numberline {3.18}Discussion questions}{42}
-\contentsline {section}{\numberline {3.19}Exercises}{43}
+\contentsline {section}{\numberline {3.18}Exercises}{42}
 \contentsline {chapter}{\numberline {4}Intermediate Python concepts}{47}
 \contentsline {section}{\numberline {4.1}Introducing functions}{47}
 \contentsline {section}{\numberline {4.2}Global versus local variables}{48}
@@ -49,8 +45,7 @@
 \contentsline {section}{\numberline {4.7}Advanced: Classes}{57}
 \contentsline {section}{\numberline {4.8}Advanced: Inheritance}{61}
 \contentsline {section}{\numberline {4.9}Summary}{63}
-\contentsline {section}{\numberline {4.10}Discussion questions}{63}
-\contentsline {section}{\numberline {4.11}Exercises}{64}
+\contentsline {section}{\numberline {4.10}Exercises}{63}
 \contentsline {chapter}{\numberline {5}Collecting data from the web}{67}
 \contentsline {section}{\numberline {5.1}A brief overview of HTML}{67}
 \contentsline {section}{\numberline {5.2}Necessary libraries}{68}
@@ -74,18 +69,19 @@
 \contentsline {section}{\numberline {6.11}Descriptive statistics}{89}
 \contentsline {section}{\numberline {6.12}Cross-tabulation}{90}
 \contentsline {section}{\numberline {6.13}Summary}{92}
-\contentsline {section}{\numberline {6.14}Discussion Questions}{92}
-\contentsline {section}{\numberline {6.15}Exercises}{92}
-\contentsline {chapter}{\numberline {7}Forecasting}{95}
+\contentsline {section}{\numberline {6.14}Exercises}{92}
+\contentsline {chapter}{\numberline {7}Generalized linear models and forecasting}{95}
 \contentsline {section}{\numberline {7.1}Preparing our data}{95}
 \contentsline {section}{\numberline {7.2}Summary statistics}{98}
-\contentsline {section}{\numberline {7.3}Creating a histogram}{99}
-\contentsline {section}{\numberline {7.4}Installing scipy}{101}
-\contentsline {section}{\numberline {7.5}Correlation}{102}
-\contentsline {section}{\numberline {7.6}Linear regression}{102}
-\contentsline {section}{\numberline {7.7}Developing our model}{102}
-\contentsline {section}{\numberline {7.8}Logit regression}{102}
-\contentsline {section}{\numberline {7.9}Handling outliers}{102}
-\contentsline {chapter}{\numberline {8}More visualization with matplotlib}{103}
-\contentsline {chapter}{\numberline {9}Machine learning for document review}{105}
-\contentsline {chapter}{\numberline {10}What next?}{107}
+\contentsline {section}{\numberline {7.3}Creating a histogram}{100}
+\contentsline {section}{\numberline {7.4}Creating a scatterplot}{101}
+\contentsline {section}{\numberline {7.5}Installing scipy and statsmodels}{102}
+\contentsline {section}{\numberline {7.6}Correlation}{103}
+\contentsline {section}{\numberline {7.7}Linear regression}{104}
+\contentsline {section}{\numberline {7.8}Advanced: Logistic regression}{106}
+\contentsline {section}{\numberline {7.9}Advanced: Handling outliers}{107}
+\contentsline {section}{\numberline {7.10}Summary}{108}
+\contentsline {section}{\numberline {7.11}Exercises}{108}
+\contentsline {chapter}{\numberline {8}More visualization with matplotlib}{109}
+\contentsline {chapter}{\numberline {9}Machine learning for document review}{111}
+\contentsline {chapter}{\numberline {10}What next?}{113}

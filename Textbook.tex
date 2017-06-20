@@ -34,7 +34,7 @@
 \pagestyle{plain}
 \begin{titlepage}
 	\title {\huge \textbf{Introduction to Data Analysis for Accountants: A Python Approach}}
-	\date{First Edition}
+	\date{}
 	\author{Stephen Perreault, PhD, CPA}
 	\maketitle
 \end{titlepage}
@@ -68,10 +68,9 @@ To Kathleen, Lyla, Willy, and Matilda.}
 % Chapter 1
 \chapter{Introduction}
 \section{What is data analytics?}
-\section{Sources of data}
-\section{About this book}
-\section{Intended audience}
-\section{Software used}
+\section{Who is this book for?}
+\section{Hardware and software requirements}
+
 Assumes you are using a Windows-based PC. Mac versions in the future.
 
 % Chapter 2
@@ -375,17 +374,12 @@ Note that this chapter merely scratches the surface of what you can accomplish u
 	\item GitHub: \texttt{https://guides.github.com}
 \end{itemize}
 
-\section{Discussion Questions}
-
+\section{Exercises}
 \begin{enumerate}
 	\item What is the purpose of a version control system such as Git? Mention three benefits of using such a system.
 	\item Why might a developer choose to also use a social media platform such as GitHub instead of just using the Git version control system locally?
 	\item Conduct some brief internet research to identify competing websites that offer services similar to GitHub. Do any such sites exist?
 	\item How can the concept of branching prevent unintended problems from occurring during the software development process?
-\end{enumerate}
-
-\section{Exercises}
-\begin{enumerate}
 	\item Create a local repository using Git. Name the repository \texttt{my\_fav\_picture}. This repository should contain:
 	\begin{itemize}
 		\item a README.md file which contains the name of the project and a brief description of the project. 
@@ -906,9 +900,9 @@ Search engines such as Google\texttrademark , can also be helpful tools for find
 \section{Summary}
 This chapter began by presenting a brief background of the Python programming language and then discussed how to set up a simple development environment. Common data types were presented as well as functions for displaying output and accepting user input. Constructing conditional statements using comparison and logical operators was also introduced. The chapter concluded with a discussion of iteration using both \texttt{for} and \texttt{while} loops.
 
-\section{Discussion questions}
+\section{Exercises}
 \begin{enumerate}
-	\item Indicate the data type for each of the following expressions (your choices are bool, int, str, or float):
+		\item Indicate the data type for each of the following expressions (your choices are bool, int, str, or float):
 	\begin{enumerate}
 		\item 3
 		\item 3.0
@@ -946,10 +940,7 @@ This chapter began by presenting a brief background of the Python programming la
 	print(8)
 	print("Bye!")
 	\end{lstlisting}
-		
-\end{enumerate}
-\section{Exercises}
-\begin{enumerate}
+	
 	\item Write a program that takes the age of the user and converts it to dog years (you can assume that one dog year is equivalent to one human year). For example, if you are 98 years old in human years that means you are 14 years old in dog years.
 	\item Write a program that takes a user's weight (in kilograms) and height (in centimeters) and calculates their Body Mass Index (BMI). Based upon their BMI, the program should then indicate whether the user is considered underweight (BMI of 18 or less), normal weight (BMI of greater than 18 but less than 26) or overweight (BMI of 26 or greater). Note that the formula for calculating BMI is weight/height\textsuperscript{2}.
 	
@@ -1416,10 +1407,10 @@ invoice2.display()}
 \section{Summary}
 
 We began this chapter by introducing functions, which are useful programming tools for writing reusable code. We then discussed lists and dictionaries, which are commonly used data structures for handling more complex data. We learned the basic steps involved in saving to and reading from files, including encoding/decoding using the JSON format. The chapter concluded with an introductory discussion of object oriented programming concepts including classes and inheritance.
- 
-\section{Discussion questions}
+
+\section{Exercises}
 \begin{enumerate}
-	\item What is the difference between local versus global scoping of variables? Why do you think programmers generally prefer to avoid using variables with global scope?
+		\item What is the difference between local versus global scoping of variables? Why do you think programmers generally prefer to avoid using variables with global scope?
 	\item Assume that we've created a list with the following assignment: \\ \texttt{var myList = [1, 4, ["foo", 3, "bar"], "baz"]}
 	\\Specify the output that would be returned by each of the following expressions:
 	\begin{enumerate}
@@ -1445,11 +1436,6 @@ We began this chapter by introducing functions, which are useful programming too
 	\item The following code stub starts the definition of a class called \texttt{JournalEntry}. Objects instantiated using this definition should have the members \\ \texttt{accountName} and \texttt{amount}. Complete the code stub by replacing the commented code \texttt{\#Line 1} and \texttt{\#Line 2}.
 	
 	\texttt{class JournalEntry: \\ \mbox{~~~~}def \_\_init\_\_(self, accountName, amount): \\ \mbox{~~~~~~~~}\#Line 1: Create a member for the account name \\ \mbox{~~~~~~~~}\#Line 2: Create a member for the journal entry amount}
-	
-\end{enumerate}
-
-\section{Exercises}
-\begin{enumerate}
 	\item In Exercise 3.6 you were asked to write a program which displays the first 25 numbers in the \textit{Fibonacci sequence}. Modify this program so that this calculation and related printout is encapsulated in a function. The function should take a single parameter, \texttt{num}, which is specified by the user and indicates the number of elements in the sequence to print. 
 	
 	\item Write a program that will ask the user to enter a temperature in Fahrenheit and prints the temperature in Celsius. The program should contain a function which takes a single argument, \texttt{farTemp}, and returns the converted temperature. Note that the conversion formula is \textit{C = (F - 32) * (5/9)}. As a check, 76 degrees Farenheit is equivalent to approximately 24 degrees Celsius.
@@ -1462,7 +1448,7 @@ We began this chapter by introducing functions, which are useful programming too
 	
 	\item \textbf{Portfolio project:} Write a simple program that creates a database of your friends' birthdays. The program should give the user the options to 1) add a new friend and birthday to the database, 2) remove a friend and birthday from the database, 3) change the birthday for a friend already included in the database, 4) print the current friends and birthdays stored in the database, and 5) export the contents of the database to a JSON file. You should use conditional statements to manage user input. You may want to consider using a dictionary as the organizational structure supporting your database.
 	
-	\item \textbf{Portfolio project:} The file \texttt{wordlist.txt} posted on the textbook website contains a list of 69,903 English words. Using this word list, create a game of Hangman using Python. The program should read the word list file and randomly choose a single word from the list. It should then provide the user with a limited number of chances to guess individual letters that make up the word. An example of what such a program might look like is presented in Figure 4.13.
+	\item \textbf{Portfolio project:} The file \texttt{wordlist.txt} posted on the textbook website contains a list of 69,903 English words. Using this word list, create a game of Hangman using Python. The program should read the word list file and randomly choose a single word from the list. It should then provide the user with a limited number of chances to guess individual letters that make up the word. An example of what such a program might look like is presented in Figure 4.16.
 	
 	\begin{figure}[h]
 		\caption{Sample program output for exercise 7}
@@ -2072,13 +2058,10 @@ Note, however, that the frequency distribution across our four cells suggests th
 \section{Summary}
 In this chapter we discussed how to work with tabular data using Pandas data frames. We reviewed how data frames can be created (either manually or by importing from CSV files) and how their indices can be manipulated. We learned how to sort, aggregate, and perform arithmetic operations on data frame values. We learned how data values can be aggregated based upon common keys and how to delete unecessary data and remove duplicates from a frame. Functions that can be used to generate descriptive statistics from data frame values were then presented. The chapter concluded with a brief discussion of how Pandas can generate a cross-tabulation report.
 
-\section{Discussion Questions}
-\begin{enumerate}
-\item As you know, Pandas is a software library for performing data science using the Python programming language. Conduct some brief internet research to determine if alternatives to Python/Pandas exist for performing data science. If so, name these alternatives.
-\item Conduct some brief internet research regarding the history of the Pandas library. Who is responsible for its development? How is the library distributed? 
-\end{enumerate}
 \section{Exercises}
 \begin{enumerate}
+	\item As you know, Pandas is a software library for performing data science using the Python programming language. Conduct some brief internet research to determine if alternatives to Python/Pandas exist for performing data science. If so, name these alternatives.
+	\item Conduct some brief internet research regarding the history of the Pandas library. Who is responsible for its development? How is the library distributed? 
 	\item Manually create a data frame that contains a list of the four most recent Accounting Standards Updates (ASUs) that have been issued by the FASB (this information can easily be found via the FASB's website at \texttt{http://www.fasb.org}). The data frame should contain columns which list the ASU number, its title, and the the year that it was issued. Print the frame to screen to ensure that it was constructed properly.
 	\item Modify the data frame you prepared for question 1 so that the row index labels reflects the year the ASU was issued. Again, print the frame to screen to ensure that this change was properly made.
 	\item Modify the data frame you prepared in questions 1 and 2 by adding an addition column called \texttt{effectiveDate} which reflects the effective date of the ASU. Again, print the frame to screen to ensure that the new addition is appropriately included.
@@ -2094,7 +2077,7 @@ In this chapter we discussed how to work with tabular data using Pandas data fra
 \end{itemize}
 \end{enumerate}
 
-\chapter{Forecasting}
+\chapter{Generalized linear models and forecasting}
 
 In this chapter we will discuss how to use Python to conduct a simple forecasting analysis using linear regression. Linear regression is statistical technique used to determine the strength of a relationship between two or more dicrete variables. It is particularly useful for developing forecasts and, as such, is widely used in accounting contexts, especially in auditing and managerial accounting. This chapter assumes that you already have a basic understanding of inferential statistics and linear regression from your earlier college coursework and will focus primarily on the technical skills needed to conduct a regression analysis in Python\footnote{A basic level of understanding regarding regression can be obtained from most entry-level college statistics textbooks}. 
 
@@ -2114,7 +2097,7 @@ The data dictionary for this data set is as follows:
 	\item \texttt{street}: the customer street address
 	\item \texttt{city}: the city in which the customer is located
 	\item \texttt{state}: the state in which the customer is located
-	\item \texttt{rating}: a custom code (between 0-100, in increments of ten) which indicates the perceived creditworthiness of the customer based upon evaluations made by the \textit{Roger Wilco Company} credit and collections department. Higher numbers suggest higher perceived creditworthiness.
+	\item \texttt{score}: a custom code (between 0-100, in increments of ten) which indicates the perceived creditworthiness of the customer based upon evaluations made by the \textit{Roger Wilco Company} credit and collections department. Higher numbers suggest higher perceived creditworthiness.
 \end{itemize}
 
 Let's add two custom columns to our data frame. First, we want to add a column that indicates the age of the receivable at the time it was paid (in days). Essentially, we need to calculate the difference between the invoice date and the date it was subsequently paid. We might be tempted to first try an arithmetic operation like this (assume we've named our data frame \texttt{recs}):
@@ -2167,11 +2150,11 @@ The output should look something like Figure 7.2. (Note that the row contents ha
 
 \section{Summary statistics}
 
-Since we are attempting to learn whether a customer's credit rating is associated with payment timeliness, our initial variables of interest for this analysis are \texttt{age} and \texttt{paydex}. Using the \texttt{descibe} function that we learned about earlier, let's go ahead and print some summary statistics for these variables using the \texttt{describe()} function we learned about in the previous chapter:
+Since we are attempting to learn whether a customer's credit rating is associated with payment timeliness, our initial variables of interest for this analysis are \texttt{age} and \texttt{score}. Using the \texttt{descibe} function that we learned about earlier, let's go ahead and print some summary statistics for these variables using the \texttt{describe()} function we learned about in the previous chapter:
 
-\texttt{print(recs["paydex"].describe(),"\textbackslash n") \\print(recs["age"].dt.days.describe())}
+\texttt{print(recs["score"].describe(),"\textbackslash n") \\print(recs["age"].dt.days.describe())}
 
-Since \texttt{age} has a Timedelta data type, we use the the \texttt{dt.days} attribute to return the difference expressed in days. We have also included a newline character (\texttt{\textbackslash n}) in the first \texttt{print} call simply to place a blank line between the statistics for each column. Your output should look similar to Figure 7.3. We can see that the average age of an invoice is 23.7 days, half are paid within 18 days, and three quarters are paid with 26 days. We can also see that the credit score (\texttt{paydex}) associated with a customer receivable is 75, although it appears that there is a significant portion of the customer base that has a lower credit score.
+Since \texttt{age} has a Timedelta data type, we use the the \texttt{dt.days} attribute to return the difference expressed in days. We have also included a newline character (\texttt{\textbackslash n}) in the first \texttt{print} call simply to place a blank line between the statistics for each column. Your output should look similar to Figure 7.3. We can see that the average age of an invoice is 23.7 days, half are paid within 18 days, and three quarters are paid with 26 days. We can also see that the credit score (\texttt{score}) associated with a customer receivable is 75, although it appears that there is a significant portion of the customer base that has a lower credit score.
 
 \begin{figure}[h]
 	\caption{Summary statistics}
@@ -2180,7 +2163,7 @@ Since \texttt{age} has a Timedelta data type, we use the the \texttt{dt.days} at
 
 \section{Creating a histogram}
 
-A necessary assumption of simple linear regression is that for a given value of our independent variable (\texttt{paydex}), the dependent variable (\texttt{age}) is normally distributed. We can check the normality of our data by creating a simple histogram.
+A necessary assumption of simple linear regression is that for a given value of our independent variable (\texttt{score}), the dependent variable (\texttt{age}) is normally distributed. We can check the normality of our data by creating a simple histogram.
 
 The module \textit{matplotLib} and its sub-module \textit{pyplot} is used to provide plotting functionality for Pandas. If you're using Python from within a campus computer lab, it's likely matplotLib is already installed. If not, it can be installed by running the following commands from within your terminal:
 
@@ -2190,6 +2173,11 @@ Note that we can use the library from within our programs by including the follo
 
 \texttt{import matplotlib, matplotlib.pyplot as plt}
 
+\begin{figure}[h]
+	\caption{Histogram example}
+	\centering\includegraphics[width=.80\textwidth]{/Chapter7/Figure_4}
+\end{figure}
+
 With the library successfully installed, let's go ahead and create that histogram. We'll use pyplot's \texttt{hist()} function and pass the \texttt{age} column that we want to plot. This function also takes a parameter (\texttt{bins}) represents the interval used to display the output along the x-axis (we'll choose a bin size of 20). We will then assign some simple labels to the histogram axes before finally displaying the plot on the screen using the \texttt{show()} function.
 
 \texttt{plt.hist(x=recs["age"].dt.days, bins=20) \\
@@ -2197,47 +2185,65 @@ plt.xlabel("age") \\
 plt.ylabel("frequency") \\
 plt.show()}
 
+As we can see in Figure 3.4, the data appears to have a somewhat normal (bell-shaped) distribution, although it is right-skewed. We might want to adjust the data to account for this skewness (for example, we can use a log transformation) but since this is an introductory text, we'll accept the data as is. 
+
+\section{Creating a scatterplot}
+
+Let's also visually examine the relationship between credit score and payment timeliness with a simple scatterplot using pyplot's \texttt{scatter()} function. We'll also add labels to the x and y axes in order to make the plot more interpretable. The output is presented in Figure 7.5.
+
+\texttt{plt.scatter(recs["age"].dt.days, recs["score"])\\
+	plt.xlabel("age")\\
+	plt.ylabel("credit score")\\
+	plt.show()
+}
+
 \begin{figure}[h]
-	\caption{Histogram example}
-	\centering\includegraphics[width=.80\textwidth]{/Chapter7/Figure_4}
+	\caption{Scatterplot] example}
+	\centering\includegraphics[width=.60\textwidth]{/Chapter7/Figure_6}
 \end{figure}
 
-As we can see in Figure 3.4, the data appears to have a somewhat normal (bell-shaped) distribution, although it is right-skewed. We might want to adjust the data to account for this skewness (for example, we can use a log transformation) but since this is an introductory text, we'll accept the data as is. 
+As we can see from the histogram, the data seems to be clustered along the upper left and upper right corners of the chart, suggesting a possible negative relationship between the two variables (although it does not appear that this possible relationship is very strong).
 
 The full Python code for setting up our data frame, calculating the summary statistics, and displaying the simple histogram are presented in Figure 7.6.
 
 \begin{figure}[h]
-\caption{Data preparation and summary statistics}
-\begin{lstlisting}
+	\caption{Data preparation and summary statistics}
+	\begin{lstlisting}
 	import matplotlib, matplotlib.pyplot as plt
 	import pandas as pd
 	import numpy as np
-
+	
 	#import and set up data frame
 	recs = pd.read_csv("accounts_receivable.csv")
 	recs["inv_date"] = pd.to_datetime(recs["inv_date"])
 	recs["due_date"] = pd.to_datetime(recs["due_date"])
 	recs["paid_date"] = pd.to_datetime(recs["paid_date"])
-
+	
 	#calculate age of receivable and late status
 	recs["age"] = recs["paid_date"] - recs["inv_date"]
 	recs["late"] = recs["paid_date"]>recs["due_date"]
-
+	
 	#summary statistics
-	print(recs["paydex"].describe())
+	print(recs["score"].describe())
 	print(recs["age"].dt.days.describe(), "\n")
-
+	
 	#display histogram
 	plt.hist(x=recs["age"].dt.days, bins=20)
 	plt.xlabel("age")
 	plt.ylabel("frequency")
 	plt.show()
-\end{lstlisting}
+	
+	#display scatterplot
+	plt.scatter(recs["age"].dt.days, recs["score"])
+	plt.xlabel("age")
+	plt.ylabel("credit score")
+	plt.show()
+	\end{lstlisting}
 \end{figure}
 
-\section{Installing scipy}
+\section{Installing scipy and statsmodels}
 
-To perform the statistical analysis discussed in the rest of this chapter, we'll be relying on the \textit{scipy} module. This module contains the probability distributions and statistical functions we need to complete this example. Unfortunately, the package needed to install scipy on Windows machines must be downloaded and installed manually. The latest version of the package file currently be downloaded from:
+To perform the statistical analysis discussed in the rest of this chapter, we'll be relying on the \textit{scipy} and \texttt{statsmodels} modules. These module contains the probability distributions and statistical functions we need to complete our example. If you are using a data science oriented Python distribution (such as Anaconda), this package should already be installed for you. Otherwise, the package needed to install scipy and statsmodels on Windows machines must be downloaded and installed manually (scipy needs to be installed prior to statsmodels). The latest version of the package file currently be downloaded from:
 
 \texttt{http://www.lfd.uci.edu/\textasciitilde gohlke/pythonlibs/\#scipy}
 
@@ -2245,18 +2251,131 @@ Be sure to download the package file that matches your version of Python (e.g., 
 
 \texttt{pip install "file name"}
 
-where file name is the name of the package file downloaded. You can verify that pip has installed correctly by running the command \texttt{pip install scipy} within the terminal. The output \texttt{requirement has already been satisfied} indicates successful installation.
+where file name is the name of the package file downloaded. You can verify that pip has installed correctly by running the command \texttt{pip install scipy} within the terminal. The terminal output, \texttt{requirement has already been satisfied}, indicates successful installation. We'll import the modules by inserting the following code at the top of our script:
+
+\texttt{import scipy\\from scipy.stats import pearsonr\\import statsmodels.api as sm}
 
 \section{Correlation}
 
-With our data frame fully set up, we can now perform our first test to see whether a customer's credit score is related to the timeliness of payment. We will calculate a Pearson correlation coefficient to measure the linear relationship between the two variables. This can be done using scipy's \texttt{pearsonr()} function as follows:
+With our data frame fully set up, we can now perform our first test to see whether a customer's credit score is related to the timeliness of payment. We will calculate a Pearson correlation coefficient to measure the linear relationship between the two variables. This can be done using scipy's \texttt{pearsonr()} function which takes the two variables being examined as parameters and returns the correlation coefficient and p-value. We'll nest the \texttt{pearsonr()} function call in a \texttt{print()} call in order to print the analysis to the screen. The program output is presented in Figure 7.5.
 
-\texttt
+\texttt{print(pearsonr(recs["age"].dt.days, recs["score"]))}
+
+\begin{figure}[h]
+	\caption{Correlation analysis}
+	\centering\includegraphics[width=.70\textwidth]{/Chapter7/Figure_5}
+\end{figure}
+
+As indicated in the output, the relationship between credit score and payment timeliness appears to be negative. That is, the higher the customer's credit score, the earlier it is likely to be paid. In addition, this relationship appears to be highly significant, with a p-value of less than .01 (note the use of scientific notation in the program output). As a result, we can conclude that there does appear to be a statistically significant relationship between the two variables, although it is perhaps not as strong as the company might hope.
 
 \section{Linear regression}
-\section{Developing our model}
-\section{Logit regression}
-\section{Handling outliers}
+We can use ordinary least squares to estimate a function which can be used to predict payment timeliness based upon a customer's credit rating. We'll express the function in the format :
+
+\begin{center}
+\begin{math}
+age_i = \beta_0 + \beta_1 score_i + \epsilon_i
+\end{math}
+\end{center}
+
+To make things a bit easier for us, we'll create two new variables, \texttt{x} and \texttt{y} which store the values of our independent and dependent variables respectively. 
+
+\texttt{y = recs["age"].dt.days \\x = recs["score"]}
+
+The statsmodel ols regression function does not automatically include the constant term, so we'll add that now:
+
+\texttt{x = sm.add\_constant(x)}
+
+We'll then specify the model by passing the dependent and independent variables to the statsmodel's \texttt{ols()} function and save the return value in a new variable called \texttt{mod}. It is typically good practice to store statistical models in their own unique variables in order to allow for future access/modification.
+
+\texttt{mod = sm.OLS(y, x)}
+
+We'll then use statsmodel's \texttt{fit()} function to estimate the model and save the return value in a new variable called \texttt{results}.
+
+\texttt{results = mod.fit()}
+
+Finally, we'll print the estimation statistics using the object's \texttt{summary()} method.
+
+\texttt{print(results.summary())}
+
+If you've done everything correctly, your output should look similar to what is presented in Figure 7.8.
+
+\begin{figure}[h]
+	\caption{Linear regression ouput}
+	\centering\includegraphics[width=.80\textwidth]{/Chapter7/Figure_7}
+\end{figure}
+
+Based upon our review of this output, we can see that the overall model is statistically significant (\textit{F}=138.7, p \textless .01). However, the model's R\textsuperscript{2} (coefficient of determination) suggets suggests that customer credit score only explains approximately 28\% of the variance in the dependent variable, receivable age at time of payment.
+
+Finally, the coefficient estimate for the credit score variable indicates that a one point increase in customer credit score is associated with a .5856 reduction in the number of days before payment is made. We could use this output to develop the following simple forecasting model that can estimate payment timeliness based upon any value of customer credit rating:
+
+\begin{center}
+	\begin{math}
+	age_i = 81.52 + (-.59)score_i
+	\end{math}
+\end{center}
+
+Be advised again, however, that the model's R\textsuperscript{2} suggests this is a relatively poor model and that there other factors that influence payment timeliness that are not incorporated in the customer's credit score. Indeed, this may suggest that the company's credit model may need to be revisited.
+
+\section{Advanced: Logistic regression}
+
+We may also want to use linear modeling in circumstances where the dependent variable is binary. For example, perhaps we want to develop a model to predict whether an invoice will be paid late (e.g., greater than 30 days) based upon the customers credit score. This type of analysis can be performed using statsmodel's \texttt{Logit()} function. This time, we'll pass the binary variable \texttt{Late} which we defined earlier in the chapter, as well as our credit score variable (\texttt{score}) to the function. 
+
+First, we'll create new values for \texttt{x} and \texttt{y}, again representing our independent and dependent variables, respectively. We'll than add the constant term to \texttt{x}.
+
+\texttt{y = recs["late"]\\x = recs["score"]\\x = sm.add\_constant(x)}
+
+We can then specify the model as new variable, \texttt{mod}, by passing the \texttt{x} and \texttt{y} variables to the \texttt{logit()} function.
+
+\texttt{mod = sm.Logit(y, x)}
+
+Finally we will fit the model to a new variable, \texttt{results}, and display the estimation statistics. The related output is presented in Figure 7.9.
+
+\texttt{results = mod.fit()\\print(results.summary())}
+
+\begin{figure}[h]
+	\caption{Logistic regression ouput}
+	\centering\includegraphics[width=.80\textwidth]{/Chapter7/Figure_9}
+\end{figure}
+
+As indicated in the output, the z-score for the \texttt{score} variables is statistically significant (p\textless .01), and negative. To improve the interpretability of the coefficients, we can display the odds ratio by taking the exponential of each of the coefficients. We can do this using numpy's \texttt{exp()} function. The following expressions will print a list of the odds ratios for each of the independent variables in the model:
+
+\texttt{odds = np.exp(results.params)\\
+	print(odds)}
+
+Recall that the odds ratios allow us to express how a one unit change in the independent variable effects the odds of a specific dependent variable outcome. For example, if the odds ratio for the \texttt{score} independent variable is 0.98, this means that a one point increase in customer credit score is associated with a 2\% reduction in the odds of an invoice being paid late.
+
+\section{Advanced: Handling outliers}
+
+The statsmodel function \texttt{outlier\_test()} is a useful little tool for detecting outliers in ols regression. Calling the function returns a dataframe that contains three columns: the studentized residuals, the unadjusted p-value, and the Bonferroni-corrected p-value (default). We can call the function and store return value in a new data frame called \texttt{test} as follows:
+
+\texttt{test = results.outlier\_test()}
+
+We can then identify any observation that has a studentized residual that has a statistically significant p-value (in our case, this will be any p \textless 0.05). We will store these observations in a new data frame called \texttt{outliers}:
+
+\texttt{outliers = test[test["bonf(p)"] < 0.05]}
+
+Printing the data frame will result in output similar to that included in Figure 7.10.
+
+\begin{figure}[h]
+	\caption{Significant outliers}
+	\centering\includegraphics[width=.80\textwidth]{/Chapter7/Figure_10}
+\end{figure}
+
+\section{Summary}
+
+We began the chapter by discussing how to display basic summary statistics for a data set, including how to prepare histograms and scatterplots. We then discussed how to perform simple a correlation analysis using scipy and statsmodel, before reviewing linear and logistic regression. The chapter concluding with a brief discussion of outlier identification using studentized residuals.
+
+\section{Exercises}
+\begin{enumerate}
+	\item \textbf{Portfolio project}: In Chapter 6, Exercise 6, you wrote a simple program that used cross-tabulation to determine if alcohol consumption patterns are related to local climate. Keeping both alcohol consumption and average temperature as continuous (i.e., non-binary) variables, improve the sophistication of your analysis by performing the following steps:
+	\begin{itemize}
+		\item Prepare summary statistics for both variables
+		\item Create a histogram for both variables
+		\item Prepare a scatterplot, placing alcohol consumption on the y axis and average temperature on the x axis. Based upon your visual inspection, does a relationship appear to exist between the two variables?
+		\item Conduct a simple Pearson correlation analysis between the two variables. What is the nature of the correlation (if any)? Is it statistically significant?
+		\item Perform a linear regression analysis using alcohol consumption as the dependent variable (y) and average temperature (x) as the independent variable. Is the coefficient on the independent variable statistically significant? If so, how should it be interpreted?	
+	\end{itemize}
+\end{enumerate}
 
 \chapter{More visualization with matplotlib}
 \chapter{Machine learning for document review}
