@@ -33,7 +33,7 @@
 \frontmatter
 \pagestyle{plain}
 \begin{titlepage}
-	\title {\huge \textbf{Introduction to Data Analysis for Accountants: A Python Approach}}
+	\title {\huge \textbf{Introduction to Data Analytics in Accounting using Python }}
 	\date{}
 	\author{Stephen Perreault, PhD, CPA}
 	\maketitle
@@ -55,23 +55,46 @@
 \tableofcontents
 
 % acknowlegments
-\begin {center}
-\newpage
-\textit{
-To Kathleen, Lyla, Willy, and Matilda.}
-\end {center}
+% \begin {center}
+% \newpage
+%\textit{
+%To Kathleen, Lyla, Willy, and Matilda.}
+%\end {center}
 
 \mainmatter	
 \parindent 0pt
 \parskip \baselineskip 
 
 % Chapter 1
-\chapter{Introduction}
-\section{What is data analytics?}
-\section{Who is this book for?}
-\section{Hardware and software requirements}
+\chapter{Preface}
+\section{Who this book is for}\
 
-Assumes you are using a Windows-based PC. Mac versions in the future.
+ While data science classes are offered within the math and computer science departments at most colleges and universities, it can often be difficult for accounting students to enroll in such courses due to scheduling conflicts and extensive prerequisite requirements. As a result, accounting students often graduate with limited applied exposure to data science, despite the increasing need of the accounting profession for graduates with skills in this area. This textbook is designed to address this issue by providing a basic introduction to data manipulation, analysis, and Python programming that can be completed within the course of a single semester. 
+
+This book is meant to accompany the course \textit{Introduction to Data Analytics in Accounting} taught at Providence College. It's audience is undergraduate accounting majors who understand basic financial accounting concepts and have some exposure to accounting information systems. The book also assumes a working knowledge of basic computer operations (installing programs, copying files, etc.), although no specific programming experience is required. 
+
+For those reading this book who are not students at Providence College, be advised that this text is not intended to be a stand-alone resource for learning basic data analysis. Rather, the book will be of most use as a supplemental resource for students enrolled in data science courses taught by knowledgable instructors who can fill in its many gaps. 
+
+\section{Required hardware and software}
+
+Any PC capable of running a modern Windows operating system (Windows 7, 8, ot 10+) should be sufficient for following along with the book. I will assume that you are using a Windows-based PC, since this is currently the predominant operating system used in business computer labs. That being said, all of the software discussed in this text can also be installed on Mac and Linux operating systems, provided that the user is willing to read the online documentation for the various programs used.
+
+The book has been written to use a very small number of commonly used software packages, which should be available in most campus computer labs. All are either free or have free versions available that are sufficient for completing the exercises contained within the book. The software that will be used is:
+
+\begin{enumerate}
+	\item \textbf{Git}. An open source version control system for software development. Available at: \texttt{https://git-scm.com/downloads}.
+	\item \textbf{Anaconda}. An open source distribution of Python that is focused on data science. This distribution contains all of the scientific libraries that we will be using in the text. Available at: \texttt{https://continuum.io/downloads}.
+	\item \textbf{Notepad++}. A free source code editor and notepad replacement that supports formatting for the Python programming language. Available at: \texttt{https://notepad-plus-plus.org}.
+	\item \textbf{Microsoft Powershell}. A command line shell which comes pre-installed on all versions of Microsoft Windows starting with version 7.
+\end{enumerate}
+
+Installation instructions for each of these software programs will be provided when the program is first introduced in the text.
+
+\section{Comments and feedback}
+
+This text is very much a work in progress and I would love to hear your comments, suggestions, and any errors you discover when working your way through the book. I can be reached at \texttt{sperreau@providence.edu}.
+
+Happy programming!
 
 % Chapter 2
 
@@ -422,21 +445,21 @@ Python has a number of important features which contribute to its popularity:
 Our development environment will contain three specific tools:
 \begin{enumerate}
 	\item A text editor. We will be writing all of our source code using this editor so it is important that it can recognize Python syntax highlighting. I will be using the \textit{Notepad++} editor in this text; however there are other options available as well. Use the editor that you are most comfortable with. 
-	\item The Python interpreter. The interpreter will take the source code we write and carry out the related instructions.\footnote{We will be using the latest version of the Python 3.X interpreter which, at the time of this book's writing, is version 3.6.1. Note that the interpreter underwent a fairly controversial upgrade in 2008 which resulted in the version numbering switching from 2.7 to 3.X. The Python development team continues to support the 2.7 branch; however, it is currently scheduled to sunset in 2020 and we will not be using it in this book.}
+	\item The Anaconda distribution of the Python interpreter. The interpreter will take the source code we write and carry out the related instructions.\footnote{We will be using the latest version of Anaconda at the time of this book's writing (version 4.4.0), which uses version 3.6.1 of the Python interpreter. Note that the Python interpreter underwent a fairly controversial upgrade in 2008 which resulted in the version numbering switching from 2.7 to 3.X. The Python development team continues to support the 2.7 branch; however, it is currently scheduled to sunset in 2020 and we will not be using it in this book.}
 	\item A command line shell (also referred to as a terminal). We will be using this tool to interact with the Python interpreter. The shell we will be using is Windows Powershell\textsuperscript{\textregistered}. You already have experiencing working with a command line shell from Chapter 2.
 \end{enumerate}
 
-If you are using a computer that resides on the network of a college or university campus, there is a good chance that all three of these tools are already installed on the machine you are using. However, if you will be using a personal computer, you will may need to download and install a compatible text editor and the Python interpreter (Windows PowerShell comes pre-installed on Windows version 7 and above).
+If you are using a computer that resides on the network of a college or university campus, there is a good chance that all three of these tools are already installed on the machine you are using. However, if you will be using a personal computer, you will may need to download and install a compatible text editor and the Anaconda Python interpreter (Windows PowerShell comes pre-installed on Windows version 7 and above).
 
 \begin{itemize}
 	\item The Notepad++ installer can be found at \texttt{https://notepad-plus-plus
 		.org}. The installation process is straightforward and accepting all of the default installation options is sufficient.
-	\item The latest version of the Python interpreter can be downloaded from 
-	\texttt{https://www.python.org/downloads}. Before downloading, make sure that you don't already have Python installed on your system. To do this press \keys{Win} + \keys{R} to open the ``Run'' dialog window. In the input field, type \texttt{powershell}. Then type \texttt{python} from within the PowerShell command line window. If you see a response from the Python interpreter then Python is already installed.
+	\item The latest version of the Anaconda Python interpreter can be downloaded from 
+	\texttt{https://www.continuum.io/downloads}. Before downloading, make sure that you don't already have Anaconda Python installed on your system. To do this press \keys{Win} + \keys{R} to open the ``Run'' dialog window. In the input field, type \texttt{powershell}. Then type \texttt{python} from within the PowerShell command line window. If you see a response from the Anaconda Python interpreter then Anaconda is already installed (if the interpreter does not identify itself as "Anaconda" Python, then you have only base Python installed. You will need to install Anaconda).
 	
-	The Python installation process is relatively straightforward. Upon launching the installer, make sure the ``Add Python 3.X to PATH" checkbox is selected (see Figure 3.2). Then click the ``Install Now" option to proceed. The full installation will take several minutes to complete.
+	The Anaconda Python installation process is relatively straightforward. Upon launching the installer, make sure the ``Add Python 3.X to PATH" checkbox is selected (see Figure 3.2). Then click the ``Install Now" option to proceed. \footnote{The installation program may look slightly different depending on the version of Anaconda you are installing}. The full installation will take anywhere from several minutes to an hour to complete. 
 	
-	To verify that Python has been installed, open PowerShell and type the command \texttt{python}. Python should now launch. To exit, type \texttt{quit()} and press \keys{Enter}.
+	To verify that Anaconda Python has been installed, open PowerShell and type the command \texttt{python}. Python should now launch. To exit, type \texttt{quit()} and press \keys{Enter}.
 \end{itemize}
 
 \begin{figure}[h]
@@ -2148,8 +2171,6 @@ The output should look something like Figure 7.2. (Note that the row contents ha
 	\centering\includegraphics[width=.99\textwidth]{/Chapter7/Figure_2}
 \end{figure}
 
-\section{Summary statistics}
-
 Since we are attempting to learn whether a customer's credit rating is associated with payment timeliness, our initial variables of interest for this analysis are \texttt{age} and \texttt{score}. Using the \texttt{descibe} function that we learned about earlier, let's go ahead and print some summary statistics for these variables using the \texttt{describe()} function we learned about in the previous chapter:
 
 \texttt{print(recs["score"].describe(),"\textbackslash n") \\print(recs["age"].dt.days.describe())}
@@ -2361,6 +2382,10 @@ Printing the data frame will result in output similar to that included in Figure
 	\centering\includegraphics[width=.80\textwidth]{/Chapter7/Figure_10}
 \end{figure}
 
+As you can see, this analysis has identified two potential outliers, located at row index 348 an 349. If we wanted, we could create a new data frame which excludes these two outliers using the \\texttt{drop()} function. This function takes a dataframe and a list of row index values and returns the frame contents with the specified rows removed. In this example, it would be used as follows.
+
+\texttt{newRecs = test.drop(test.index[[348,349]])}
+
 \section{Summary}
 
 We began the chapter by discussing how to display basic summary statistics for a data set, including how to prepare histograms and scatterplots. We then discussed how to perform simple a correlation analysis using scipy and statsmodel, before reviewing linear and logistic regression. The chapter concluding with a brief discussion of outlier identification using studentized residuals.
@@ -2377,7 +2402,206 @@ We began the chapter by discussing how to display basic summary statistics for a
 	\end{itemize}
 \end{enumerate}
 
-\chapter{More visualization with matplotlib}
-\chapter{Machine learning for document review}
-\chapter{What next?}
+\chapter{Plotting and visualization}
+
+Plotting and visualizing data is a very important part of any data analysis project. In is regularly the case that the findings of a project can be communicated more efficiently and persuasively in visual, as opposed to tabular, form. In this chapter we'll review some of the basic plotting and visualization functions available in Python's pyplot library.
+
+\section{Preparing our data}
+
+We'll be working with a simple data set that contains the 2016 stock price and trading volume activity for a group of three major tech companies. This is data similar to what a CPA might review as part of an analytical procedures auditing task. 
+
+The data can be scraped from \texttt{http://www.steveperreault.com/textbook/ stockanalysis.htm} to a CSV file following the steps outlined in Chapter 5. The data should then be imported into a new Pandas dataframe as discussed in Chapter 6 (use the default sequential numerical row index). Recall that you will need to change the data type of the \texttt{date} column to \texttt{datetime} following the steps discussed in Chapter 7. Verify that you've performed the import correctly by printing the first five rows of the frame as well as the columns' data types using the following commands:
+
+\texttt{print(table.head());\\
+	print(table.dtypes)}
+
+Your output should look similar to Figure 8.1.
+
+\begin{figure}[h]
+	\caption{Verification output}
+	\centering\includegraphics[width=.80\textwidth]{/Chapter8/Figure_1}
+\end{figure}
+
+\section{Line plots}
+
+Let's begin our exploration of plotting in Python by creating a simple line chart displays the stock price for the three companies included in the data frame throughout 2016. Since we only need the stock price data to prepare this chart, let's create a new data frame called \texttt{price} which contains only that data.
+
+\texttt{price = table.drop(table.columns[[2, 4, 6]], axis = 1)}
+
+Note that we're using the \texttt{drop()} function here in a slightly different way than we're used to, passing the column numbers instead of the column names. This command tells Pandas to drop the 3rd, 5th, and 6th, columns from the data frame.\footnote{Remember that dataframe columns are zero-indexed, so the first column is actually referred to as column zero.} The \texttt{axis = 1} parameter simply tells the function that we want to delete columns instead of rows (we would pass \texttt{axis = 0} to refer to rows). We now have a nice new data frame that contains a \texttt{date} column and five additional columns containing daily stock price for the five companies of interest.
+
+A basic line plot can be created by passing the y and x variables, respectively, to pyplot's \texttt{plot()} function. Let's first plot the change in Alphabet Inc.'s stock price over time. It makes the most sense to plot the stock price on the y axis and the date on the x axis, so we'll call the function as follows:
+
+\texttt{plt.plot(price.date.values,price.goog\_price)}
+
+If we show the function (using \texttt{plt.show()}), we should see something similar to Figure 8.2. 
+
+\begin{figure}[h]
+	\caption{A simple line plot}
+	\centering\includegraphics[width=.80\textwidth]{/Chapter8/Figure_2}
+\end{figure}
+
+Let's now modify our code so that the stock price history for each of the five companies in the dataset is contained on the same plot. We could do this by making a series of three sequential calls to \texttt{plot()} as follows:
+
+\texttt{plt.plot(price.date.values,price["aapl\_price"].values)\\
+	plt.plot(price.date.values,price["msft\_price"].values)\\
+	plt.plot(price.date.values,price["aaba\_price"].values)}
+
+However, this is not a terribly efficient way to write code and would become extremely cumbersome if we had a lareg numebr of columns we wanted to plot. Instead, let's use a \texttt{for} loop to iterate across the three price columns and add each to the plot. Note that we'll begin our iteration at the column index 1 (since index 0 contains the \texttt{date} column which is already passed as the x parameter to \texttt{plot()}.
+
+\texttt{for column in price.columns[1:]:}
+
+\texttt{~~~~plt.plot(price.date.values,price[column].values)}
+
+There are a couple of additional steps we can take to make this plot look a bit nicer and more functional. First, we need to add a legend so that it will be clear which company each line is referring to. We can do this by calling the \texttt{legend()} and passing the column names for each of the three columns containing cmopany stock prices. By default, matplotlib will attempt to place the legend where it believes it will best fit, however there are numerous other placement options which are described in the matplotlib documentation.
+
+\texttt{plt.legend(price.columns[1:])}
+
+Finally, we'll label the y axis and add a title to the plot by calling the following functions:
+
+\texttt{plt.ylabel("Price")\\plt.title("Stock Price Comparison")}
+
+we have now created a basic line chart using matplotlib. The full source code that we created for preparing the chart as well as the related output are presented in Figures 8.3 and 8.4, respectively.
+
+\begin{figure}[h]
+	\caption{Basic line plot source code}
+	\begin{lstlisting}
+	import numpy as np
+	import matplotlib, matplotlib.pyplot as plt
+	import pandas as pd
+	
+	#import and set up data frame
+	table = pd.read_csv("stockprice.csv")
+	table["date"] = pd.to_datetime(table["date"])
+	
+	#create new data frame with only date and price information
+	price = table.drop(table.columns[[2, 4, 6]], axis = 1)
+	
+	#plot each line
+	for column in price.columns[1:]:
+	plt.plot(price.date.values,price[column].values)
+	
+	#add legend and formatting
+	plt.legend(price.columns[1:])
+	plt.ylabel("Price")
+	plt.title("Stock Price Comparison")
+	
+	plt.show()
+	\end{lstlisting}
+\end{figure}
+
+\begin{figure}[h]
+	\caption{Basic line plot output}
+	\centering\includegraphics[width=.80\textwidth]{/Chapter8/Figure_3}
+\end{figure}
+
+\section{Bar plots}
+
+We can also use matplotlib to create bar plots. In this example, we'll create a simple figure that plots the dollar value of each stock's change in price year over year. We'll begin by using the same \texttt{price} data frame that we used in the line plot example. 
+
+To do this, we'll have to calculate the change of price for each stock and we'll store these values in a new list called \texttt{changes} as follows:
+
+\texttt{changes.append(price.loc[0,"msft\_price"] - price.loc[251,\\
+	"msft\_price"])}
+
+This commands uses Panda's \texttt{loc()} method to find values at the row and column index specified. Note that the ordering of the \texttt{price} data frame is such that the stock price at the end of the year is located at row index 0, while the stock price at the end of the year is located at row index 251.\footnote{This can be verified by calling \texttt{print(price.head))} and \texttt{print(price.tails())}.} As a result, this expression subtracts the stock price's beginning of the year price from the end of the year price and appends the result to the \texttt{changes} list. 
+
+We can the call the matpolotlib function {bar()} to create the bar chart. The chart taxes the x coordinates of the bars as well as the height of the bars as default parameters. Because we want the three bars to be evenly spaced, we'll pass the list \texttt{[1,2,3]} as the x coordinates (any evenly spaced list of three integers would be also work). We'll also pass the \texttt{changes} list we just created to provide the height for each of the bars.
+
+\texttt{plt.bar(y\_pos, changes)}
+
+We want to update the x-axis ticks to plot the name of the stock underneath each bar. To do this need to create a list that contains the names of each of the three stocks (these should be presented in the same order as the contents of the \texttt{changes} list). The x-axis ticks can be updated using the \texttt{xticks()} function, passing both the x coordinates of the labels and the label text. Finally, we'll give the y-axis a label and title the plot.
+
+\texttt{stocks = ["msft", "aaba", "aapl"]\\plt.xticks([1,2,3], stocks)\\plt.ylabel("Price increase (\$)")\\plt.title("2016 Stock Price Increases")}
+
+Calling \texttt{plt.show()} should display a plot similar to that in Figure 8.5 The full source code for this plot is presented in Figure 8.6.
+
+\begin{figure}[h]
+	\caption{Basic bar plot output}
+	\centering\includegraphics[width=.80\textwidth]{/Chapter8/Figure_4}
+\end{figure}
+
+\begin{figure}[h]
+	\caption{Basic bar plot source code}
+	\begin{lstlisting}
+	import numpy as np
+	import matplotlib, matplotlib.pyplot as plt
+	import pandas as pd
+	
+	#import and set up data frame
+	table = pd.read_csv("stockprice.csv")
+	table["date"] = pd.to_datetime(table["date"])
+	
+	#create new data frame with only date and price information
+	price = table.drop(table.columns[[2, 4, 6]], axis = 1)
+	
+	#create new data frame with YOY stock price changes
+	changes = [];
+	changes.append(price.loc[0,"msft_price"] - price.loc[251, "msft_price"])
+	changes.append(price.loc[0,"aaba_price"] - price.loc[251, "aaba_price"])
+	changes.append(price.loc[0,"aapl_price"] - price.loc[251, "aapl_price"])
+	
+	#create bar chart by passing x index and bar heights
+	plt.bar([1,2,3], changes)
+	
+	#add labels and title
+	stocks = ["msft", "aaba", "aapl"]
+	plt.xticks([1,2,3], stocks)
+	plt.ylabel("Price increase ($)")
+	plt.title("2016 Stock Price Increases")
+	
+	plt.show()
+	\end{lstlisting}
+\end{figure}
+
+\section{Pie chart}
+
+Pie charts are useful plots to use when trying to compare parts of a whole. In this example, we'll use a pie chart to plot proportion of \texttt{msft}, \texttt{aaba}, and \texttt{aapl} held within a portfolio. To begin, we'll create simple lists that hold the names of the stock we are plotting as well as some hypothetical holding percentages:
+
+\texttt{prop = [25, 35, 40]\\stocks = ["msft", "aaba", "aapl"]}
+
+A very basic pie chart can be created by passing the proportions to the \texttt{pie()} function. However, we'll pass some additional parameters to the function in order to make our plot more useful and attractive. First, we'll add labels to each slice based upon the values included in the \texttt{stocks} list. We'll then pass the \texttt{explode} parameter which will be used to highlight the first slice of the pie via offset (this list can be modified to offset other slices as well). We'll also add a percent sign and round our percents to one decimal place using \texttt{autopct} before finally adding shadows to the pie by setting the value of the \texttt{shadows} property to \texttt{True}. Finally, we'll add a title.
+
+\texttt{plt.pie(prop, labels=stocks, explode = [.1, 0, 0],autopct="\%1.1f\%\%", shadow=True)\\\\plt.title("Stock Portfolio")}
+
+Our output for this example, as well as the full source code, are presented in Figures 8.7 and 8.8.
+
+\begin{figure}[h]
+	\caption{Basic pie chart output}
+	\centering\includegraphics[width=.80\textwidth]{/Chapter8/Figure_5}
+\end{figure}
+
+\begin{figure}[h]
+	\caption{Basic pie chart source code}
+	\begin{lstlisting}
+	import numpy as np
+	import matplotlib, matplotlib.pyplot as plt
+	import pandas as pd
+
+	#create pie chart data
+	prop = [25, 35, 40]
+	stocks = ["msft", "aaba", "aapl"]
+
+	#create chart and add title
+	plt.pie(prop, explode = [.1,0,0], autopct="%1.1f%%", labels=stocks, shadow=True)
+	plt.title("Stock Portfolio")
+
+	#show chart
+	plt.show()
+	\end{lstlisting}
+\end{figure}
+
+\section{Exploring other plot types}
+
+The matplotlib modules offers users access to an enormous amount of different plot types that we have not covered here. These include box plots, scatter plots, step plots, counter plots and many, many more. I encourage you to visit the matplotlib gallery to learn more about how to use these different plots in your projects.\footnote{https://matplotlib.org/gallery.html}
+
+\section{Summary}
+
+This chapter discussed the use of the matplotlib and plotly libraries to create simple plots and visualizations, including line plots, bar plots and pie charts. Basic methods for annotating and customizing these plots was also discussed. 
+
+\section{Exercises}
+\begin{enumerate}
+	\item \textbf{Portfolio project}: Employing the data from Chapter 7 Exercise 1, plot the per capita alcohol consumption for the G7 countries (Canada, France, Germany, Italy, Japan, United States, and United Kingdom) using a bar chart. Stylize the bar chart so it looks visually attractive and is informative.
+	\item \textbf{Portfolio project}: Obtain the 2017 daily changes in stock price for Amazon.com, Ind (symbol: amzn) and Alphabet, Inc. (symbol: goog) from a online stock quoting service such as Google Finance. Plot the daily changes using a line plot. Stylize the line plot so it looks visually attractive and is informative.
+\end{enumerate}
 \end{document}
