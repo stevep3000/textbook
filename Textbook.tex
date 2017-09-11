@@ -33,7 +33,7 @@
 \frontmatter
 \pagestyle{plain}
 \begin{titlepage}
-	\title {\huge \textbf{Introduction to Data Analytics in Accounting using Python }}
+	\title {\huge \textbf{A Beginner's Guide to Manipulating and Visualizing Accounting Data using Python }}
 	\date{}
 	\author{Stephen Perreault, PhD, CPA}
 	\maketitle
@@ -101,7 +101,7 @@ Happy programming!
 \chapter{Version control}
 \section{Why you should care about version control}
 
-Imagine that the audit engagement team which you have been assigned to is in need of a tool that can assess the valuation of an audit client's stock options using the Black-Scholes-Merton valuation model.\footnote{It's not important to understand what the Black-Scholes-Merton model is to appreciate this example. However, if you're curious, BSM can be used, among other things, to determine the price of certain types of stock options.} The tool needs to be simple to use, scalable, and compatible with a wide variety of operating systems. Knowing your reputation as a skilled programmer who works well under pressure, your supervisor has given you 24 hours to write the Python module to perform this assessment.
+Imagine that the audit engagement team which you have been assigned to is in need of a tool that can assess the valuation of an audit client's stock options using a modified version of the Black-Scholes-Merton valuation model.\footnote{It's not important to understand what the Black-Scholes-Merton model is to appreciate this example. However, if you're curious, BSM can be used, among other things, to determine the price of certain types of stock options.} The tool needs to be simple to use, scalable, and compatible with a wide variety of operating systems. Knowing your reputation as a skilled programmer who works well under pressure, your supervisor has given you 24 hours to write the Python script to perform this assessment.
 
 You spend the night hunched over your keyboard working frantically to complete the assigned task before the deadline. Your source code undergoes numerous changes as you squash bugs, improve performance, and add extra features that you believe the engagement team might find useful. As the sun begins to rise the next morning, you realize that you have successfully completed the task. You have developed a functional software tool that you are sure will impress your supervisor. 
 
@@ -116,6 +116,8 @@ Since we're going to be writing a significant amount of computer code as we work
 \section{Introducing Git}
 
 In this book we will be using the widely used and popular version control system Git\texttrademark. Git was created in 2005 by Linus Torvalds, the famous creator of the popular operating system Linux. In addition to providing developers with a history of all the individual changes that have been made to their projects, Git can also be used to track changes for developers working collaboratively. 
+
+INSERT PICTURE OF LINUS TORVALDS HERE
 
 As an example, let's say that you and a coworker have been assigned the task of writing a piece of software and will both need access to the source code during development. To facilitate this, you could post the code on a shared network drive or a file hosting service that you and your coworker can access. This method would probably work just fine unless the two of you are working on the same code file at the same time. If that happens, one of you would have your work overwritten and erased. Git can keep that from happening. If you and your coworker are both making changes to the same source code file, Git will save two copies. Later on, the changes can be merged together without losing any of the earlier work. 
 
@@ -156,6 +158,8 @@ With the terminal open, let's go ahead and tell Git who we are. Type in the foll
 
 Obviously, you'll need to replace the words in quotation marks with your own name! You can use your full name, a nickname, or a handle that you regularly use online. Git will attribute any changes you make to projects to the name that you provide here. You'll also need to provide Git with your email address (make sure it's the same email address you used when signing up for GitHub) using the following command: \\ \\ \texttt{git config --global user.email "my\_email@my\_email.com"}
 
+Providing a name and email address will allow other programmers to contact you regarding any changes you might make to shared projects.
+
 \section{Creating your first repository}
 
 Both GitHub and Git store individual projects in ``repositories" (often referred to as ``repos" for short). Any files that make up your projects (e.g., source code, image files, text files, etc.) can be stored inside a repository. Let's go ahead and create a repository right now. 
@@ -167,9 +171,9 @@ Log into your GitHub account and click the ``Create New" button (this looks like
 	\centering\includegraphics[width=.90\textwidth]{/Chapter2/Figure_4}
 \end{figure}
 
-You've now created a repository for your project on GitHub. However, the majority of the work you do on your projects is likely going to be performed on a local computer instead of online (for example, we want to be able to work on our projects in places where we don't have an internet connection). Therefore, we are also going to create a local repository for our project using Git. We'll link the local Git and online Github repos together later in the chapter.
+You've now created an ONLINE repository for your project on GitHub. However, the majority of the work you do on your projects is likely going to be performed on a LOCAL computer instead of online (for example, we want to be able to work on our projects in places where we don't have an internet connection). Therefore, we are also going to create a local repository for our project using Git. We'll then link the local Git and online Github repos together later in the chapter.
 
-Before you create a new local repository, you're going to need to create a location on your hard drive (or network drive if you're using a lab computer) where that repo will live. Re-open the Git Bash terminal and enter the command: \\ \\ \texttt{mkdir \textasciitilde/my\_first\_repository}
+Before you create a new local repository, you're going to need to create a location on your hard drive (or network drive if you're using a lab computer) where that repo will live. We can do this the ``normal'' way, using Windows Explorer (Which can be found by clicking on \"My computer\" from the Windows Start menu), but let's get some more practice using the command line instead.  Re-open the Git Bash terminal and enter the command: \\ \\ \texttt{mkdir \textasciitilde/my\_first\_repository}
  
 This will create a directory (or folder) called \texttt{my\_first\_repository} where your repository and its related files will be stored on the drive.\footnote{This folder will be created off of the top level directory on the drive. For most Windows users, this will be \texttt{C:\textbackslash users\textbackslash your\_user\_name}. However, it may also be the top level of the network drive if you are using a PC in a campus computer lab (e.g., \texttt{G:\textbackslash}). You can find the location of the top level directory by using the \texttt{\textasciitilde/} command.}
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300) (preloaded format=pdflatex 2017.5.19)  23 JUN 2017 15:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300) (preloaded format=pdflatex 2017.5.19)  11 SEP 2017 09:56
 entering extended mode
 **./Textbook.tex
 (Textbook.tex
@@ -941,29 +941,29 @@ Chapter 2.
 File: images//Chapter2/Figure_1.png Graphic file (type png)
 
 <use images//Chapter2/Figure_1.png>
-Package pdftex.def Info: images//Chapter2/Figure_1.png used on input line 130.
+Package pdftex.def Info: images//Chapter2/Figure_1.png used on input line 132.
 (pdftex.def)             Requested size: 310.4979pt x 187.33038pt.
  [5 <./images//Chapter2/Figure_1.png>]
 <images//Chapter2/Figure_2.png, id=77, 706.43925pt x 264.38776pt>
 File: images//Chapter2/Figure_2.png Graphic file (type png)
 
 <use images//Chapter2/Figure_2.png>
-Package pdftex.def Info: images//Chapter2/Figure_2.png used on input line 145.
+Package pdftex.def Info: images//Chapter2/Figure_2.png used on input line 147.
 (pdftex.def)             Requested size: 345.0pt x 129.11543pt.
  [6 <./images//Chapter2/Figure_2.png>]
 <images//Chapter2/Figure_3.png, id=81, 451.08525pt x 236.082pt>
 File: images//Chapter2/Figure_3.png Graphic file (type png)
 
 <use images//Chapter2/Figure_3.png>
-Package pdftex.def Info: images//Chapter2/Figure_3.png used on input line 152.
+Package pdftex.def Info: images//Chapter2/Figure_3.png used on input line 154.
 (pdftex.def)             Requested size: 310.4979pt x 162.51129pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 155--156
+Underfull \hbox (badness 10000) in paragraph at lines 157--158
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 157--158
+Underfull \hbox (badness 10000) in paragraph at lines 159--160
 
  []
 
@@ -972,53 +972,50 @@ Underfull \hbox (badness 10000) in paragraph at lines 157--158
 File: images//Chapter2/Figure_4.png Graphic file (type png)
 
 <use images//Chapter2/Figure_4.png>
-Package pdftex.def Info: images//Chapter2/Figure_4.png used on input line 167.
+Package pdftex.def Info: images//Chapter2/Figure_4.png used on input line 171.
 (pdftex.def)             Requested size: 310.4979pt x 209.545pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 172--173
+Underfull \hbox (badness 10000) in paragraph at lines 176--177
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 174
+LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 178
 .
-LaTeX Font Info:    No file OMScmtt.fd. on input line 174.
+LaTeX Font Info:    No file OMScmtt.fd. on input line 178.
 
 LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbackslash' on input line 174.
+(Font)              for symbol `textbackslash' on input line 178.
 
 [8 <./images//Chapter2/Figure_4.png>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 184.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 188.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 184.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 188.
 
-<images//Chapter2/Figure_5.png, id=92, 451.6875pt x 236.082pt>
+<images//Chapter2/Figure_5.png, id=90, 451.6875pt x 236.082pt>
 File: images//Chapter2/Figure_5.png Graphic file (type png)
 
 <use images//Chapter2/Figure_5.png>
-Package pdftex.def Info: images//Chapter2/Figure_5.png used on input line 188.
+Package pdftex.def Info: images//Chapter2/Figure_5.png used on input line 192.
 (pdftex.def)             Requested size: 310.4979pt x 162.29515pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
  [9 <./images//Chapter2/Figure_5.png>]
 <images//Chapter2/Figure_6.png, id=97, 401.0985pt x 178.266pt>
 File: images//Chapter2/Figure_6.png Graphic file (type png)
 
 <use images//Chapter2/Figure_6.png>
-Package pdftex.def Info: images//Chapter2/Figure_6.png used on input line 206.
+Package pdftex.def Info: images//Chapter2/Figure_6.png used on input line 210.
 (pdftex.def)             Requested size: 310.4979pt x 137.99966pt.
 
 <images//Chapter2/Figure_7.png, id=98, 576.9555pt x 361.35pt>
 File: images//Chapter2/Figure_7.png Graphic file (type png)
 
 <use images//Chapter2/Figure_7.png>
-Package pdftex.def Info: images//Chapter2/Figure_7.png used on input line 211.
+Package pdftex.def Info: images//Chapter2/Figure_7.png used on input line 215.
 (pdftex.def)             Requested size: 310.4979pt x 194.46996pt.
 
 
@@ -1029,7 +1026,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: images//Chapter2/Figure_8.png Graphic file (type png)
 
 <use images//Chapter2/Figure_8.png>
-Package pdftex.def Info: images//Chapter2/Figure_8.png used on input line 230.
+Package pdftex.def Info: images//Chapter2/Figure_8.png used on input line 234.
 (pdftex.def)             Requested size: 310.4979pt x 162.92587pt.
 
 
@@ -1043,10 +1040,10 @@ Underfull \vbox (badness 2237) has occurred while \output is active []
 File: images//Chapter2/Figure_9.png Graphic file (type png)
 
 <use images//Chapter2/Figure_9.png>
-Package pdftex.def Info: images//Chapter2/Figure_9.png used on input line 264.
+Package pdftex.def Info: images//Chapter2/Figure_9.png used on input line 268.
 (pdftex.def)             Requested size: 310.4979pt x 162.72383pt.
  [13 <./images//Chapter2/Figure_9.png>]
-Overfull \hbox (4.50467pt too wide) in paragraph at lines 273--274
+Overfull \hbox (4.50467pt too wide) in paragraph at lines 277--278
 \OT1/cmr/m/n/10 GitHub repo page us-ing your web browser. You should see that t
 he file \OT1/cmtt/m/n/10 README.md
  []
@@ -1055,17 +1052,17 @@ he file \OT1/cmtt/m/n/10 README.md
 File: images//Chapter2/Figure_10.png Graphic file (type png)
 
 <use images//Chapter2/Figure_10.png>
-Package pdftex.def Info: images//Chapter2/Figure_10.png used on input line 277.
+Package pdftex.def Info: images//Chapter2/Figure_10.png used on input line 281.
 
 (pdftex.def)             Requested size: 310.4979pt x 181.14212pt.
  [14 <./images//Chapter2/Figure_10.png>]
-Overfull \hbox (1.13889pt too wide) in paragraph at lines 293--294
+Overfull \hbox (1.13889pt too wide) in paragraph at lines 297--298
 []\OT1/cmr/m/n/10 Check the lo-cal repos-i-tory sta-tus, mak-ing sure that \OT1
 /cmtt/m/n/10 badfile.bad \OT1/cmr/m/n/10 is marked
  []
 
 
-Overfull \hbox (26.13857pt too wide) in paragraph at lines 294--295
+Overfull \hbox (26.13857pt too wide) in paragraph at lines 298--299
 []\OT1/cmr/m/n/10 Commit the change to the lo-cal repos-i-tory with the mes-sag
 e \OT1/cmtt/m/n/10 "Add badfile.bad" 
  []
@@ -1074,7 +1071,7 @@ e \OT1/cmtt/m/n/10 "Add badfile.bad"
 File: images//Chapter2/Figure_11.png Graphic file (type png)
 
 <use images//Chapter2/Figure_11.png>
-Package pdftex.def Info: images//Chapter2/Figure_11.png used on input line 304.
+Package pdftex.def Info: images//Chapter2/Figure_11.png used on input line 308.
 
 (pdftex.def)             Requested size: 327.74895pt x 150.5129pt.
  [15 <./images//Chapter2/Figure_11.png>]
@@ -1082,14 +1079,14 @@ Package pdftex.def Info: images//Chapter2/Figure_11.png used on input line 304.
 File: images//Chapter2/Figure_12.png Graphic file (type png)
 
 <use images//Chapter2/Figure_12.png>
-Package pdftex.def Info: images//Chapter2/Figure_12.png used on input line 313.
+Package pdftex.def Info: images//Chapter2/Figure_12.png used on input line 317.
 
 (pdftex.def)             Requested size: 327.74895pt x 172.43135pt.
 
 Underfull \vbox (badness 1668) has occurred while \output is active []
 
  [16 <./images//Chapter2/Figure_12.png>]
-Overfull \hbox (19.5568pt too wide) in paragraph at lines 344--345
+Overfull \hbox (19.5568pt too wide) in paragraph at lines 348--349
 []\OT1/cmtt/m/n/10 git remote set-url origin https://github.com/user[]name/repo
 sitory[]name 
  []
@@ -1098,7 +1095,7 @@ sitory[]name
 File: images//Chapter2/Figure_13.png Graphic file (type png)
 
 <use images//Chapter2/Figure_13.png>
-Package pdftex.def Info: images//Chapter2/Figure_13.png used on input line 369.
+Package pdftex.def Info: images//Chapter2/Figure_13.png used on input line 373.
 
 (pdftex.def)             Requested size: 327.74895pt x 157.85843pt.
 
@@ -1106,7 +1103,7 @@ Package pdftex.def Info: images//Chapter2/Figure_13.png used on input line 369.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (1.97202pt too wide) in paragraph at lines 372--373
+Overfull \hbox (1.97202pt too wide) in paragraph at lines 376--377
 []\OT1/cmr/m/n/10 We can now switch back and forth be-tween the two branches us
 -ing \OT1/cmtt/m/n/10 git checkout
  []
@@ -1123,24 +1120,24 @@ Chapter 3.
 File: images//Chapter3/Figure_1.jpg Graphic file (type jpg)
 
 <use images//Chapter3/Figure_1.jpg>
-Package pdftex.def Info: images//Chapter3/Figure_1.jpg used on input line 431.
+Package pdftex.def Info: images//Chapter3/Figure_1.jpg used on input line 435.
 (pdftex.def)             Requested size: 103.50105pt x 106.63821pt.
  [23 <./images//Chapter3/Figure_1.jpg>]
 [24] <images//Chapter3/Figure_2.png, id=154, 404.10976pt x 246.32025pt>
 File: images//Chapter3/Figure_2.png Graphic file (type png)
 
 <use images//Chapter3/Figure_2.png>
-Package pdftex.def Info: images//Chapter3/Figure_2.png used on input line 467.
+Package pdftex.def Info: images//Chapter3/Figure_2.png used on input line 471.
 (pdftex.def)             Requested size: 310.4979pt x 189.265pt.
  [25 <./images//Chapter3/Figure_2.png>]
 <images//Chapter3/Figure_3.png, id=160, 372.1905pt x 211.992pt>
 File: images//Chapter3/Figure_3.png Graphic file (type png)
 
 <use images//Chapter3/Figure_3.png>
-Package pdftex.def Info: images//Chapter3/Figure_3.png used on input line 479.
+Package pdftex.def Info: images//Chapter3/Figure_3.png used on input line 483.
 (pdftex.def)             Requested size: 310.4979pt x 176.85255pt.
  [26 <./images//Chapter3/Figure_3.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 514--515
+Underfull \hbox (badness 10000) in paragraph at lines 518--519
 
  []
 
@@ -1148,21 +1145,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 514--515
 File: images//Chapter3/Figure_5.png Graphic file (type png)
 
 <use images//Chapter3/Figure_5.png>
-Package pdftex.def Info: images//Chapter3/Figure_5.png used on input line 518.
+Package pdftex.def Info: images//Chapter3/Figure_5.png used on input line 522.
 (pdftex.def)             Requested size: 310.4979pt x 168.68054pt.
 
 <images//Chapter3/Figure_6.png, id=170, 314.97675pt x 140.9265pt>
 File: images//Chapter3/Figure_6.png Graphic file (type png)
 
 <use images//Chapter3/Figure_6.png>
-Package pdftex.def Info: images//Chapter3/Figure_6.png used on input line 529.
+Package pdftex.def Info: images//Chapter3/Figure_6.png used on input line 533.
 (pdftex.def)             Requested size: 310.4979pt x 138.92415pt.
  [28 <./images//Chapter3/Figure_5.png> <./images//Chapter3/Figure_6.png>] [29]
 <images//Chapter3/Figure_8.png, id=177, 261.3765pt x 116.8365pt>
 File: images//Chapter3/Figure_8.png Graphic file (type png)
 
 <use images//Chapter3/Figure_8.png>
-Package pdftex.def Info: images//Chapter3/Figure_8.png used on input line 592.
+Package pdftex.def Info: images//Chapter3/Figure_8.png used on input line 596.
 (pdftex.def)             Requested size: 310.4979pt x 138.79291pt.
 
 
@@ -1176,7 +1173,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: images//Chapter3/Figure_13.png Graphic file (type png)
 
 <use images//Chapter3/Figure_13.png>
-Package pdftex.def Info: images//Chapter3/Figure_13.png used on input line 664.
+Package pdftex.def Info: images//Chapter3/Figure_13.png used on input line 668.
 
 (pdftex.def)             Requested size: 310.4979pt x 112.442pt.
  [33 <./images//Chapter3/Figure_13.png>]
@@ -1188,17 +1185,17 @@ Underfull \vbox (badness 7685) has occurred while \output is active []
 File: images//Chapter3/Figure_16.png Graphic file (type png)
 
 <use images//Chapter3/Figure_16.png>
-Package pdftex.def Info: images//Chapter3/Figure_16.png used on input line 778.
+Package pdftex.def Info: images//Chapter3/Figure_16.png used on input line 782.
 
 (pdftex.def)             Requested size: 310.4979pt x 111.85942pt.
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 792.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 796.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omlcmr.fd"
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 792.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 796.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1208,7 +1205,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: images//Chapter3/Figure_26.png Graphic file (type png)
 
 <use images//Chapter3/Figure_26.png>
-Package pdftex.def Info: images//Chapter3/Figure_26.png used on input line 896.
+Package pdftex.def Info: images//Chapter3/Figure_26.png used on input line 900.
 
 (pdftex.def)             Requested size: 310.4979pt x 137.05153pt.
  [40 <./images//Chapter3/Figure_26.png>]
@@ -1216,22 +1213,22 @@ Package pdftex.def Info: images//Chapter3/Figure_26.png used on input line 896.
 File: images//Chapter3/Figure_28.png Graphic file (type png)
 
 <use images//Chapter3/Figure_28.png>
-Package pdftex.def Info: images//Chapter3/Figure_28.png used on input line 914.
+Package pdftex.def Info: images//Chapter3/Figure_28.png used on input line 918.
 
 (pdftex.def)             Requested size: 310.4979pt x 138.40913pt.
  [41 <./images//Chapter3/Figure_28.png>]
-Overfull \hbox (1.94374pt too wide) in paragraph at lines 920--921
+Overfull \hbox (1.94374pt too wide) in paragraph at lines 924--925
 \OT1/cmr/m/n/10 the Python doc-u-men-ta-tion which can be found at \OT1/cmtt/m/
 n/10 https://docs.python.org/3\OT1/cmr/m/n/10 .
  []
 
 [42] [43]
-Underfull \hbox (badness 10000) in paragraph at lines 981--984
+Underfull \hbox (badness 10000) in paragraph at lines 985--988
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 981--984
+Underfull \hbox (badness 10000) in paragraph at lines 985--988
 
  []
 
@@ -1239,7 +1236,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 981--984
 File: images//Chapter3/Exercise.png Graphic file (type png)
 
 <use images//Chapter3/Exercise.png>
-Package pdftex.def Info: images//Chapter3/Exercise.png used on input line 993.
+Package pdftex.def Info: images//Chapter3/Exercise.png used on input line 997.
 (pdftex.def)             Requested size: 310.4979pt x 141.75462pt.
  [45 <./images//Chapter3/Exercise.png>]
 [46
@@ -1250,7 +1247,7 @@ Chapter 4.
 File: images//Chapter4/Figure_1.png Graphic file (type png)
 
 <use images//Chapter4/Figure_1.png>
-Package pdftex.def Info: images//Chapter4/Figure_1.png used on input line 1026.
+Package pdftex.def Info: images//Chapter4/Figure_1.png used on input line 1030.
 
 (pdftex.def)             Requested size: 310.4979pt x 138.7219pt.
 
@@ -1265,7 +1262,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: images//Chapter4/Figure_6.png Graphic file (type png)
 
 <use images//Chapter4/Figure_6.png>
-Package pdftex.def Info: images//Chapter4/Figure_6.png used on input line 1149.
+Package pdftex.def Info: images//Chapter4/Figure_6.png used on input line 1153.
 
 (pdftex.def)             Requested size: 310.4979pt x 144.00854pt.
 
@@ -1273,7 +1270,7 @@ Package pdftex.def Info: images//Chapter4/Figure_6.png used on input line 1149.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [51]
-Overfull \hbox (41.41606pt too wide) in paragraph at lines 1154--1155
+Overfull \hbox (41.41606pt too wide) in paragraph at lines 1158--1159
 \OT1/cmr/m/n/10 For ex-am-ple, if we mod-i-fied the code above to in-clude the 
 line \OT1/cmtt/m/n/10 print(gradePoints["E"])\OT1/cmr/m/n/10 ,
  []
@@ -1300,7 +1297,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 1735) has occurred while \output is active []
 
  [59]
-Overfull \hbox (1.75813pt too wide) in paragraph at lines 1343--1344
+Overfull \hbox (1.75813pt too wide) in paragraph at lines 1347--1348
 []\OT1/cmr/m/n/10 The third line of the [][]\OT1/cmtt/m/n/10 init[][] \OT1/cmr/
 m/n/10 method (Line 8) in-cre-ments the \OT1/cmtt/m/n/10 invoiceNoCounter
  []
@@ -1309,7 +1306,7 @@ m/n/10 method (Line 8) in-cre-ments the \OT1/cmtt/m/n/10 invoiceNoCounter
 File: images//Chapter4/Figure_12.png Graphic file (type png)
 
 <use images//Chapter4/Figure_12.png>
-Package pdftex.def Info: images//Chapter4/Figure_12.png used on input line 1359
+Package pdftex.def Info: images//Chapter4/Figure_12.png used on input line 1363
 .
 (pdftex.def)             Requested size: 310.4979pt x 64.42535pt.
 
@@ -1328,17 +1325,17 @@ Underfull \vbox (badness 1648) has occurred while \output is active []
 File: images//Chapter4/Figure_15.png Graphic file (type png)
 
 <use images//Chapter4/Figure_15.png>
-Package pdftex.def Info: images//Chapter4/Figure_15.png used on input line 1427
+Package pdftex.def Info: images//Chapter4/Figure_15.png used on input line 1431
 .
 (pdftex.def)             Requested size: 310.4979pt x 40.55821pt.
  [63 <./images//Chapter4/Figure_15.png>]
-Overfull \hbox (2.7499pt too wide) in paragraph at lines 1459--1460
+Overfull \hbox (2.7499pt too wide) in paragraph at lines 1463--1464
 []\OT1/cmr/m/n/10 The fol-low-ing code stub starts the def-i-ni-tion of a class
  called \OT1/cmtt/m/n/10 JournalEntry\OT1/cmr/m/n/10 .
  []
 
 
-Overfull \hbox (5.4972pt too wide) in paragraph at lines 1461--1462
+Overfull \hbox (5.4972pt too wide) in paragraph at lines 1465--1466
 []\OT1/cmtt/m/n/10 #Line 2: Create a member for the journal entry amount 
  []
 
@@ -1346,8 +1343,8 @@ Overfull \hbox (5.4972pt too wide) in paragraph at lines 1461--1462
 File: images//Chapter4/Exercise_7.png Graphic file (type png)
 
 <use images//Chapter4/Exercise_7.png>
-Package pdftex.def Info: images//Chapter4/Exercise_7.png used on input line 147
-8.
+Package pdftex.def Info: images//Chapter4/Exercise_7.png used on input line 148
+2.
 (pdftex.def)             Requested size: 276.00105pt x 240.72186pt.
 
 
@@ -1361,7 +1358,7 @@ Chapter 5.
 File: images//Chapter5/Figure_1.png Graphic file (type png)
 
 <use images//Chapter5/Figure_1.png>
-Package pdftex.def Info: images//Chapter5/Figure_1.png used on input line 1565.
+Package pdftex.def Info: images//Chapter5/Figure_1.png used on input line 1569.
 
 (pdftex.def)             Requested size: 276.00105pt x 144.95232pt.
 
@@ -1369,7 +1366,7 @@ Package pdftex.def Info: images//Chapter5/Figure_1.png used on input line 1565.
 File: images//Chapter5/Figure_2.png Graphic file (type png)
 
 <use images//Chapter5/Figure_2.png>
-Package pdftex.def Info: images//Chapter5/Figure_2.png used on input line 1570.
+Package pdftex.def Info: images//Chapter5/Figure_2.png used on input line 1574.
 
 (pdftex.def)             Requested size: 276.00105pt x 99.8962pt.
 
@@ -1384,7 +1381,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: images//Chapter5/Figure_3.png Graphic file (type png)
 
 <use images//Chapter5/Figure_3.png>
-Package pdftex.def Info: images//Chapter5/Figure_3.png used on input line 1582.
+Package pdftex.def Info: images//Chapter5/Figure_3.png used on input line 1586.
 
 (pdftex.def)             Requested size: 276.00105pt x 115.14761pt.
  [70 <./images//Chapter5/Figure_2.png> <./images//Chapter5/Figure_3.png>]
@@ -1392,7 +1389,7 @@ Package pdftex.def Info: images//Chapter5/Figure_3.png used on input line 1582.
 File: images//Chapter5/Figure_4.png Graphic file (type png)
 
 <use images//Chapter5/Figure_4.png>
-Package pdftex.def Info: images//Chapter5/Figure_4.png used on input line 1589.
+Package pdftex.def Info: images//Chapter5/Figure_4.png used on input line 1593.
 
 (pdftex.def)             Requested size: 327.74895pt x 148.05302pt.
 
@@ -1400,7 +1397,7 @@ Package pdftex.def Info: images//Chapter5/Figure_4.png used on input line 1589.
 File: images//Chapter5/Figure_5.png Graphic file (type png)
 
 <use images//Chapter5/Figure_5.png>
-Package pdftex.def Info: images//Chapter5/Figure_5.png used on input line 1594.
+Package pdftex.def Info: images//Chapter5/Figure_5.png used on input line 1598.
 
 (pdftex.def)             Requested size: 327.74895pt x 224.63744pt.
 
@@ -1412,7 +1409,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: images//Chapter5/Figure_8.png Graphic file (type png)
 
 <use images//Chapter5/Figure_8.png>
-Package pdftex.def Info: images//Chapter5/Figure_8.png used on input line 1623.
+Package pdftex.def Info: images//Chapter5/Figure_8.png used on input line 1627.
 
 (pdftex.def)             Requested size: 327.74895pt x 187.73927pt.
 
@@ -1427,7 +1424,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: images//Chapter5/Figure_9.png Graphic file (type png)
 
 <use images//Chapter5/Figure_9.png>
-Package pdftex.def Info: images//Chapter5/Figure_9.png used on input line 1647.
+Package pdftex.def Info: images//Chapter5/Figure_9.png used on input line 1651.
 
 (pdftex.def)             Requested size: 327.74895pt x 261.64325pt.
 
@@ -1446,17 +1443,17 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: images//Chapter5/Figure_10.png Graphic file (type png)
 
 <use images//Chapter5/Figure_10.png>
-Package pdftex.def Info: images//Chapter5/Figure_10.png used on input line 1675
+Package pdftex.def Info: images//Chapter5/Figure_10.png used on input line 1679
 .
 (pdftex.def)             Requested size: 327.74895pt x 109.08488pt.
  [75 <./images//Chapter5/Figure_10.png>]
-Overfull \hbox (19.88876pt too wide) in paragraph at lines 1693--1694
+Overfull \hbox (19.88876pt too wide) in paragraph at lines 1697--1698
 []\OT1/cmr/m/n/10 Executing this pro-gram will cre-ate a new file in our work-i
 ng di-rec-tory \OT1/cmtt/m/n/10 inventory.csv
  []
 
 
-Overfull \hbox (6.74693pt too wide) in paragraph at lines 1697--1698
+Overfull \hbox (6.74693pt too wide) in paragraph at lines 1701--1702
 []\OT1/cmtt/m/n/10 writerObj.writerow(["Warehouse", "SKU", "Desc", "onHand", "P
 rice"]) 
  []
@@ -1468,7 +1465,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: images//Chapter5/Figure_12.png Graphic file (type png)
 
 <use images//Chapter5/Figure_12.png>
-Package pdftex.def Info: images//Chapter5/Figure_12.png used on input line 1734
+Package pdftex.def Info: images//Chapter5/Figure_12.png used on input line 1738
 .
 (pdftex.def)             Requested size: 327.74895pt x 204.93732pt.
 
@@ -1476,7 +1473,7 @@ Package pdftex.def Info: images//Chapter5/Figure_12.png used on input line 1734
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (3.63684pt too wide) in paragraph at lines 1739--1740
+Overfull \hbox (3.63684pt too wide) in paragraph at lines 1743--1744
 \OT1/cmr/m/n/10 pages(\OT1/cmtt/m/n/10 inventory1.html, inventory 2.html, \OT1/
 cmr/m/n/10 and \OT1/cmtt/m/n/10 inventory3.html\OT1/cmr/m/n/10 ) and that
  []
@@ -1496,7 +1493,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [81
 
 ]
-Overfull \hbox (11.99689pt too wide) in paragraph at lines 1845--1846
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 1849--1850
 []\OT1/cmtt/m/n/10 inventory = pd.DataFrame(data, index=["Warehouse A", "Wareho
 use B"]) 
  []
@@ -1505,11 +1502,11 @@ use B"])
 File: images//Chapter6/Figure_1.png Graphic file (type png)
 
 <use images//Chapter6/Figure_1.png>
-Package pdftex.def Info: images//Chapter6/Figure_1.png used on input line 1851.
+Package pdftex.def Info: images//Chapter6/Figure_1.png used on input line 1855.
 
 (pdftex.def)             Requested size: 310.4979pt x 140.60678pt.
  [82 <./images//Chapter6/Figure_1.png>]
-Overfull \hbox (19.5568pt too wide) in paragraph at lines 1870--1871
+Overfull \hbox (19.5568pt too wide) in paragraph at lines 1874--1875
 []\OT1/cmtt/m/n/10 newInventory = inventory.reset[]index(drop=True).set[]index(
 "Warehouse") 
  []
@@ -1518,7 +1515,7 @@ Overfull \hbox (19.5568pt too wide) in paragraph at lines 1870--1871
 File: images//Chapter6/Figure_2.png Graphic file (type png)
 
 <use images//Chapter6/Figure_2.png>
-Package pdftex.def Info: images//Chapter6/Figure_2.png used on input line 1882.
+Package pdftex.def Info: images//Chapter6/Figure_2.png used on input line 1886.
 
 (pdftex.def)             Requested size: 310.4979pt x 92.04688pt.
 
@@ -1529,7 +1526,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: images//Chapter6/Figure_3.png Graphic file (type png)
 
 <use images//Chapter6/Figure_3.png>
-Package pdftex.def Info: images//Chapter6/Figure_3.png used on input line 1905.
+Package pdftex.def Info: images//Chapter6/Figure_3.png used on input line 1909.
 
 (pdftex.def)             Requested size: 310.4979pt x 78.72664pt.
 
@@ -1544,7 +1541,7 @@ Underfull \vbox (badness 5847) has occurred while \output is active []
 File: images//Chapter6/Figure_4.png Graphic file (type png)
 
 <use images//Chapter6/Figure_4.png>
-Package pdftex.def Info: images//Chapter6/Figure_4.png used on input line 1940.
+Package pdftex.def Info: images//Chapter6/Figure_4.png used on input line 1944.
 
 (pdftex.def)             Requested size: 310.4979pt x 163.68195pt.
 
@@ -1552,7 +1549,7 @@ Package pdftex.def Info: images//Chapter6/Figure_4.png used on input line 1940.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [85 <./images//Chapter6/Figure_3.png>]
-Overfull \hbox (14.30684pt too wide) in paragraph at lines 1952--1953
+Overfull \hbox (14.30684pt too wide) in paragraph at lines 1956--1957
 []\OT1/cmtt/m/n/10 table = pd.merge(frame1, frame2, left[]on="index1", right[]o
 n="index2") 
  []
@@ -1561,14 +1558,14 @@ n="index2")
 File: images//Chapter6/Figure_5.png Graphic file (type png)
 
 <use images//Chapter6/Figure_5.png>
-Package pdftex.def Info: images//Chapter6/Figure_5.png used on input line 1964.
+Package pdftex.def Info: images//Chapter6/Figure_5.png used on input line 1968.
 
 (pdftex.def)             Requested size: 310.4979pt x 99.30103pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [86 <./images//Chapter6/Figure_4.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1976--1977
+Underfull \hbox (badness 10000) in paragraph at lines 1980--1981
 
  []
 
@@ -1577,7 +1574,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1976--1977
 File: images//Chapter6/Figure_6.png Graphic file (type png)
 
 <use images//Chapter6/Figure_6.png>
-Package pdftex.def Info: images//Chapter6/Figure_6.png used on input line 1994.
+Package pdftex.def Info: images//Chapter6/Figure_6.png used on input line 1998.
 
 (pdftex.def)             Requested size: 310.4979pt x 209.0596pt.
 
@@ -1585,7 +1582,7 @@ Package pdftex.def Info: images//Chapter6/Figure_6.png used on input line 1994.
 File: images//Chapter6/Figure_8.png Graphic file (type png)
 
 <use images//Chapter6/Figure_8.png>
-Package pdftex.def Info: images//Chapter6/Figure_8.png used on input line 2005.
+Package pdftex.def Info: images//Chapter6/Figure_8.png used on input line 2009.
 
 (pdftex.def)             Requested size: 310.4979pt x 167.85545pt.
  [88 <./images//Chapter6/Figure_6.png>]
@@ -1596,7 +1593,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: images//Chapter6/Figure_9.png Graphic file (type png)
 
 <use images//Chapter6/Figure_9.png>
-Package pdftex.def Info: images//Chapter6/Figure_9.png used on input line 2049.
+Package pdftex.def Info: images//Chapter6/Figure_9.png used on input line 2053.
 
 (pdftex.def)             Requested size: 310.4979pt x 149.69427pt.
 
@@ -1611,7 +1608,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: images//Chapter6/Figure_10.png Graphic file (type png)
 
 <use images//Chapter6/Figure_10.png>
-Package pdftex.def Info: images//Chapter6/Figure_10.png used on input line 2073
+Package pdftex.def Info: images//Chapter6/Figure_10.png used on input line 2077
 .
 (pdftex.def)             Requested size: 310.4979pt x 91.82193pt.
 
@@ -1625,7 +1622,7 @@ Chapter 7.
 File: images//Chapter7/Figure_1.png Graphic file (type png)
 
 <use images//Chapter7/Figure_1.png>
-Package pdftex.def Info: images//Chapter7/Figure_1.png used on input line 2148.
+Package pdftex.def Info: images//Chapter7/Figure_1.png used on input line 2152.
 
 (pdftex.def)             Requested size: 310.4979pt x 144.94048pt.
  [97 <./images//Chapter7/Figure_1.png>]
@@ -1633,7 +1630,7 @@ Package pdftex.def Info: images//Chapter7/Figure_1.png used on input line 2148.
 File: images//Chapter7/Figure_2.png Graphic file (type png)
 
 <use images//Chapter7/Figure_2.png>
-Package pdftex.def Info: images//Chapter7/Figure_2.png used on input line 2171.
+Package pdftex.def Info: images//Chapter7/Figure_2.png used on input line 2175.
 
 (pdftex.def)             Requested size: 341.5519pt x 176.93507pt.
  [98 <./images//Chapter7/Figure_2.png>]
@@ -1641,7 +1638,7 @@ Package pdftex.def Info: images//Chapter7/Figure_2.png used on input line 2171.
 File: images//Chapter7/Figure_3.png Graphic file (type png)
 
 <use images//Chapter7/Figure_3.png>
-Package pdftex.def Info: images//Chapter7/Figure_3.png used on input line 2182.
+Package pdftex.def Info: images//Chapter7/Figure_3.png used on input line 2186.
 
 (pdftex.def)             Requested size: 310.4979pt x 286.98523pt.
  [99 <./images//Chapter7/Figure_3.png>]
@@ -1649,7 +1646,7 @@ Package pdftex.def Info: images//Chapter7/Figure_3.png used on input line 2182.
 File: images//Chapter7/Figure_4.png Graphic file (type png)
 
 <use images//Chapter7/Figure_4.png>
-Package pdftex.def Info: images//Chapter7/Figure_4.png used on input line 2199.
+Package pdftex.def Info: images//Chapter7/Figure_4.png used on input line 2203.
 
 (pdftex.def)             Requested size: 276.00105pt x 233.01958pt.
  [100 <./images//Chapter7/Figure_4.png>]
@@ -1657,7 +1654,7 @@ Package pdftex.def Info: images//Chapter7/Figure_4.png used on input line 2199.
 File: images//Chapter7/Figure_6.png Graphic file (type png)
 
 <use images//Chapter7/Figure_6.png>
-Package pdftex.def Info: images//Chapter7/Figure_6.png used on input line 2223.
+Package pdftex.def Info: images//Chapter7/Figure_6.png used on input line 2227.
 
 (pdftex.def)             Requested size: 207.0021pt x 185.46696pt.
 
@@ -1672,11 +1669,11 @@ Underfull \vbox (badness 2426) has occurred while \output is active []
 File: images//Chapter7/Figure_5.png Graphic file (type png)
 
 <use images//Chapter7/Figure_5.png>
-Package pdftex.def Info: images//Chapter7/Figure_5.png used on input line 2287.
+Package pdftex.def Info: images//Chapter7/Figure_5.png used on input line 2291.
 
 (pdftex.def)             Requested size: 241.49895pt x 103.5023pt.
  [103 <./images//Chapter7/Figure_5.png>]
-Overfull \hbox (2.69456pt too wide) in paragraph at lines 2317--2318
+Overfull \hbox (2.69456pt too wide) in paragraph at lines 2321--2322
 []\OT1/cmr/m/n/10 Finally, we'll print the es-ti-ma-tion statis-tics us-ing the
  ob-ject's \OT1/cmtt/m/n/10 summary() \OT1/cmr/m/n/10 method. 
  []
@@ -1685,7 +1682,7 @@ Overfull \hbox (2.69456pt too wide) in paragraph at lines 2317--2318
 File: images//Chapter7/Figure_7.png Graphic file (type png)
 
 <use images//Chapter7/Figure_7.png>
-Package pdftex.def Info: images//Chapter7/Figure_7.png used on input line 2325.
+Package pdftex.def Info: images//Chapter7/Figure_7.png used on input line 2329.
 
 (pdftex.def)             Requested size: 276.00105pt x 182.72966pt.
  [104] [105 <./images//Chapter7/Figure_7.png>] <images//Chapter7/Figure_9.png, 
@@ -1693,7 +1690,7 @@ id=458, 521.5485pt x 344.487pt>
 File: images//Chapter7/Figure_9.png Graphic file (type png)
 
 <use images//Chapter7/Figure_9.png>
-Package pdftex.def Info: images//Chapter7/Figure_9.png used on input line 2358.
+Package pdftex.def Info: images//Chapter7/Figure_9.png used on input line 2362.
 
 (pdftex.def)             Requested size: 276.00105pt x 182.3039pt.
  [106 <./images//Chapter7/Figure_9.png>]
@@ -1701,7 +1698,7 @@ Package pdftex.def Info: images//Chapter7/Figure_9.png used on input line 2358.
 File: images//Chapter7/Figure_10.png Graphic file (type png)
 
 <use images//Chapter7/Figure_10.png>
-Package pdftex.def Info: images//Chapter7/Figure_10.png used on input line 2382
+Package pdftex.def Info: images//Chapter7/Figure_10.png used on input line 2386
 .
 (pdftex.def)             Requested size: 276.00105pt x 107.17976pt.
  [107 <./images//Chapter7/Figure_10.png>]
@@ -1711,7 +1708,7 @@ Chapter 8.
 File: images//Chapter8/Figure_1.png Graphic file (type png)
 
 <use images//Chapter8/Figure_1.png>
-Package pdftex.def Info: images//Chapter8/Figure_1.png used on input line 2422.
+Package pdftex.def Info: images//Chapter8/Figure_1.png used on input line 2426.
 
 (pdftex.def)             Requested size: 276.00105pt x 190.17064pt.
 
@@ -1725,7 +1722,7 @@ Underfull \vbox (badness 5817) has occurred while \output is active []
 File: images//Chapter8/Figure_2.png Graphic file (type png)
 
 <use images//Chapter8/Figure_2.png>
-Package pdftex.def Info: images//Chapter8/Figure_2.png used on input line 2441.
+Package pdftex.def Info: images//Chapter8/Figure_2.png used on input line 2445.
 
 (pdftex.def)             Requested size: 276.00105pt x 235.71602pt.
  [111 <./images//Chapter8/Figure_2.png>]
@@ -1733,7 +1730,7 @@ Package pdftex.def Info: images//Chapter8/Figure_2.png used on input line 2441.
 File: images//Chapter8/Figure_3.png Graphic file (type png)
 
 <use images//Chapter8/Figure_3.png>
-Package pdftex.def Info: images//Chapter8/Figure_3.png used on input line 2495.
+Package pdftex.def Info: images//Chapter8/Figure_3.png used on input line 2499.
 
 (pdftex.def)             Requested size: 276.00105pt x 249.40227pt.
 
@@ -1746,7 +1743,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [112]
 [113 <./images//Chapter8/Figure_3.png>]
 LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 251
-5.
+9.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmtt.fd"
 File: ts1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
@@ -1755,7 +1752,7 @@ File: ts1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 File: images//Chapter8/Figure_4.png Graphic file (type png)
 
 <use images//Chapter8/Figure_4.png>
-Package pdftex.def Info: images//Chapter8/Figure_4.png used on input line 2521.
+Package pdftex.def Info: images//Chapter8/Figure_4.png used on input line 2525.
 
 (pdftex.def)             Requested size: 276.00105pt x 235.06609pt.
 
@@ -1766,13 +1763,13 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 Underfull \vbox (badness 1057) has occurred while \output is active []
 
  [115]
-Overfull \hbox (11.99689pt too wide) in paragraph at lines 2565--2566
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 2569--2570
 []\OT1/cmtt/m/n/10 plt.pie(prop, labels=stocks, explode = [.1, 0, 0],autopct="%
 1.1f%%",
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2565--2566
+Underfull \hbox (badness 10000) in paragraph at lines 2569--2570
 
  []
 
@@ -1780,7 +1777,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2565--2566
 File: images//Chapter8/Figure_5.png Graphic file (type png)
 
 <use images//Chapter8/Figure_5.png>
-Package pdftex.def Info: images//Chapter8/Figure_5.png used on input line 2571.
+Package pdftex.def Info: images//Chapter8/Figure_5.png used on input line 2575.
 
 (pdftex.def)             Requested size: 276.00105pt x 247.43797pt.
 
@@ -1793,10 +1790,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 25255 strings out of 493328
- 491796 string characters out of 3139115
+ 25257 strings out of 493328
+ 491812 string characters out of 3139115
  586305 words of memory out of 3000000
- 28396 multiletter control sequences out of 15000+200000
+ 28398 multiletter control sequences out of 15000+200000
  12205 words of font info for 43 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,8n,84p,10425b,1232s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1822,7 +1819,7 @@ sfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
 m/cmti8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.
 pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt8.pfb><C:/P
 rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on Textbook.pdf (124 pages, 1916623 bytes).
+Output written on Textbook.pdf (124 pages, 1917139 bytes).
 PDF statistics:
  592 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
