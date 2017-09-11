@@ -33,9 +33,9 @@
 \frontmatter
 \pagestyle{plain}
 \begin{titlepage}
-	\title {\huge \textbf{A Beginner's Guide to Manipulating and Visualizing Accounting Data using Python }}
+	\title {\huge \textbf{An Introduction to Manipulation and Visualization of Accounting Data using Python }}
 	\date{}
-	\author{Stephen Perreault, PhD, CPA}
+	\author{Steve Perreault, PhD, CPA}
 	\maketitle
 \end{titlepage}
 % copyright page
@@ -69,17 +69,17 @@
 \chapter{Preface}
 \section{Who this book is for}\
 
- While data science classes are offered within the math and computer science departments at most colleges and universities, it can often be difficult for accounting students to enroll in such courses due to scheduling conflicts and extensive prerequisite requirements. As a result, accounting students often graduate with limited applied exposure to data science, despite the increasing need of the accounting profession for graduates with skills in this area. This textbook is designed to address this issue by providing a basic introduction to data manipulation, analysis, and Python programming that can be completed within the course of a single semester. 
+ While data science classes are offered within the math and computer science departments at most colleges and universities, it can often be difficult for accounting students to enroll in such courses due to scheduling conflicts and extensive prerequisite requirements. As a result, accounting students often graduate with limited applied exposure to data science, despite the increasing need of the accounting profession for graduates with skills in this area. This textbook is designed to address this issue by providing a basic introduction to data manipulation, visualization, and Python programming that can be completed within the course of a single semester. 
 
 This book is meant to accompany the course \textit{Introduction to Data Analytics in Accounting} taught at Providence College. It's audience is undergraduate accounting majors who understand basic financial accounting concepts and have some exposure to accounting information systems. The book also assumes a working knowledge of basic computer operations (installing programs, copying files, etc.), although no specific programming experience is required. 
 
-For those reading this book who are not students at Providence College, be advised that this text is not intended to be a stand-alone resource for learning basic data analysis. Rather, the book will be of most use as a supplemental resource for students enrolled in data science courses taught by knowledgable instructors who can fill in its many gaps. 
+For those reading this book who are not students at Providence College, be advised that this text is not intended to be a stand-alone resource for learning basic data analysis. Rather, the book will be of most use as a supplemental technical resource for students enrolled in data science courses taught by knowledgable instructors who can fill in its many gaps. 
 
 \section{Required hardware and software}
 
-Any PC capable of running a modern Windows operating system (Windows 7, 8, ot 10+) should be sufficient for following along with the book. I will assume that you are using a Windows-based PC, since this is currently the predominant operating system used in business computer labs. That being said, all of the software discussed in this text can also be installed on Mac and Linux operating systems, provided that the user is willing to read the online documentation for the various programs used.
+Any PC capable of running a modern Windows operating system (Windows 7, 8, ot 10+) should be sufficient for following along with the book. I will assume that you are using a Windows-based PC, since this is currently the predominant operating system used in business computer labs. That being said, all of the software discussed in this text can also be installed on Mac and Linux operating systems.
 
-The book has been written to use a very small number of commonly used software packages, which should be available in most campus computer labs. All are either free or have free versions available that are sufficient for completing the exercises contained within the book. The software that will be used is:
+The book has been written to use a small number of commonly used software packages, which should be available in most campus computer labs. All are either free or have free versions available that are sufficient for completing the exercises contained within the book. The software that will be used is:
 
 \begin{enumerate}
 	\item \textbf{Git}. An open source version control system for software development. Available at: \texttt{https://git-scm.com/downloads}.
@@ -115,9 +115,15 @@ Since we're going to be writing a significant amount of computer code as we work
 
 \section{Introducing Git}
 
-In this book we will be using the widely used and popular version control system Git\texttrademark. Git was created in 2005 by Linus Torvalds, the famous creator of the popular operating system Linux. In addition to providing developers with a history of all the individual changes that have been made to their projects, Git can also be used to track changes for developers working collaboratively. 
+In this book we will be using the widely used and popular version control system Git\texttrademark. Git was created in 2005 by Linus Torvalds\footnote {Image attributed to Krd, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?
+curid=36166670, via Wikimedia Commons.}, the famous creator of the popular operating system Linux. 
 
-INSERT PICTURE OF LINUS TORVALDS HERE
+\begin{figure}[h]
+	\caption{Torvalds in 2014}
+	\centering\includegraphics[width=.45\textwidth]{/Chapter2/Figure_Linus}
+\end{figure}
+
+In addition to providing developers with a history of all the individual changes that have been made to their projects, Git can also be used to track changes for developers working collaboratively. 
 
 As an example, let's say that you and a coworker have been assigned the task of writing a piece of software and will both need access to the source code during development. To facilitate this, you could post the code on a shared network drive or a file hosting service that you and your coworker can access. This method would probably work just fine unless the two of you are working on the same code file at the same time. If that happens, one of you would have your work overwritten and erased. Git can keep that from happening. If you and your coworker are both making changes to the same source code file, Git will save two copies. Later on, the changes can be merged together without losing any of the earlier work. 
 

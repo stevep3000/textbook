@@ -7,15 +7,15 @@
 \contentsline {section}{\numberline {2.2}Introducing Git}{4}
 \contentsline {section}{\numberline {2.3}Introducing GitHub}{5}
 \contentsline {section}{\numberline {2.4}Installing Git}{6}
-\contentsline {section}{\numberline {2.5}Creating your first repository}{7}
+\contentsline {section}{\numberline {2.5}Creating your first repository}{8}
 \contentsline {section}{\numberline {2.6}Adding files to your repository}{10}
-\contentsline {section}{\numberline {2.7}Pushing commits to GitHub}{12}
-\contentsline {section}{\numberline {2.8}Reverting a commit}{14}
+\contentsline {section}{\numberline {2.7}Pushing commits to GitHub}{13}
+\contentsline {section}{\numberline {2.8}Reverting a commit}{15}
 \contentsline {section}{\numberline {2.9}Cloning a repository}{17}
-\contentsline {section}{\numberline {2.10}Advanced: Creating branches}{17}
-\contentsline {section}{\numberline {2.11}Advanced: Merging branches}{19}
+\contentsline {section}{\numberline {2.10}Advanced: Creating branches}{18}
+\contentsline {section}{\numberline {2.11}Advanced: Merging branches}{20}
 \contentsline {section}{\numberline {2.12}Summary}{20}
-\contentsline {section}{\numberline {2.13}Exercises}{20}
+\contentsline {section}{\numberline {2.13}Exercises}{21}
 \contentsline {chapter}{\numberline {3}Basic Python concepts}{23}
 \contentsline {section}{\numberline {3.1}Why Python?}{23}
 \contentsline {section}{\numberline {3.2}Setting up a development environment}{24}
